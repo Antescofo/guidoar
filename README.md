@@ -1,3 +1,11 @@
+
+This is an improved version of DEV branch from https://sourceforge.net/p/guidolib/guidoar pulled on 10/8/2016 by AC.
+
+Run the {{guidoar}} Xcode project and build the {{GuidoAR-Universal}} target.
+
+This will create the {{build/libguidoar}} that contains _universal_ static libraries and also the header to be included in the _GuidoKit_ project.
+
+# Original Guidolib-guidoar readme.txt:
 ----------------------------------------------------------------------
 
       GuidoAr library
