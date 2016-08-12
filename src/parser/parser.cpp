@@ -30,7 +30,7 @@
 #include <iostream>
 
 #include "gmnreader.h"
-guido::gmnreader * guidoReader;
+guido::gmnreader * guidoarReader;
 
 #define yyleng			guidoarleng
 #define yyin			guidoarin
@@ -57,7 +57,7 @@ namespace guido
 static int parse (FILE *fd) 
 {
 	if (!fd) {
-		guidoReader->error("Invalid file descriptor", 0 );
+		guidoarReader->error("Invalid file descriptor", 0 );
 		return(-1);
 	}
 	yyin = fd;
@@ -77,7 +77,7 @@ static int parse (const char *filename)
 	if( !filename ) return -1; // parse error
 	FILE * fd = fopen(filename,"r");
 	if (fd == NULL){
-		guidoReader->error("Cannot not open file", 0 );
+		guidoarReader->error("Cannot not open file", 0 );
 		return(-1);
 	}
 
@@ -88,7 +88,7 @@ static int parse (const char *filename)
 
 bool readstring (const char * buffer, gmnreader * r) 
 {
-	guidoReader = r;
+	guidoarReader = r;
 
 	if (!*buffer) return false;		// error for empty buffers
 
@@ -108,14 +108,14 @@ bool readstring (const char * buffer, gmnreader * r)
 
 bool readfile (FILE* fd, gmnreader * r) 
 {
-	guidoReader = r;
+	guidoarReader = r;
 	int ret = parse (fd);
  	return ret==0;
 }
 
 bool readfile (const char * file, gmnreader * r) 
 {
-	guidoReader = r;
+	guidoarReader = r;
 	convert_from_unicode (file);
 	int ret = parse (file);
  	return ret==0;

@@ -88,7 +88,7 @@
 int guidoarerror(const char*s);
 int	guidoarwrap()		{ return(1); }
 
-extern guido::gmnreader* gReader;
+extern guido::gmnreader* guidoarReader;
 
 static void vadd (std::vector<guido::Sguidoelement>* v1, std::vector<guido::Sguidoelement>* v2)
 {
@@ -1387,19 +1387,19 @@ yyreduce:
 
   case 3:
 #line 126 "guido.y" /* yacc.c:1646  */
-    { debug("new score"); (yyval.elt) = gReader->newScore(); }
+    { debug("new score"); (yyval.elt) = guidoarReader->newScore(); }
 #line 1392 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
   case 4:
 #line 127 "guido.y" /* yacc.c:1646  */
-    { debug("score voicelist"); (yyval.elt) = gReader->newScore(); addElt(*(yyval.elt), (yyvsp[-1].velt)); }
+    { debug("score voicelist"); (yyval.elt) = guidoarReader->newScore(); addElt(*(yyval.elt), (yyvsp[-1].velt)); }
 #line 1398 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
   case 5:
 #line 128 "guido.y" /* yacc.c:1646  */
-    { debug("score voice"); (yyval.elt) = gReader->newScore(); addElt(*(yyval.elt), (yyvsp[0].elt)); }
+    { debug("score voice"); (yyval.elt) = guidoarReader->newScore(); addElt(*(yyval.elt), (yyvsp[0].elt)); }
 #line 1404 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
@@ -1417,7 +1417,7 @@ yyreduce:
 
   case 8:
 #line 135 "guido.y" /* yacc.c:1646  */
-    { debug("new voice"); (yyval.elt) = gReader->newVoice(); addElt(*(yyval.elt), (yyvsp[-1].velt)); }
+    { debug("new voice"); (yyval.elt) = guidoarReader->newVoice(); addElt(*(yyval.elt), (yyvsp[-1].velt)); }
 #line 1422 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
@@ -1483,55 +1483,55 @@ yyreduce:
 
   case 19:
 #line 160 "guido.y" /* yacc.c:1646  */
-    { vdebug("new tag", *(yyvsp[0].str)); (yyval.elt) = gReader->newTag(*(yyvsp[0].str), 0); delete (yyvsp[0].str); if (!(yyval.elt)) { guidoarerror("unknown tag"); YYERROR;} }
+    { vdebug("new tag", *(yyvsp[0].str)); (yyval.elt) = guidoarReader->newTag(*(yyvsp[0].str), 0); delete (yyvsp[0].str); if (!(yyval.elt)) { guidoarerror("unknown tag"); YYERROR;} }
 #line 1488 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
   case 20:
 #line 161 "guido.y" /* yacc.c:1646  */
-    { debug("new tag::id"); (yyval.elt) = gReader->newTag(*(yyvsp[-2].str), (yyvsp[-1].c)); delete (yyvsp[-2].str); if (!(yyval.elt)) { guidoarerror("unknown tag"); YYERROR;} }
+    { debug("new tag::id"); (yyval.elt) = guidoarReader->newTag(*(yyvsp[-2].str), (yyvsp[-1].c)); delete (yyvsp[-2].str); if (!(yyval.elt)) { guidoarerror("unknown tag"); YYERROR;} }
 #line 1494 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
   case 21:
 #line 162 "guido.y" /* yacc.c:1646  */
-    { debug("new bar"); (yyval.elt) = gReader->newTag("bar", 0); }
+    { debug("new bar"); (yyval.elt) = guidoarReader->newTag("bar", 0); }
 #line 1500 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
   case 22:
 #line 165 "guido.y" /* yacc.c:1646  */
-    { debug("new signednumber arg"); (yyval.attr) = gReader->newAttribute((yyvsp[0].num)); }
+    { debug("new signednumber arg"); (yyval.attr) = guidoarReader->newAttribute((yyvsp[0].num)); }
 #line 1506 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
   case 23:
 #line 166 "guido.y" /* yacc.c:1646  */
-    { debug("new FLOAT arg"); (yyval.attr) = gReader->newAttribute((yyvsp[0].real)); }
+    { debug("new FLOAT arg"); (yyval.attr) = guidoarReader->newAttribute((yyvsp[0].real)); }
 #line 1512 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
   case 24:
 #line 167 "guido.y" /* yacc.c:1646  */
-    { debug("new signednumber UNIT arg"); (yyval.attr) = gReader->newAttribute((yyvsp[-1].num)); (*(yyval.attr))->setUnit(guidoartext); }
+    { debug("new signednumber UNIT arg"); (yyval.attr) = guidoarReader->newAttribute((yyvsp[-1].num)); (*(yyval.attr))->setUnit(guidoartext); }
 #line 1518 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
   case 25:
 #line 168 "guido.y" /* yacc.c:1646  */
-    { debug("new FLOAT UNIT arg"); (yyval.attr) = gReader->newAttribute((yyvsp[-1].real)); (*(yyval.attr))->setUnit(guidoartext); }
+    { debug("new FLOAT UNIT arg"); (yyval.attr) = guidoarReader->newAttribute((yyvsp[-1].real)); (*(yyval.attr))->setUnit(guidoartext); }
 #line 1524 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
   case 26:
 #line 169 "guido.y" /* yacc.c:1646  */
-    { debug("new STRING arg"); (yyval.attr) = gReader->newAttribute(guidoartext, true); }
+    { debug("new STRING arg"); (yyval.attr) = guidoarReader->newAttribute(guidoartext, true); }
 #line 1530 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
   case 27:
 #line 170 "guido.y" /* yacc.c:1646  */
-    { debug("new ID arg"); (yyval.attr) = gReader->newAttribute(*(yyvsp[0].str), false); delete (yyvsp[0].str); }
+    { debug("new ID arg"); (yyval.attr) = guidoarReader->newAttribute(*(yyvsp[0].str), false); delete (yyvsp[0].str); }
 #line 1536 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
@@ -1561,7 +1561,7 @@ yyreduce:
 
   case 32:
 #line 185 "guido.y" /* yacc.c:1646  */
-    { debug("new chord"); (yyval.elt) = gReader->newChord(); (*(yyval.elt))->push(*(yyvsp[-1].velt)); delete (yyvsp[-1].velt); }
+    { debug("new chord"); (yyval.elt) = guidoarReader->newChord(); (*(yyval.elt))->push(*(yyvsp[-1].velt)); delete (yyvsp[-1].velt); }
 #line 1566 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
@@ -1645,25 +1645,25 @@ yyreduce:
 
   case 46:
 #line 216 "guido.y" /* yacc.c:1646  */
-    { debug("new rest 1"); (yyval.elt) = gReader->newRest((yyvsp[-1].r), (yyvsp[0].num)); delete (yyvsp[-1].r); }
+    { debug("new rest 1"); (yyval.elt) = guidoarReader->newRest((yyvsp[-1].r), (yyvsp[0].num)); delete (yyvsp[-1].r); }
 #line 1650 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
   case 47:
 #line 217 "guido.y" /* yacc.c:1646  */
-    { debug("new rest 2"); (yyval.elt) = gReader->newRest((yyvsp[-1].r), (yyvsp[0].num)); delete (yyvsp[-1].r); }
+    { debug("new rest 2"); (yyval.elt) = guidoarReader->newRest((yyvsp[-1].r), (yyvsp[0].num)); delete (yyvsp[-1].r); }
 #line 1656 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
   case 48:
 #line 220 "guido.y" /* yacc.c:1646  */
-    { debug("new note v1"); (yyval.elt) = gReader->newNote(*(yyvsp[-3].str), 0, (yyvsp[-2].num), (yyvsp[-1].r), (yyvsp[0].num)); delete (yyvsp[-3].str); delete (yyvsp[-1].r); }
+    { debug("new note v1"); (yyval.elt) = guidoarReader->newNote(*(yyvsp[-3].str), 0, (yyvsp[-2].num), (yyvsp[-1].r), (yyvsp[0].num)); delete (yyvsp[-3].str); delete (yyvsp[-1].r); }
 #line 1662 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
   case 49:
 #line 221 "guido.y" /* yacc.c:1646  */
-    { debug("new note v2"); (yyval.elt) = gReader->newNote(*(yyvsp[-4].str), (yyvsp[-3].num), (yyvsp[-2].num), (yyvsp[-1].r), (yyvsp[0].num)); delete (yyvsp[-4].str); delete (yyvsp[-1].r); }
+    { debug("new note v2"); (yyval.elt) = guidoarReader->newNote(*(yyvsp[-4].str), (yyvsp[-3].num), (yyvsp[-2].num), (yyvsp[-1].r), (yyvsp[0].num)); delete (yyvsp[-4].str); delete (yyvsp[-1].r); }
 #line 1668 "guidoparse.c++" /* yacc.c:1646  */
     break;
 
@@ -2065,5 +2065,5 @@ yyreturn:
 
 int guidoarerror(const char*s) {
 	YY_FLUSH_BUFFER;
-	return gReader->error(s, guidoarlineno);
+	return guidoarReader->error(s, guidoarlineno);
 }

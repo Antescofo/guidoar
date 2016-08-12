@@ -15,7 +15,7 @@
 int guidoarerror(const char*s);
 int	guidoarwrap()		{ return(1); }
 
-extern guido::gmnreader* gReader;
+extern guido::gmnreader* guidoarReader;
 
 static void vadd (std::vector<guido::Sguidoelement>* v1, std::vector<guido::Sguidoelement>* v2)
 {
@@ -123,16 +123,16 @@ start		: score				{delete $1;}
 		;
 
 //_______________________________________________
-score		: STARTCHORD ENDCHORD							{ debug("new score"); $$ = gReader->newScore(); }
-			| STARTCHORD voicelist ENDCHORD					{ debug("score voicelist"); $$ = gReader->newScore(); addElt(*$$, $2); }
-			| voice											{ debug("score voice"); $$ = gReader->newScore(); addElt(*$$, $1); }
+score		: STARTCHORD ENDCHORD							{ debug("new score"); $$ = guidoarReader->newScore(); }
+			| STARTCHORD voicelist ENDCHORD					{ debug("score voicelist"); $$ = guidoarReader->newScore(); addElt(*$$, $2); }
+			| voice											{ debug("score voice"); $$ = guidoarReader->newScore(); addElt(*$$, $1); }
 			;
 
 voicelist	: voice											{ debug("new voicelist"); $$ = new vector<Sguidoelement>; $$->push_back (*$1); delete $1; }
 			| voicelist SEP voice							{ debug("add voicelist"); $$ = $1; $$->push_back (*$3); delete $3; }
 			;
 
-voice		: STARTSEQ symbols ENDSEQ						{ debug("new voice"); $$ = gReader->newVoice(); addElt(*$$, $2); }
+voice		: STARTSEQ symbols ENDSEQ						{ debug("new voice"); $$ = guidoarReader->newVoice(); addElt(*$$, $2); }
 			;
 
 symbols		:												{ debug("new symbols"); $$ = new vector<Sguidoelement>; }
@@ -157,17 +157,17 @@ rangetag	: positiontag  STARTRANGE symbols ENDRANGE		{ debug("new range tag "); 
 tagname		: TAGNAME										{ debug("tag name "); $$ = new string(guidoartext); }
 			;
 
-tagid		: tagname										{ vdebug("new tag", *$1); $$ = gReader->newTag(*$1, 0); delete $1; if (!$$) { guidoarerror("unknown tag"); YYERROR;} }
-			| tagname IDSEP NUMBER							{ debug("new tag::id"); $$ = gReader->newTag(*$1, $2); delete $1; if (!$$) { guidoarerror("unknown tag"); YYERROR;} }
-			| BAR											{ debug("new bar"); $$ = gReader->newTag("bar", 0); }
+tagid		: tagname										{ vdebug("new tag", *$1); $$ = guidoarReader->newTag(*$1, 0); delete $1; if (!$$) { guidoarerror("unknown tag"); YYERROR;} }
+			| tagname IDSEP NUMBER							{ debug("new tag::id"); $$ = guidoarReader->newTag(*$1, $2); delete $1; if (!$$) { guidoarerror("unknown tag"); YYERROR;} }
+			| BAR											{ debug("new bar"); $$ = guidoarReader->newTag("bar", 0); }
 			;
 
-tagarg		: signednumber									{ debug("new signednumber arg"); $$ = gReader->newAttribute($1); }
-			| floatn										{ debug("new FLOAT arg"); $$ = gReader->newAttribute($1); }
-			| signednumber UNIT								{ debug("new signednumber UNIT arg"); $$ = gReader->newAttribute($1); (*$$)->setUnit(guidoartext); }
-			| floatn UNIT									{ debug("new FLOAT UNIT arg"); $$ = gReader->newAttribute($1); (*$$)->setUnit(guidoartext); }
-			| STRING										{ debug("new STRING arg"); $$ = gReader->newAttribute(guidoartext, true); }
-			| id											{ debug("new ID arg"); $$ = gReader->newAttribute(*$1, false); delete $1; }
+tagarg		: signednumber									{ debug("new signednumber arg"); $$ = guidoarReader->newAttribute($1); }
+			| floatn										{ debug("new FLOAT arg"); $$ = guidoarReader->newAttribute($1); }
+			| signednumber UNIT								{ debug("new signednumber UNIT arg"); $$ = guidoarReader->newAttribute($1); (*$$)->setUnit(guidoartext); }
+			| floatn UNIT									{ debug("new FLOAT UNIT arg"); $$ = guidoarReader->newAttribute($1); (*$$)->setUnit(guidoartext); }
+			| STRING										{ debug("new STRING arg"); $$ = guidoarReader->newAttribute(guidoartext, true); }
+			| id											{ debug("new ID arg"); $$ = guidoarReader->newAttribute(*$1, false); delete $1; }
 			;
 
 tagparam	: tagarg										{ $$ = $1; }
@@ -182,7 +182,7 @@ tagparams	: tagparam										{ $$ = new vector<Sguidoattribute>; $$->push_back(
 //_______________________________________________
 // chord description
 
-chord		: STARTCHORD chordsymbols ENDCHORD				{ debug("new chord"); $$ = gReader->newChord(); (*$$)->push(*$2); delete $2; }
+chord		: STARTCHORD chordsymbols ENDCHORD				{ debug("new chord"); $$ = guidoarReader->newChord(); (*$$)->push(*$2); delete $2; }
 			;
 
 chordsymbols: tagchordsymbol								{ $$ = new vector<Sguidoelement>; vadd($$, $1); delete $1; }
@@ -213,12 +213,12 @@ music		: note											{ $$ = $1; }
 			| rest											{ $$ = $1; }
 			;
 
-rest		: REST duration	dots							{ debug("new rest 1"); $$ = gReader->newRest($2, $3); delete $2; }
-			| REST STARTPARAM NUMBER ENDPARAM duration dots	{ debug("new rest 2"); $$ = gReader->newRest($5, $6); delete $5; }
+rest		: REST duration	dots							{ debug("new rest 1"); $$ = guidoarReader->newRest($2, $3); delete $2; }
+			| REST STARTPARAM NUMBER ENDPARAM duration dots	{ debug("new rest 2"); $$ = guidoarReader->newRest($5, $6); delete $5; }
 			;
 
-note		: noteid octave duration dots				{ debug("new note v1"); $$ = gReader->newNote(*$1, 0, $2, $3, $4); delete $1; delete $3; }
-			| noteid accidentals octave duration dots	{ debug("new note v2"); $$ = gReader->newNote(*$1, $2, $3, $4, $5); delete $1; delete $4; }
+note		: noteid octave duration dots				{ debug("new note v1"); $$ = guidoarReader->newNote(*$1, 0, $2, $3, $4); delete $1; delete $3; }
+			| noteid accidentals octave duration dots	{ debug("new note v2"); $$ = guidoarReader->newNote(*$1, $2, $3, $4, $5); delete $1; delete $4; }
 			;
 
 noteid		: notename									{ vdebug("notename", *$1); $$ = $1; }
@@ -277,5 +277,5 @@ signednumber: number								{ $$ = $1; }
 
 int guidoarerror(const char*s) {
 	YY_FLUSH_BUFFER;
-	return gReader->error(s, guidoarlineno);
+	return guidoarReader->error(s, guidoarlineno);
 }
