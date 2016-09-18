@@ -74,6 +74,10 @@ Sguidoelement transposeOperation::operator() ( const Sguidoelement& score, int s
 	fChromaticSteps = steps;
 	fOctaveChange = getOctave(fChromaticSteps);
 	fTableShift = getKey (getOctaveStep(fChromaticSteps));
+    
+    firstpitchvisitor fpv;
+    fLowestPitch = fpv.firstPitch (score);
+    fHighestPitch = fpv.lastPitch (score);
 
 	Sguidoelement transposed;
 	if (score) {
@@ -267,5 +271,62 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
 	fCurrentOctaveIn = fCurrentOctaveOut = ARNote::kDefaultOctave;				// default current octave
 	fTableShift = getKey (getOctaveStep(fChromaticSteps));
 }
+    
+    //________________________________________________________________________
+    void transposeOperation::visitStart ( Sguidotag& elt )
+    {
+        Sguidoattributes attr = elt->attributes();
+        Sguidoattributes::const_iterator iter;
+        
+        int type = elt->getType();
+        if (type == kTLyrics)   // (type == kTText) ||(
+        {
+            double maxLyricsDy = -3, minLyricsDy = -20;
+            
+            if (attr.size() == 2) // there's a dy attribute
+            {
+                int lyricsDy = atoi(attr.at(1)->getValue().c_str());
+                //cout<<"Lyrics "<< attr.at(0)->getValue()<<" has dY "<<lyricsDy<<endl;
+                double newLyricsDy = (double)(lyricsDy) + (double)(fChromaticSteps)/2.0;
+                
+                if (newLyricsDy>maxLyricsDy)
+                    newLyricsDy = maxLyricsDy;
+                if (newLyricsDy<minLyricsDy)
+                    newLyricsDy = minLyricsDy;
+                
+                attr.at(1)->setValue(newLyricsDy);
+                
+            }else   // There is no dy attribute
+            {
+                
+            }
+            
+            /*cout<<"Lyric Visitor";
+            for (iter=attr.begin(); iter != attr.end(); iter++) {
+                //Sguidoattribute ac = guidoattribute::create();
+                //ac->setName ( (*iter)->getName());
+                //ac->setValue( (*iter)->getValue(), (*iter)->quoteVal());
+                //ac->setUnit ( (*iter)->getUnit());
+                //dst->add( ac );
+                cout << (*iter)->getName() <<", value: "<< (*iter)->getValue()
+                << ", unit: "<<(*iter)->getUnit();
+            }
+            cout<<endl;*/
+        }
+        else if (type == kTClef)
+        {
+            //cout<<"Clef Visitor with lowest pitch "<<fLowestPitch<<" Highest: "<<fHighestPitch<<" ";
+            for (iter=attr.begin(); iter != attr.end(); iter++) {
+                //Sguidoattribute ac = guidoattribute::create();
+                //ac->setName ( (*iter)->getName());
+                //ac->setValue( (*iter)->getValue(), (*iter)->quoteVal());
+                //ac->setUnit ( (*iter)->getUnit());
+                //dst->add( ac );
+                cout << (*iter)->getName() <<", value: "<< (*iter)->getValue()
+                << ", unit: "<<(*iter)->getUnit();
+            }
+            cout<<endl;
+        }
+    }
 
 }

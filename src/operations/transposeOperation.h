@@ -1,5 +1,5 @@
 /*
-  Copyright © Grame 2008
+  Copyright ï¿½ Grame 2008
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -55,7 +55,8 @@ class gar_export transposeOperation :
 	public operation,
 	public visitor<SARNote>,
 	public visitor<SARKey>,
-	public visitor<SARVoice> 
+    public visitor<SARVoice>,
+	public visitor<Sguidotag>
 {		
     public:
 		enum { kUndefinedKey = -99 };
@@ -124,6 +125,9 @@ class gar_export transposeOperation :
 		int		fOctaveChange;			// the target octave change computed from fChromaticSteps
 		int		fCurrentOctaveIn;		// the current octave of input notes (default to 1)
 		int		fCurrentOctaveOut;		// the current octave of output notes
+    
+    int fLowestPitch;                   // Lowest pitch in score
+    int fHighestPitch;                  // Highest pitch in score
 
 		void	initialize	();
 
@@ -137,7 +141,9 @@ class gar_export transposeOperation :
 
 		virtual void visitStart ( SARNote& elt );
 		virtual void visitStart ( SARKey& elt );
-		virtual void visitStart ( SARVoice& elt ); 		
+		virtual void visitStart ( SARVoice& elt );
+        virtual void visitStart( Sguidotag& elt );
+
 };
 
 /*! @} */

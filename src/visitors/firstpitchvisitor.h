@@ -1,5 +1,5 @@
 /*
-  Copyright © Grame 2008
+  Copyright ï¿½ Grame 2008
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -51,7 +51,8 @@ class gar_export firstpitchvisitor :
 				 firstpitchvisitor() { set(this); }
        	virtual ~firstpitchvisitor() {}
 
-		int		firstPitch (const Sguidoelement& score);
+    int		firstPitch (const Sguidoelement& score);
+    int		lastPitch (const Sguidoelement& score);
 		
 	protected:              
 		bool 	done () const	{ return fDone; }
@@ -59,7 +60,7 @@ class gar_export firstpitchvisitor :
 		virtual void visitStart( SARChord& elt );
 		virtual void visitStart( SARNote& elt );
 		virtual void visitEnd  ( SARChord& elt );
-		int		fPitch, fCurrentOctave;
+		int		fPitch, fPitchLast, fCurrentOctave;
 		bool	fInChord, fDone;
 };
 

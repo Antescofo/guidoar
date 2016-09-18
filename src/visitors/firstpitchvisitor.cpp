@@ -46,10 +46,19 @@ namespace guido
 int	firstpitchvisitor::firstPitch (const Sguidoelement& score) {
 	fInChord = fDone = false;
 	fPitch = 9999;								// set to a high value since the lowest pitch is collected
+    fPitchLast = 0;
 	fCurrentOctave = ARNote::kDefaultOctave;	// the default octave
 	browse (*score);
 	return done() ? fPitch : -1;
 }
+    
+    int	firstpitchvisitor::lastPitch (const Sguidoelement& score) {
+        fInChord = fDone = false;
+        fPitchLast = 0;	// set to a high value since the lowest pitch is collected
+        fCurrentOctave = ARNote::kDefaultOctave;	// the default octave
+        browse (*score);
+        return done() ? fPitchLast : -1;
+    }
 void firstpitchvisitor::visitStart( SARChord& elt )	{ fInChord=true; }
 void firstpitchvisitor::visitEnd  ( SARChord& elt )	{ fInChord=false; fDone = true; }
 
@@ -62,6 +71,7 @@ void firstpitchvisitor::visitStart( SARNote& elt )
 	int midi = elt->midiPitch (fCurrentOctave);
 	if (midi >= 0) {
 		if (midi < fPitch) fPitch = midi;
+        if (midi > fPitchLast) fPitchLast = midi;
 		if (!fInChord) fDone = true;
 	}
 
