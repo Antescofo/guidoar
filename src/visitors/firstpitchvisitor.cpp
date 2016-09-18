@@ -48,7 +48,13 @@ int	firstpitchvisitor::firstPitch (const Sguidoelement& score) {
 	fPitch = 9999;								// set to a high value since the lowest pitch is collected
     fPitchLast = 0;
 	fCurrentOctave = ARNote::kDefaultOctave;	// the default octave
-	browse (*score);
+	//browse (*score);
+    
+    /// Using Tree Browser
+    tree_browser<guidoelement> tb(this);
+    tb.browse (*score);
+    /// EO Using Tree Browser
+
 	return done() ? fPitch : -1;
 }
     
@@ -56,7 +62,12 @@ int	firstpitchvisitor::firstPitch (const Sguidoelement& score) {
         fInChord = fDone = false;
         fPitchLast = 0;	// set to a high value since the lowest pitch is collected
         fCurrentOctave = ARNote::kDefaultOctave;	// the default octave
-        browse (*score);
+         //browse (*score);
+         
+         /// Using Tree Browser
+         tree_browser<guidoelement> tb(this);
+         tb.browse (*score);
+         /// EO Using Tree Browser
         return done() ? fPitchLast : -1;
     }
 void firstpitchvisitor::visitStart( SARChord& elt )	{ fInChord=true; }

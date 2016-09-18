@@ -287,7 +287,7 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
             {
                 int lyricsDy = atoi(attr.at(1)->getValue().c_str());
                 //cout<<"Lyrics "<< attr.at(0)->getValue()<<" has dY "<<lyricsDy<<endl;
-                double newLyricsDy = (double)(lyricsDy) + (double)(fChromaticSteps)/2.0;
+                double newLyricsDy = (double)(lyricsDy) + (double)(fChromaticSteps)/1.0;
                 
                 if (newLyricsDy>maxLyricsDy)
                     newLyricsDy = maxLyricsDy;
@@ -315,7 +315,7 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
         }
         else if (type == kTClef)
         {
-            //cout<<"Clef Visitor with lowest pitch "<<fLowestPitch<<" Highest: "<<fHighestPitch<<" ";
+            cout<<"Clef Visitor with lowest pitch "<<fLowestPitch<<", Highest: "<<fHighestPitch<<" ";
             for (iter=attr.begin(); iter != attr.end(); iter++) {
                 //Sguidoattribute ac = guidoattribute::create();
                 //ac->setName ( (*iter)->getName());
@@ -326,6 +326,12 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
                 << ", unit: "<<(*iter)->getUnit();
             }
             cout<<endl;
+        }else if ((type == kTStemsUp) || (type == kTStemsDown))
+        {
+            // Change all to stemsAuto so that we get the best of both worlds!
+            // Note that in the context of Antescofo's GuidoKit this is HARMLESS since
+            //  the original GMN is cached somewhere before transposition.
+            elt->setName("stemsAuto");
         }
     }
 
