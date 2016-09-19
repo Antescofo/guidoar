@@ -126,8 +126,8 @@ class gar_export transposeOperation :
 		int		fCurrentOctaveIn;		// the current octave of input notes (default to 1)
 		int		fCurrentOctaveOut;		// the current octave of output notes
     
-    int fLowestPitch;                   // Lowest pitch in score
-    int fHighestPitch;                  // Highest pitch in score
+    
+    double lyricsOffset;
 
 		void	initialize	();
 
@@ -143,6 +143,13 @@ class gar_export transposeOperation :
 		virtual void visitStart ( SARKey& elt );
 		virtual void visitStart ( SARVoice& elt );
         virtual void visitStart( Sguidotag& elt );
+    
+    double calculateLyricsDy(double dy);
+    
+    bool  isGClef(Sguidotag & elt);
+    bool  isFClef(Sguidotag & elt);
+    
+    Sguidoelement guidoScore;
 
 };
 

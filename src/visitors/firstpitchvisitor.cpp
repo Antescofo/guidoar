@@ -44,32 +44,66 @@ namespace guido
 
 //______________________________________________________________________________
 int	firstpitchvisitor::firstPitch (const Sguidoelement& score) {
-	fInChord = fDone = false;
+	fInChord = fDone = fClefStopper = fStaffStopper = false;
 	fPitch = 9999;								// set to a high value since the lowest pitch is collected
     fPitchLast = 0;
+    medianPitch=0.0; stdPitch = 0.0; fPitchCount=0;
 	fCurrentOctave = ARNote::kDefaultOctave;	// the default octave
-	//browse (*score);
+    doComputation = true;
     
     /// Using Tree Browser
     tree_browser<guidoelement> tb(this);
     tb.browse (*score);
     /// EO Using Tree Browser
+    
+    medianPitch = medianPitch / (float)(fPitchCount);
 
 	return done() ? fPitch : -1;
 }
     
     int	firstpitchvisitor::lastPitch (const Sguidoelement& score) {
-        fInChord = fDone = false;
+        fInChord = fDone = fClefStopper = fStaffStopper = false;
         fPitchLast = 0;	// set to a high value since the lowest pitch is collected
         fCurrentOctave = ARNote::kDefaultOctave;	// the default octave
-         //browse (*score);
-         
+        medianPitch=0.0; stdPitch = 0.0; fPitchCount=0;
+
+        doComputation = true;
+        
          /// Using Tree Browser
          tree_browser<guidoelement> tb(this);
          tb.browse (*score);
          /// EO Using Tree Browser
+        
+        medianPitch = medianPitch / (float)(fPitchCount);
+        
         return done() ? fPitchLast : -1;
     }
+    
+    void	firstpitchvisitor::clef2clefStat (const Sguidoelement& score, Sguidotag &thisClef)
+    {
+        fInChord = fDone = fStaffStopper = false;
+        fPitchLast = 0;	// set to a high value since the lowest pitch is collected
+        fCurrentOctave = ARNote::kDefaultOctave;	// the default octave
+        medianPitch=0.0; stdPitch = 0.0; fPitchCount=0;
+        
+        entryClef = &thisClef;
+        fClefStopper = true;
+        doComputation = false;
+        
+        /// Using Tree Browser
+        tree_browser<guidoelement> tb(this);
+        tb.browse (*score);
+        /// EO Using Tree Browser
+        
+        fClefStopper = false;
+        entryClef = 0;
+        
+        medianPitch = medianPitch / (float)(fPitchCount);
+        
+    }
+    
+    
+//______________________________________________________________________________
 void firstpitchvisitor::visitStart( SARChord& elt )	{ fInChord=true; }
 void firstpitchvisitor::visitEnd  ( SARChord& elt )	{ fInChord=false; fDone = true; }
 
@@ -84,19 +118,34 @@ void firstpitchvisitor::visitStart( SARNote& elt )
 		if (midi < fPitch) fPitch = midi;
         if (midi > fPitchLast) fPitchLast = midi;
 		if (!fInChord) fDone = true;
+        
+        if (doComputation)
+        {
+            fPitchCount++;
+            medianPitch += (float)midi;
+        }
 	}
-
-//	int alter; int midi = -1;
-//	ARNote::pitch pitch = elt->GetPitch (alter);
-//	if (pitch != ARNote::kNoPitch) {
-//		// offset in octave numeration between guido and midi is 3
-//		int midioctave = (fCurrentOctave + 3) * 12;
-//		midi = midioctave + (pitch*2) + alter;
-//		if (pitch > ARNote::E) midi--;
-//		if (midi < fPitch) fPitch = midi;
-//		if (!fInChord) fDone = true;
-//	}
 }
+    //______________________________________________________________________________
+    void firstpitchvisitor::visitStart( Sguidotag& elt )
+    {
+        Sguidoattributes attr = elt->attributes();
+        int type = elt->getType();
+        if (type == kTClef)
+        {
+            if (fClefStopper)
+            {
+                if ( (*elt) == (*entryClef))
+                    doComputation = true;
+                else
+                    doComputation = false;
+            }
+            
+        }else if (type==kTStaff)
+        {
+            
+        }
+    }
 
 
 }

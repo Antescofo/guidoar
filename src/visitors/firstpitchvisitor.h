@@ -45,14 +45,21 @@ namespace guido
 class gar_export firstpitchvisitor :
 	public tree_browser<guidoelement>,
 	public visitor<SARChord>,
-	public visitor<SARNote>
+	public visitor<SARNote>,
+    public visitor<Sguidotag>
 {
     public:
-				 firstpitchvisitor() { set(this); }
+    firstpitchvisitor() { set(this); medianPitch=0.0; stdPitch = 0.0; }
        	virtual ~firstpitchvisitor() {}
 
     int		firstPitch (const Sguidoelement& score);
     int		lastPitch (const Sguidoelement& score);
+    
+    void clef2clefStat (const Sguidoelement& score, Sguidotag &thisClef);
+    
+    float getMedianPitch() { return medianPitch;};
+    float getLastPitch() { return fPitchLast;};
+    float getFirstPitch() { return fPitch;};
 		
 	protected:              
 		bool 	done () const	{ return fDone; }
@@ -60,8 +67,15 @@ class gar_export firstpitchvisitor :
 		virtual void visitStart( SARChord& elt );
 		virtual void visitStart( SARNote& elt );
 		virtual void visitEnd  ( SARChord& elt );
-		int		fPitch, fPitchLast, fCurrentOctave;
-		bool	fInChord, fDone;
+        virtual void visitStart( Sguidotag& elt );
+
+        int		fPitch, fPitchLast, fCurrentOctave, fPitchCount;
+		bool	fInChord, fDone, fClefStopper, fStaffStopper;
+    
+    float medianPitch, stdPitch;
+    
+    Sguidotag   *entryClef;
+    bool doComputation;
 };
 
 

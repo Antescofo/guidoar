@@ -74,13 +74,10 @@ Sguidoelement transposeOperation::operator() ( const Sguidoelement& score, int s
 	fChromaticSteps = steps;
 	fOctaveChange = getOctave(fChromaticSteps);
 	fTableShift = getKey (getOctaveStep(fChromaticSteps));
-    
-    firstpitchvisitor fpv;
-    fLowestPitch = fpv.firstPitch (score);
-    fHighestPitch = fpv.lastPitch (score);
 
 	Sguidoelement transposed;
 	if (score) {
+        guidoScore = score;
 		clonevisitor cv;
 		transposed = cv.clone(score);
 	}
@@ -113,6 +110,8 @@ void transposeOperation::initialize ()
 		fFifthCycle.push_back(make_pair('e', i));
 		fFifthCycle.push_back(make_pair('b', i));
 	}
+    
+    lyricsOffset = 0.0;
 }
 
 //________________________________________________________________________
@@ -281,18 +280,12 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
         int type = elt->getType();
         if (type == kTLyrics)   // (type == kTText) ||(
         {
-            double maxLyricsDy = -3, minLyricsDy = -20;
-            
             if (attr.size() == 2) // there's a dy attribute
             {
-                int lyricsDy = atoi(attr.at(1)->getValue().c_str());
+                double lyricsDy = atof(attr.at(1)->getValue().c_str());
                 //cout<<"Lyrics "<< attr.at(0)->getValue()<<" has dY "<<lyricsDy<<endl;
-                double newLyricsDy = (double)(lyricsDy) + (double)(fChromaticSteps)/1.0;
                 
-                if (newLyricsDy>maxLyricsDy)
-                    newLyricsDy = maxLyricsDy;
-                if (newLyricsDy<minLyricsDy)
-                    newLyricsDy = minLyricsDy;
+                double newLyricsDy = calculateLyricsDy(lyricsDy);
                 
                 attr.at(1)->setValue(newLyricsDy);
                 
@@ -315,24 +308,127 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
         }
         else if (type == kTClef)
         {
-            cout<<"Clef Visitor with lowest pitch "<<fLowestPitch<<", Highest: "<<fHighestPitch<<" ";
-            for (iter=attr.begin(); iter != attr.end(); iter++) {
-                //Sguidoattribute ac = guidoattribute::create();
-                //ac->setName ( (*iter)->getName());
-                //ac->setValue( (*iter)->getValue(), (*iter)->quoteVal());
-                //ac->setUnit ( (*iter)->getUnit());
-                //dst->add( ac );
-                cout << (*iter)->getName() <<", value: "<< (*iter)->getValue()
-                << ", unit: "<<(*iter)->getUnit();
+            int fLowestPitch;                   // Lowest pitch in score
+            int fHighestPitch;                  // Highest pitch in score
+            float fMedianPitch;                 // Median pitch in score
+            
+            /// EXPERIMENTAL: Get statistics from this clef to the next clef (or the end if non other)
+            firstpitchvisitor fpv;
+            fpv.clef2clefStat(guidoScore, elt);
+            fHighestPitch = fpv.getLastPitch();
+            fMedianPitch = fpv.getMedianPitch();
+            fLowestPitch = fpv.getFirstPitch();
+
+            cout<<"Clef Visitor with lowest pitch "<<fLowestPitch<<", Highest: "<<fHighestPitch<<" median pitch: "<< fMedianPitch << " value:"<<attr.at(0)->getValue() << "  steps:"<< fChromaticSteps <<endl;
+            
+            /* Rational:
+                    For Octave changes, prefer "+8" and "-8" clef changes.
+                    Otherwise:
+                    Change key if Median pitch is lower than the lowest on-staff pitch for this clef. For example, if clef is "g2" and median is < 60, change clef to "f4".
+             */
+            
+            switch (fChromaticSteps) {
+                case 12:
+                    if (isGClef(elt))
+                    {
+                        attr.at(0)->setValue("g+8", true);
+                        lyricsOffset = 0.0;
+                    }else
+                        if (isFClef(elt))
+                        {
+                            attr.at(0)->setValue("f+8", true);
+                            lyricsOffset = 0.0;
+                        }
+                    return;
+                    break;
+                    
+                case -12:
+                    if (isGClef(elt))
+                    {
+                        attr.at(0)->setValue("g-8", true);
+                        lyricsOffset = 0.0;
+                    }else
+                        if (isFClef(elt))
+                        {
+                            attr.at(0)->setValue("f-8", true);
+                            lyricsOffset = 0.0;
+                        }
+                    return;
+                    break;
+
+                    
+                default:
+                    // We should now take into account RANGES!
+                    break;
             }
-            cout<<endl;
+            
+            /// Taking into account non-octave cases:
+            
+            /// Case 1 & 2: -12 < fChromaticSteps < 12
+            ///     use +8 and -8 if medianPitch bypasses lowest and highest pitch in each clef
+            if ( (fChromaticSteps< 12) && (fChromaticSteps>-12))
+            {
+                if ( isGClef(elt))
+                {
+                    if ((fMedianPitch + (float)(fChromaticSteps)) < 60.0 )
+                        attr.at(0)->setValue("g-8", true);
+                    else if ((fMedianPitch + (float)(fChromaticSteps)) > 84.0)
+                        attr.at(0)->setValue("g+8", true);
+                    
+                    lyricsOffset = (double)(fChromaticSteps)/3.0;
+                }
+                
+                if ( isFClef(elt))
+                {
+                    if ((fMedianPitch + (float)(fChromaticSteps)) > 60.0 )
+                        attr.at(0)->setValue("f+8", true);
+                    else if ((fMedianPitch + (float)(fChromaticSteps)) < 41.0)
+                        attr.at(0)->setValue("f-8", true);
+                    lyricsOffset = (double)(fChromaticSteps)/3.0;
+                }
+            }else
+            {
+                /// Case 3 & 4: We have more than one-octave transposition
+                // TODO
+                
+            }
+            
         }else if ((type == kTStemsUp) || (type == kTStemsDown))
         {
-            // Change all to stemsAuto so that we get the best of both worlds!
-            // Note that in the context of Antescofo's GuidoKit this is HARMLESS since
-            //  the original GMN is cached somewhere before transposition.
             elt->setName("stemsAuto");
         }
     }
+    
+    double transposeOperation::calculateLyricsDy(double dy)
+    {
+        double maxLyricsDy = -3, minLyricsDy = -13;
 
+        double newLyricsDy = dy + lyricsOffset/1.0;
+        
+        if (newLyricsDy>maxLyricsDy)
+            newLyricsDy = maxLyricsDy;
+        if (newLyricsDy<minLyricsDy)
+            newLyricsDy = minLyricsDy;
+        
+        return newLyricsDy;
+
+    }
+    
+    bool  transposeOperation::isGClef(Sguidotag & elt)
+    {
+        Sguidoattributes attr = elt->attributes();
+        if ((attr.at(0)->getValue()=="g2")||(attr.at(0)->getValue()=="g")||(attr.at(0)->getValue()=="violin"))
+            return true;
+        else
+            return false;
+    }
+    
+    bool  transposeOperation::isFClef(Sguidotag & elt)
+    {
+        Sguidoattributes attr = elt->attributes();
+        if ((attr.at(0)->getValue()=="f4")||(attr.at(0)->getValue()=="f")||(attr.at(0)->getValue()=="bass"))
+            return true;
+        else
+            return false;
+    }
 }
