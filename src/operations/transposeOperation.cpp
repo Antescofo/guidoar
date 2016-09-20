@@ -319,7 +319,7 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
             fMedianPitch = fpv.getMedianPitch();
             fLowestPitch = fpv.getFirstPitch();
 
-            cout<<"Clef Visitor with lowest pitch "<<fLowestPitch<<", Highest: "<<fHighestPitch<<" median pitch: "<< fMedianPitch << " value:"<<attr.at(0)->getValue() << "  steps:"<< fChromaticSteps <<endl;
+            //cout<<"Clef Visitor with lowest pitch "<<fLowestPitch<<", Highest: "<<fHighestPitch<<" median pitch: "<< fMedianPitch << " value:"<<attr.at(0)->getValue() << "  steps:"<< fChromaticSteps <<endl;
             
             /* Rational:
                     For Octave changes, prefer "+8" and "-8" clef changes.
@@ -389,8 +389,43 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
             }else
             {
                 /// Case 3 & 4: We have more than one-octave transposition
-                // TODO
-                
+                if (fChromaticSteps>12)
+                {
+                    if ( isFClef(elt))
+                    {
+                        if ((fMedianPitch + (float)(fChromaticSteps)) > 60.0 )
+                            attr.at(0)->setValue("f+8", true);
+                        else if ((fMedianPitch + (float)(fChromaticSteps)) > 82.0)
+                            attr.at(0)->setValue("g+8", true);
+                        
+                        lyricsOffset = (double)(fChromaticSteps%12)/3.0;
+                    }else
+                        if (isGClef(elt))
+                        {
+                            if ((fMedianPitch + (float)(fChromaticSteps)) > 82.0 )
+                                attr.at(0)->setValue("g+8", true);
+                            
+                            lyricsOffset = (double)(fChromaticSteps%12)/3.0;
+                        }
+                }else if (fChromaticSteps<-12)
+                {
+                    if ( isFClef(elt))
+                    {
+                        if ((fMedianPitch + (float)(fChromaticSteps)) < 41.0 )
+                            attr.at(0)->setValue("f-8", true);
+                        
+                        lyricsOffset = (double)(fChromaticSteps%12)/3.0;
+                    }else
+                        if (isGClef(elt))
+                        {
+                            if ((fMedianPitch + (float)(fChromaticSteps)) < 60.0 )
+                                attr.at(0)->setValue("g-8", true);
+                            else if ((fMedianPitch + (float)(fChromaticSteps)) < 41.0 )
+                                attr.at(0)->setValue("f-8", true);
+                            
+                            lyricsOffset = (double)(fChromaticSteps%12)/3.0;
+                        }
+                }
             }
             
         }else if ((type == kTStemsUp) || (type == kTStemsDown))
