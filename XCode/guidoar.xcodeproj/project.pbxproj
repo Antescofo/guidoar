@@ -80,6 +80,7 @@
 		C04714BC4EA64EB4B21D19E5 /* unrolled_guido_browser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AF440CA8FA94675B56FD929 /* unrolled_guido_browser.cpp */; settings = {COMPILER_FLAGS = ""; }; };
 		C4F9D4499A0D4E53AEA6F8E2 /* durationOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CE96EF87FAA444CBB3646EE /* durationOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
 		CCCC87D55E56463E97AE6B08 /* topOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCB0B60B340244BB8DAD6259 /* topOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		CF4924931DA524A10095D0EF /* clefchangeOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF4924911DA524A10095D0EF /* clefchangeOperation.cpp */; };
 		CFF4A1011D5B309C0074EC34 /* libguidoar.mm in Sources */ = {isa = PBXBuildFile; fileRef = CFF4A1001D5B308B0074EC34 /* libguidoar.mm */; };
 		EBF2AEAF546048C9B90C3672 /* libguidoar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B84D9A22D2354001A8760A5E /* libguidoar.cpp */; settings = {COMPILER_FLAGS = ""; }; };
 		EE29EBB96C6D46A78D762584 /* midiconverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B0B598E930A437896791C4E /* midiconverter.cpp */; settings = {COMPILER_FLAGS = ""; }; };
@@ -187,6 +188,8 @@
 		CD42D54D9FE34862A8ACEE28 /* midicontextvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = midicontextvisitor.h; path = ../src/visitors/midicontextvisitor.h; sourceTree = SOURCE_ROOT; };
 		CEF5E7247AB54460932D8947 /* event2timevisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = event2timevisitor.h; path = ../src/visitors/event2timevisitor.h; sourceTree = SOURCE_ROOT; };
 		CEFA24AF3D6A439D9EA56115 /* guidoparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = guidoparser.cpp; path = ../src/parser/guidoparser.cpp; sourceTree = SOURCE_ROOT; };
+		CF4924911DA524A10095D0EF /* clefchangeOperation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = clefchangeOperation.cpp; path = ../src/operations/clefchangeOperation.cpp; sourceTree = "<group>"; };
+		CF4924921DA524A10095D0EF /* clefchangeOperation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = clefchangeOperation.hpp; path = ../src/operations/clefchangeOperation.hpp; sourceTree = "<group>"; };
 		CFF4A0FF1D5B308B0074EC34 /* libguidoar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libguidoar.h; sourceTree = "<group>"; };
 		CFF4A1001D5B308B0074EC34 /* libguidoar.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = libguidoar.mm; sourceTree = "<group>"; };
 		D6970C03849C4E458DDC68AE /* bottomOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = bottomOperation.cpp; path = ../src/operations/bottomOperation.cpp; sourceTree = SOURCE_ROOT; };
@@ -302,6 +305,7 @@
 			children = (
 				063633256E0545ED85EBF53C /* ARChord.h */,
 				D92050B835B64517A63E30A4 /* ARFactory.h */,
+				CF4924921DA524A10095D0EF /* clefchangeOperation.hpp */,
 				8DAC759715DA4B02AC86E4A9 /* ARNote.h */,
 				4185887634E14A6AADE3BC29 /* AROthers.h */,
 				9537BB37A4F54F439D515405 /* ARTag.h */,
@@ -362,6 +366,7 @@
 			children = (
 				76036877F44A4B05825A28E7 /* ARChord.cpp */,
 				A0487E1E3F114D34B67F444D /* ARFactory.cpp */,
+				CF4924911DA524A10095D0EF /* clefchangeOperation.cpp */,
 				B3E280E735844CDAB0A16090 /* ARNote.cpp */,
 				3CF66BE329E2449EA935B8A3 /* AROthers.cpp */,
 				C089BA230005425DADDC2F40 /* ARTag.cpp */,
@@ -506,6 +511,7 @@
 				89D46D69CD33461C8D6A8BAD /* guidoelement.cpp in Sources */,
 				EBF2AEAF546048C9B90C3672 /* libguidoar.cpp in Sources */,
 				6DF3085566A4432DA677C4E4 /* rational.cpp in Sources */,
+				CF4924931DA524A10095D0EF /* clefchangeOperation.cpp in Sources */,
 				A9C7CF7876CC4A8C8EAF1EB4 /* streambeautifuller.cpp in Sources */,
 				EE29EBB96C6D46A78D762584 /* midiconverter.cpp in Sources */,
 				7E757DC9D2EF478DBAC343F4 /* bottomOperation.cpp in Sources */,
