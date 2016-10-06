@@ -25,5 +25,15 @@
  */
 -(NSString *)guidoVBottom:(NSString *)gmn nvoices:(int)nvoices;
 
+/**
+ * Returns a Guido score changing its clef to destination
+ */
+-(NSString *)guidoClefChange:(NSString *)gmn newClef:(NSString *)newClef;
+
+/**
+ * Returns a Guido score changing the clef on specific staff number
+ */
+-(NSString *)guidoClefChangeOnStaff:(NSString *)gmn newClef:(NSString *)newClef staff:(NSInteger) staffNum;
+
 
 @end

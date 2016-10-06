@@ -51,4 +51,32 @@
     return transposedString;
 }
 
+-(NSString *)guidoClefChange:(NSString *)gmn newClef:(NSString *)newClef
+{
+    std::ostringstream oss;
+    
+    const char *gmn_cstyle = [gmn UTF8String];
+    
+    std::string newClefCString = std::string([newClef UTF8String]);
+    
+    guido::guidoClefChange(gmn_cstyle, newClefCString, oss);
+    
+    NSString *transposedString = [NSString stringWithCString:oss.str().c_str() encoding:NSUTF8StringEncoding];
+    return transposedString;
+}
+
+-(NSString *)guidoClefChangeOnStaff:(NSString *)gmn newClef:(NSString *)newClef staff:(NSInteger) staffNum
+{
+    std::ostringstream oss;
+    
+    const char *gmn_cstyle = [gmn UTF8String];
+    
+    std::string newClefCString = std::string([newClef UTF8String]);
+    
+    guido::guidoClefChangeOnStaff(gmn_cstyle, newClefCString, (int)staffNum, oss);
+    
+    NSString *transposedString = [NSString stringWithCString:oss.str().c_str() encoding:NSUTF8StringEncoding];
+    return transposedString;
+}
+
 @end

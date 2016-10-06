@@ -90,7 +90,30 @@ gar_export garErr			guidoVTranpose(const char* gmn, int interval, std::ostream& 
 	\return an error code
 */
 gar_export garErr			guidoGTranpose(const char* gmn, const char* gmnSpec, std::ostream& out);
-
+    
+    /*! \brief changing global clef
+     
+     Change clef of the score
+     key signatures, the simplest one is choosen.
+     \param gmn a string containing the gmn code
+     \param newClef string
+     \param out		the output stream
+     \return an error code
+     */
+    gar_export garErr		guidoClefChange(const char* gmn, std::string newClef, std::ostream& out);
+    
+    /*! \brief change clef on staff
+     
+     Transposition of a score affects notes but also key signature when present. Between similar enharmonic
+     key signatures, the simplest one is choosen.
+     \param gmn a string containing the gmn code
+     \param newClef string
+     \param staff int
+     \param out		the output stream
+     \return an error code
+     */
+    gar_export garErr guidoClefChangeOnStaff(const char* gmn, std::string newClef, int staff, std::ostream& out);
+    
 /*! \brief cut voices of a score
 
 	The \c top operation preserves \c n voices of the score, starting from the first voice and drops

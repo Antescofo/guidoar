@@ -46,6 +46,7 @@
 #include "tailOperation.h"
 #include "topOperation.h"
 #include "transposeOperation.h"
+#include "clefchangeOperation.hpp"
 #include "ringvector.h"
 #include "rythmApplyOperation.h"
 #include "pitchApplyOperation.h"
@@ -200,6 +201,24 @@ gar_export garErr guidoVTranpose(const char* gmn, int interval, std::ostream& ou
 							{ return opWrapper<transposeOperation, int>(gmn, interval, out); }
 gar_export garErr guidoGTranpose(const char* gmn, const char* gmnSpec, std::ostream& out)
 							{ return opgmnWrapper<transposeOperation>(gmn, gmnSpec, out); }
+    
+    //----------------------------------------------------------------------------
+    gar_export garErr guidoClefChange(const char* gmn, std::string newClef, std::ostream& out)
+    { return opWrapper<clefchangeOperation, std::string>(gmn, newClef, out); }
+    
+    gar_export garErr guidoClefChangeOnStaff(const char* gmn, std::string newClef, int staff, std::ostream& out)
+    {
+        //return opWrapper<clefchangeOperation, std::string>(gmn, newClef, staff, out);
+        
+        Sguidoelement score =  read(gmn);
+        if (!score) return kInvalidArgument;
+        
+        clefchangeOperation clefchangeOp;
+        score = clefchangeOp(score, newClef, staff);
+        if (score) out << score << endl;
+        else return kOperationFailed;
+        return kNoErr;
+    }
 
 //----------------------------------------------------------------------------
 gar_export garErr guidoVHead(const char* gmn, rational duration, std::ostream& out)

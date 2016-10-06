@@ -33,9 +33,9 @@ namespace guido
      */
     class gar_export clefchangeOperation :
     public operation,
-    public visitor<SARNote>,
-    public visitor<SARKey>,
-    public visitor<SARVoice>,
+    //public visitor<SARNote>,
+    //public visitor<SARKey>,
+    //public visitor<SARVoice>,
     public visitor<Sguidotag>
     {
     public:
@@ -46,6 +46,9 @@ namespace guido
         
         clefchangeOperation();
         virtual ~clefchangeOperation();
+        
+        
+        SARMusic operator() ( const SARMusic& score1, const SARMusic& score2 );
         
         /*! Changes a score clef for the entire score!
          \param score the score to transpose
@@ -69,9 +72,9 @@ namespace guido
         int staffNumToChange;
         bool visitStaff;
         
-        virtual void visitStart ( SARNote& elt );
-        virtual void visitStart ( SARKey& elt );
-        virtual void visitStart ( SARVoice& elt );
+        //virtual void visitStart ( SARNote& elt );
+        //virtual void visitStart ( SARKey& elt );
+        //virtual void visitStart ( SARVoice& elt );
         virtual void visitStart( Sguidotag& elt );
         
         

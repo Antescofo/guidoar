@@ -51,6 +51,11 @@ namespace guido
     
     clefchangeOperation::~clefchangeOperation() {}
 
+    SARMusic clefchangeOperation::operator() ( const SARMusic& score1, const SARMusic& score2 )
+    {
+        return 0;
+    }
+
     
     Sguidoelement clefchangeOperation::operator() ( const Sguidoelement& score, std::string clef )
     {
@@ -78,6 +83,8 @@ namespace guido
         newClef = clef;
         
         staffNumToChange = staffNumber;
+        
+        //cout<<"GuidoARLIB: staffNumToChange="<<staffNumToChange<<endl;
         
         Sguidoelement transposed;
         if (score) {
@@ -111,10 +118,13 @@ namespace guido
         {
             if (staffNumToChange != 0)
             {
+                //cout<<"GuidoARLIB: Got to staff ";
+                //cout<<attr.at(0)->getValue()<<endl;
+
                 // Check if visiting staff corresponds!
                 if (attr.size())
                 {
-                    int thisStaffNum = atoi(attr.at(1)->getValue().c_str());
+                    int thisStaffNum = atoi(attr.at(0)->getValue().c_str());
                     if (thisStaffNum != staffNumToChange)
                     {
                         visitStaff = false;
