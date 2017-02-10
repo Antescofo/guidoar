@@ -7,482 +7,452 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		04FA54932C2342878B1CE3B4 /* ALL_BUILD */ = {
+		3259C67FCA444BF79FE1D983 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 99AE2A72EC9F4D32BBE552A1 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = F6AF9528639743F196708C44 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
-				AC513AD1EA1B47718C6C381E /* CMake Rules */,
+				EB929B588EA241B38E258765 /* CMake Rules */,
 			);
 			dependencies = (
-				F868D04E99A640B3A28F959A /* PBXTargetDependency */,
-				2FF70B7E01E742CFBF18882C /* PBXTargetDependency */,
+				2D11C0236305438AA804E0E7 /* PBXTargetDependency */,
+				E427BA2E16694F1AA32CAB1D /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
 		};
-		CFF4A1021D5B30DC0074EC34 /* GuidoAR-Universal */ = {
+		776B8EB7A1C84AA49F70C447 /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = CFF4A1031D5B30DC0074EC34 /* Build configuration list for PBXAggregateTarget "GuidoAR-Universal" */;
+			buildConfigurationList = 2E2F7E61D78445F685AE86FB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
-				CFF4A1061D5B30E80074EC34 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = "GuidoAR-Universal";
-			productName = "GuidoAR-Universal";
-		};
-		EACCF67FC39F4B85B88C95C7 /* ZERO_CHECK */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 4FCC2D9872E84AA999BB5578 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
-			buildPhases = (
-				23D81511034D40C5BB014363 /* CMake Rules */,
+				FA8B6DD70DF84FE5B3621C7B /* CMake Rules */,
 			);
 			dependencies = (
 			);
 			name = ZERO_CHECK;
 			productName = ZERO_CHECK;
 		};
+		CF698B131E4DD8C500827520 /* GuidoAR-Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CF698B141E4DD8C500827520 /* Build configuration list for PBXAggregateTarget "GuidoAR-Universal" */;
+			buildPhases = (
+				CF698B171E4DD8DA00827520 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "GuidoAR-Universal";
+			productName = "GuidoAR-Universal";
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		0C244DFF87D1413A88183F32 /* durationvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71430F6F55494B11819BEA25 /* durationvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		0F1DC749E90043D88B5FE577 /* normalizeOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C66CDF378A2245B8BB5E0B74 /* normalizeOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		18196E63581843518468F618 /* clonevisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4C46DA9537646C1BCFF7EA0 /* clonevisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		1B0ECF16E06140EA877C422E /* midicontextvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B24AD33FDE14B6DBD079F89 /* midicontextvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		1B515E55B480449485BE0737 /* mirrorOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE9CCDF17E4E7B9824C2E8 /* mirrorOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		1E2BB8ADC42E4044A9C6313E /* counteventsvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6599B4ED1D3C4E96AAEBFB30 /* counteventsvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		2214138F69774D8B87F06CF3 /* pitchApplyOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8D073A628E84B1296DEAAB1 /* pitchApplyOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		2B9047A7F9734FC883457DE4 /* eheadOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5B9AB55AF3B4B1FBB274D8B /* eheadOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		2C2E6564F07C4317AC0D7DB5 /* rythmvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D738EE20394541B2AB959515 /* rythmvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		3343B326B4744FEFA0939296 /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA462BF8A6CE4C2799728CD9 /* parser.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		367E41A3C46E4F4DBBCCCF9A /* rythmApplyOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7A1545B3A47C48C9916C6 /* rythmApplyOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		37EA1BCAA6CE4FDD8459A0A8 /* pitchvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3F77C99F37846FDB5448D1B /* pitchvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		415856FA58084DE4BCF566E3 /* guidoparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEFA24AF3D6A439D9EA56115 /* guidoparser.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		51C32956DAF9463390574965 /* markers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A506E2F3CD2D43FABE7BB683 /* markers.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		5BEDAB8BB6724B3A959A752B /* gmnvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47542D60ED0A486EA0A7858B /* gmnvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		5C4B1D0AE6254BF9A1CD4443 /* ARTag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C089BA230005425DADDC2F40 /* ARTag.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		6DF3085566A4432DA677C4E4 /* rational.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6641F4BF331A4BBABA18BAE2 /* rational.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		74D6DDC3A2EA44E48BE2DC24 /* firstpitchvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6DA4907FFEA41C1B8B90F74 /* firstpitchvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		7DA0A17B8138409D97B38644 /* seqOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7086E417D7204F60A6BDB4A5 /* seqOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		7E757DC9D2EF478DBAC343F4 /* bottomOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6970C03849C4E458DDC68AE /* bottomOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		81CCFADECC0248D7BE37DDD5 /* tailOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17C90D5706BF442A8871001E /* tailOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		83B20EA43A344D859E18195A /* interleaveOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5983990091AF464A9C1CF436 /* interleaveOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		871F3F9046C84567B25AC5DF /* AROthers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CF66BE329E2449EA935B8A3 /* AROthers.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		872FDB8A856E4326A1980284 /* transposeOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F842AE450294F9FBD3A9FFB /* transposeOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		89D46D69CD33461C8D6A8BAD /* guidoelement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBBAA37A73AC4D34928C21CB /* guidoelement.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		8E53CB04701E4D8B97707557 /* parOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6BB21AC144A6E87165976 /* parOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		9F0D15588E7047A98232B9C4 /* ARChord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76036877F44A4B05825A28E7 /* ARChord.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		A387199B882040C1865C846E /* headOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CCBBC2273D2F47F08D24C3CB /* headOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		A6C6ACF8E0184F328100587C /* etailOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F49FD20DCC7F4C4BAFB1D0E6 /* etailOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		A9C7CF7876CC4A8C8EAF1EB4 /* streambeautifuller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB0A24D34E42439DB6713B2F /* streambeautifuller.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		B0C7FD2162074EAC9FFF62A2 /* ARNote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3E280E735844CDAB0A16090 /* ARNote.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		BC0C086782D244CFAB1D94F9 /* event2timevisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11BFBE6E205B4B54BAD06C4C /* event2timevisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		C04714BC4EA64EB4B21D19E5 /* unrolled_guido_browser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AF440CA8FA94675B56FD929 /* unrolled_guido_browser.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		C4F9D4499A0D4E53AEA6F8E2 /* durationOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CE96EF87FAA444CBB3646EE /* durationOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		CCCC87D55E56463E97AE6B08 /* topOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCB0B60B340244BB8DAD6259 /* topOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		CF4924931DA524A10095D0EF /* clefchangeOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF4924911DA524A10095D0EF /* clefchangeOperation.cpp */; };
-		CFF4A1011D5B309C0074EC34 /* libguidoar.mm in Sources */ = {isa = PBXBuildFile; fileRef = CFF4A1001D5B308B0074EC34 /* libguidoar.mm */; };
-		EBF2AEAF546048C9B90C3672 /* libguidoar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B84D9A22D2354001A8760A5E /* libguidoar.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		EE29EBB96C6D46A78D762584 /* midiconverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B0B598E930A437896791C4E /* midiconverter.cpp */; settings = {COMPILER_FLAGS = ""; }; };
-		F6FE956F3D7C48838B22F7F0 /* ARFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0487E1E3F114D34B67F444D /* ARFactory.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		0CAA8D07472142C4B6FF2894 /* normalizeOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 021DD8655CC947A68CEB1388 /* normalizeOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		17FAAA1EB054484A99B00BF5 /* clonevisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DB04CBE270945E1985743BE /* clonevisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		1B1D19322A584E71A1EB244F /* rythmApplyOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54AEB61B1D994833AAC82C1B /* rythmApplyOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		1F0416BCC2C44BC0B03E5E00 /* ARNote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE926FAD2DAF4B4FA6DD44BE /* ARNote.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		24F4BAFC530245EF8B22E69F /* rythmvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D980F757BC77413596122A99 /* rythmvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		24F9C0D1333F424AA126E82D /* ARTag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EB670E8929DB4F9AA7664F2C /* ARTag.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		3D1A48D7394444A89EF1B98A /* durationvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A09736297804CD59A3F168A /* durationvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		3E854F9D01BF4210B6F66471 /* AROthers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50D22005936E46BE94390039 /* AROthers.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		49E525A21EFA4177A5C2AB98 /* ARFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93E7F0C2684E420B9A401ADA /* ARFactory.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		511EF25A759D4785BFD2C8B3 /* pitchApplyOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C8A3C88EF4290AE4E2146 /* pitchApplyOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		5130FF6C8E6D4A6AA271DD26 /* ARChord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8D195D68E834E6296B297E8 /* ARChord.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		55AA128B997349D99133C7CB /* guidoparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B506B9252404BBA2AE692 /* guidoparser.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		5DD782AEF6794424A17EE352 /* clefchangeOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF3CE803C1DD467198371B17 /* clefchangeOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		614B02E4440B45DA828B6577 /* mirrorOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C437620C8FF84679AC4EC08B /* mirrorOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		67D3B79E8587464F8EF34779 /* streambeautifuller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83C417E0973D4D6EA7E063D2 /* streambeautifuller.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		7186D7C41DAF488C8517F4B6 /* headOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 983C9236D9DE41BFB3B296E1 /* headOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		74FB99533BE84940832E79CF /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7942E9735C344000B36E245B /* parser.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		7CA04B4416F94A3AB0DCCA5C /* seqOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7380205673AE40C1B5FF39D6 /* seqOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		7E9EC0DA17454EACB9F0778F /* counteventsvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 287C66DCFA934559A86DCE7D /* counteventsvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		7F22D9A58EF340D8A9426C27 /* durationOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E597DA8B836143A988475F85 /* durationOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		92FFD636963843F7A861AA92 /* gmnvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F019ACF705E54A4997EECEA3 /* gmnvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		958ED4AC0B1A46D68954B204 /* markers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE4BFB21129E48CFBE8DB097 /* markers.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		98842FD80C904D8EBA33D63F /* etailOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D03C3140F8BB432CBA414B7C /* etailOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		99706688EE2347279D67F22B /* interleaveOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15B0DFBB28C446FA3D0AB0A /* interleaveOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		99A788800DAC4F22ACB47F14 /* tailOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F42F7E4648E48F08501AF58 /* tailOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		A35F2AC903424092B662B446 /* bottomOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DD539F69244AC8DD46911 /* bottomOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		A3E6F39A371C4D38BA1903D7 /* firstpitchvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370DF9D571E541ED946F59B6 /* firstpitchvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		A9C3DC088D0F456B98D6852B /* eheadOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D04E149B331249738D9DA3A4 /* eheadOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		B3C7FD6D5D65441E8D8FC911 /* pitchvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA7B200F76544360AF0C90FC /* pitchvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		C6FB642A41844E6AA2795A08 /* unrolled_guido_browser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 36B388454FB44A28A32F250A /* unrolled_guido_browser.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		CC9558E6BC8643999200DCF2 /* midiconverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FE22A20812543FD8B130AD1 /* midiconverter.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		D3CE08D4CE1D42578B97BE1B /* topOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C895578B7BE4BEC81EC3CF8 /* topOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		D55DCE1041164808BF9B8AAE /* libguidoar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 798B66D2477649A0AB8EFD16 /* libguidoar.mm */; settings = {COMPILER_FLAGS = ""; }; };
+		D89DC7E60F674CACB4B954D2 /* guidoelement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54DDFF12FD294CCD8B8FA7DA /* guidoelement.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		DDBEED9CAD6447628673C98E /* rational.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6EC1676AD6248BE80A5311D /* rational.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		E7879C427BB3486CA0F4516E /* libguidoar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FD6FE53E946D59D4B6582 /* libguidoar.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		F896A22C5AFD4F769FD6F1D8 /* midicontextvisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA5A243CF58A4F0FA78D9111 /* midicontextvisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		F898297785DF4BE79ACCB150 /* parOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 87341DB78FE64F91B9738094 /* parOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		FD5A5BDF465F409F8FA22405 /* event2timevisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58F80F36136045A29C460467 /* event2timevisitor.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		FF8B9F342AEB4B8284F4B9D3 /* transposeOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1463345322E148B2BD7C553E /* transposeOperation.cpp */; settings = {COMPILER_FLAGS = ""; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		340CF6D311E44F27A4A335B3 /* PBXContainerItemProxy */ = {
+		4079CEBA56D8456A84843D8C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EA4EA5A8CB9F47FF88E28417 /* Project object */;
+			containerPortal = 2AF3BD53CA6443BBB8EBC57A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C5FE21D752E14A71B7A8551D;
-			remoteInfo = guidoar;
-		};
-		72E15C26FE1C4396B93468FF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EA4EA5A8CB9F47FF88E28417 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EACCF67FC39F4B85B88C95C7;
+			remoteGlobalIDString = 776B8EB7A1C84AA49F70C447;
 			remoteInfo = ZERO_CHECK;
 		};
-		914DCEDB31F04462890CD662 /* PBXContainerItemProxy */ = {
+		C965159D5683453D98BF5F99 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EA4EA5A8CB9F47FF88E28417 /* Project object */;
+			containerPortal = 2AF3BD53CA6443BBB8EBC57A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EACCF67FC39F4B85B88C95C7;
+			remoteGlobalIDString = 0F6F5C20A3464FB2BA1723E0;
+			remoteInfo = guidoar;
+		};
+		F4AD23437F7F4C7FAB7F5D79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AF3BD53CA6443BBB8EBC57A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 776B8EB7A1C84AA49F70C447;
 			remoteInfo = ZERO_CHECK;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0462612D0147493882280C61 /* parOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = parOperation.h; path = ../src/operations/parOperation.h; sourceTree = SOURCE_ROOT; };
-		063633256E0545ED85EBF53C /* ARChord.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ARChord.h; path = ../src/guido/abstract/ARChord.h; sourceTree = SOURCE_ROOT; };
-		0B0B598E930A437896791C4E /* midiconverter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = midiconverter.cpp; path = ../src/midi/midiconverter.cpp; sourceTree = SOURCE_ROOT; };
-		0FA7A1545B3A47C48C9916C6 /* rythmApplyOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = rythmApplyOperation.cpp; path = ../src/operations/rythmApplyOperation.cpp; sourceTree = SOURCE_ROOT; };
-		11BFBE6E205B4B54BAD06C4C /* event2timevisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = event2timevisitor.cpp; path = ../src/visitors/event2timevisitor.cpp; sourceTree = SOURCE_ROOT; };
-		12B5CAE43D8F48AF8ACE2399 /* clonevisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = clonevisitor.h; path = ../src/visitors/clonevisitor.h; sourceTree = SOURCE_ROOT; };
-		17C90D5706BF442A8871001E /* tailOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = tailOperation.cpp; path = ../src/operations/tailOperation.cpp; sourceTree = SOURCE_ROOT; };
-		1F5EB5C4042743CE82547ECC /* singleton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = singleton.h; path = ../src/lib/singleton.h; sourceTree = SOURCE_ROOT; };
-		214FF1C06BC94B1FB3D611BF /* pitchApplyOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pitchApplyOperation.h; path = ../src/operations/pitchApplyOperation.h; sourceTree = SOURCE_ROOT; };
-		27C4B5E9EB8C42279825ACF7 /* mirrorOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = mirrorOperation.h; path = ../src/operations/mirrorOperation.h; sourceTree = SOURCE_ROOT; };
-		2CE96EF87FAA444CBB3646EE /* durationOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = durationOperation.cpp; path = ../src/operations/durationOperation.cpp; sourceTree = SOURCE_ROOT; };
-		30BF70DDDCB04C04852F827B /* headOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = headOperation.h; path = ../src/operations/headOperation.h; sourceTree = SOURCE_ROOT; };
-		3268B1FBEE2449B28E2EA01C /* guidotags.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = guidotags.h; path = ../src/guido/guidotags.h; sourceTree = SOURCE_ROOT; };
-		335E0CBB2B2B4313A02DC2AE /* midiconverter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = midiconverter.h; path = ../src/midi/midiconverter.h; sourceTree = SOURCE_ROOT; };
-		3BCBD8E616244E76AFDA85F0 /* normalizeOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = normalizeOperation.h; path = ../src/operations/normalizeOperation.h; sourceTree = SOURCE_ROOT; };
-		3CF66BE329E2449EA935B8A3 /* AROthers.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = AROthers.cpp; path = ../src/guido/abstract/AROthers.cpp; sourceTree = SOURCE_ROOT; };
-		3E0B9C0083D94DFEA1F46619 /* visitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = visitor.h; path = ../src/visitors/visitor.h; sourceTree = SOURCE_ROOT; };
-		3F1CA99EAE854368970BB9CA /* streambeautifuller.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = streambeautifuller.h; path = ../src/lib/streambeautifuller.h; sourceTree = SOURCE_ROOT; };
-		3FFE9CCDF17E4E7B9824C2E8 /* mirrorOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = mirrorOperation.cpp; path = ../src/operations/mirrorOperation.cpp; sourceTree = SOURCE_ROOT; };
-		4185887634E14A6AADE3BC29 /* AROthers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AROthers.h; path = ../src/guido/abstract/AROthers.h; sourceTree = SOURCE_ROOT; };
-		428CA478E558447493E5E894 /* unrolled_guido_browser.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = unrolled_guido_browser.h; path = ../src/visitors/unrolled_guido_browser.h; sourceTree = SOURCE_ROOT; };
-		4337920ED5234869A9CEF4DB /* gmnvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gmnvisitor.h; path = ../src/visitors/gmnvisitor.h; sourceTree = SOURCE_ROOT; };
-		47542D60ED0A486EA0A7858B /* gmnvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = gmnvisitor.cpp; path = ../src/visitors/gmnvisitor.cpp; sourceTree = SOURCE_ROOT; };
-		4876820DECF94BB0A3397DA9 /* durationvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = durationvisitor.h; path = ../src/visitors/durationvisitor.h; sourceTree = SOURCE_ROOT; };
-		4AF440CA8FA94675B56FD929 /* unrolled_guido_browser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = unrolled_guido_browser.cpp; path = ../src/visitors/unrolled_guido_browser.cpp; sourceTree = SOURCE_ROOT; };
-		4F65F48E74A64D09B7A68456 /* visitable.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = visitable.h; path = ../src/visitors/visitable.h; sourceTree = SOURCE_ROOT; };
-		50E5CF32F6A64FB69E505BA6 /* eheadOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = eheadOperation.h; path = ../src/operations/eheadOperation.h; sourceTree = SOURCE_ROOT; };
-		5983990091AF464A9C1CF436 /* interleaveOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = interleaveOperation.cpp; path = ../src/operations/interleaveOperation.cpp; sourceTree = SOURCE_ROOT; };
-		5B24AD33FDE14B6DBD079F89 /* midicontextvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = midicontextvisitor.cpp; path = ../src/visitors/midicontextvisitor.cpp; sourceTree = SOURCE_ROOT; };
-		635792B747E942D2A1807FB9 /* operation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = operation.h; path = ../src/operations/operation.h; sourceTree = SOURCE_ROOT; };
-		6599B4ED1D3C4E96AAEBFB30 /* counteventsvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = counteventsvisitor.cpp; path = ../src/visitors/counteventsvisitor.cpp; sourceTree = SOURCE_ROOT; };
-		6641F4BF331A4BBABA18BAE2 /* rational.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = rational.cpp; path = ../src/lib/rational.cpp; sourceTree = SOURCE_ROOT; };
-		68F5CC0121EE428E838B0166 /* libguidoar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libguidoar.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BC6BB21AC144A6E87165976 /* parOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = parOperation.cpp; path = ../src/operations/parOperation.cpp; sourceTree = SOURCE_ROOT; };
-		7086E417D7204F60A6BDB4A5 /* seqOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = seqOperation.cpp; path = ../src/operations/seqOperation.cpp; sourceTree = SOURCE_ROOT; };
-		70CCBBE43CB24CD0A998248F /* tailOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = tailOperation.h; path = ../src/operations/tailOperation.h; sourceTree = SOURCE_ROOT; };
-		71430F6F55494B11819BEA25 /* durationvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = durationvisitor.cpp; path = ../src/visitors/durationvisitor.cpp; sourceTree = SOURCE_ROOT; };
-		7237356A80E14281A81D3AB5 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		76036877F44A4B05825A28E7 /* ARChord.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ARChord.cpp; path = ../src/guido/abstract/ARChord.cpp; sourceTree = SOURCE_ROOT; };
-		784CF30F1CFD4B23AF1D344E /* browser.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = browser.h; path = ../src/lib/browser.h; sourceTree = SOURCE_ROOT; };
-		7A09BFE9E6D84EB48A44C02B /* seqOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = seqOperation.h; path = ../src/operations/seqOperation.h; sourceTree = SOURCE_ROOT; };
-		7D038CA09E79470B8FB0CF1E /* guidorational.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = guidorational.h; path = ../src/interface/guidorational.h; sourceTree = SOURCE_ROOT; };
-		7F842AE450294F9FBD3A9FFB /* transposeOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = transposeOperation.cpp; path = ../src/operations/transposeOperation.cpp; sourceTree = SOURCE_ROOT; };
-		899953E4044B4B50A6A97C9B /* topOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = topOperation.h; path = ../src/operations/topOperation.h; sourceTree = SOURCE_ROOT; };
-		8BC5186BE4214D9C84128F4D /* markers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = markers.h; path = ../src/operations/markers.h; sourceTree = SOURCE_ROOT; };
-		8DAC759715DA4B02AC86E4A9 /* ARNote.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ARNote.h; path = ../src/guido/abstract/ARNote.h; sourceTree = SOURCE_ROOT; };
-		923CA8C0F1EA4BCF8C9E7A50 /* ctree.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ctree.h; path = ../src/lib/ctree.h; sourceTree = SOURCE_ROOT; };
-		9537BB37A4F54F439D515405 /* ARTag.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ARTag.h; path = ../src/guido/abstract/ARTag.h; sourceTree = SOURCE_ROOT; };
-		96E346DC2C0843ECBF62876B /* interleaveOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = interleaveOperation.h; path = ../src/operations/interleaveOperation.h; sourceTree = SOURCE_ROOT; };
-		9AC381BF2E8A4923A0BE5015 /* smartpointer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = smartpointer.h; path = ../src/lib/smartpointer.h; sourceTree = SOURCE_ROOT; };
-		9D927D6B4EDD4D3A9461D8FC /* durationOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = durationOperation.h; path = ../src/operations/durationOperation.h; sourceTree = SOURCE_ROOT; };
-		9DBC4B7E48CA41F59718A89E /* ARTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ARTypes.h; path = ../src/guido/abstract/ARTypes.h; sourceTree = SOURCE_ROOT; };
-		A00EF08854504CFBABFC7046 /* guidoparser.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = guidoparser.h; path = ../src/parser/guidoparser.h; sourceTree = SOURCE_ROOT; };
-		A0487E1E3F114D34B67F444D /* ARFactory.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ARFactory.cpp; path = ../src/guido/abstract/ARFactory.cpp; sourceTree = SOURCE_ROOT; };
-		A3F77C99F37846FDB5448D1B /* pitchvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pitchvisitor.cpp; path = ../src/visitors/pitchvisitor.cpp; sourceTree = SOURCE_ROOT; };
-		A4C6CF578FA94B398827D796 /* tree_browser.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = tree_browser.h; path = ../src/lib/tree_browser.h; sourceTree = SOURCE_ROOT; };
-		A506E2F3CD2D43FABE7BB683 /* markers.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = markers.cpp; path = ../src/operations/markers.cpp; sourceTree = SOURCE_ROOT; };
-		AD2B5DAC808C45D09A16274D /* bottomOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = bottomOperation.h; path = ../src/operations/bottomOperation.h; sourceTree = SOURCE_ROOT; };
-		AE3CE04A72C94EC3AA850448 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		B284C12FF02845829C1F37A1 /* export.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = export.h; path = ../src/interface/export.h; sourceTree = SOURCE_ROOT; };
-		B3E280E735844CDAB0A16090 /* ARNote.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ARNote.cpp; path = ../src/guido/abstract/ARNote.cpp; sourceTree = SOURCE_ROOT; };
-		B84D9A22D2354001A8760A5E /* libguidoar.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = libguidoar.cpp; path = ../src/interface/libguidoar.cpp; sourceTree = SOURCE_ROOT; };
-		B87ACAADC0DA4CD19CEE76FB /* transposeOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = transposeOperation.h; path = ../src/operations/transposeOperation.h; sourceTree = SOURCE_ROOT; };
-		BB0A24D34E42439DB6713B2F /* streambeautifuller.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = streambeautifuller.cpp; path = ../src/lib/streambeautifuller.cpp; sourceTree = SOURCE_ROOT; };
-		BC28AF28960742E6BA6E2BB4 /* rythmApplyOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = rythmApplyOperation.h; path = ../src/operations/rythmApplyOperation.h; sourceTree = SOURCE_ROOT; };
-		BCFE8FA27ED4473FB7CE51B9 /* etailOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = etailOperation.h; path = ../src/operations/etailOperation.h; sourceTree = SOURCE_ROOT; };
-		C089BA230005425DADDC2F40 /* ARTag.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ARTag.cpp; path = ../src/guido/abstract/ARTag.cpp; sourceTree = SOURCE_ROOT; };
-		C14218FD60A04929A07BBC89 /* pitchvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pitchvisitor.h; path = ../src/visitors/pitchvisitor.h; sourceTree = SOURCE_ROOT; };
-		C36CAF57C3A14998AE6BB80E /* guidoelement.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = guidoelement.h; path = ../src/guido/guidoelement.h; sourceTree = SOURCE_ROOT; };
-		C66CDF378A2245B8BB5E0B74 /* normalizeOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = normalizeOperation.cpp; path = ../src/operations/normalizeOperation.cpp; sourceTree = SOURCE_ROOT; };
-		CBBAA37A73AC4D34928C21CB /* guidoelement.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = guidoelement.cpp; path = ../src/guido/guidoelement.cpp; sourceTree = SOURCE_ROOT; };
-		CCBBC2273D2F47F08D24C3CB /* headOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = headOperation.cpp; path = ../src/operations/headOperation.cpp; sourceTree = SOURCE_ROOT; };
-		CD3DD320EE544C73A6419420 /* libguidoar.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = libguidoar.h; path = ../src/interface/libguidoar.h; sourceTree = SOURCE_ROOT; };
-		CD42D54D9FE34862A8ACEE28 /* midicontextvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = midicontextvisitor.h; path = ../src/visitors/midicontextvisitor.h; sourceTree = SOURCE_ROOT; };
-		CEF5E7247AB54460932D8947 /* event2timevisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = event2timevisitor.h; path = ../src/visitors/event2timevisitor.h; sourceTree = SOURCE_ROOT; };
-		CEFA24AF3D6A439D9EA56115 /* guidoparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = guidoparser.cpp; path = ../src/parser/guidoparser.cpp; sourceTree = SOURCE_ROOT; };
-		CF4924911DA524A10095D0EF /* clefchangeOperation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = clefchangeOperation.cpp; path = ../src/operations/clefchangeOperation.cpp; sourceTree = "<group>"; };
-		CF4924921DA524A10095D0EF /* clefchangeOperation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = clefchangeOperation.hpp; path = ../src/operations/clefchangeOperation.hpp; sourceTree = "<group>"; };
-		CFF4A0FF1D5B308B0074EC34 /* libguidoar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libguidoar.h; sourceTree = "<group>"; };
-		CFF4A1001D5B308B0074EC34 /* libguidoar.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = libguidoar.mm; sourceTree = "<group>"; };
-		D6970C03849C4E458DDC68AE /* bottomOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = bottomOperation.cpp; path = ../src/operations/bottomOperation.cpp; sourceTree = SOURCE_ROOT; };
-		D738EE20394541B2AB959515 /* rythmvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = rythmvisitor.cpp; path = ../src/visitors/rythmvisitor.cpp; sourceTree = SOURCE_ROOT; };
-		D92050B835B64517A63E30A4 /* ARFactory.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ARFactory.h; path = ../src/guido/abstract/ARFactory.h; sourceTree = SOURCE_ROOT; };
-		D9B00D7B65FC40B6969C93AF /* firstpitchvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = firstpitchvisitor.h; path = ../src/visitors/firstpitchvisitor.h; sourceTree = SOURCE_ROOT; };
-		DCB0B60B340244BB8DAD6259 /* topOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = topOperation.cpp; path = ../src/operations/topOperation.cpp; sourceTree = SOURCE_ROOT; };
-		DF4742291C6745509BA9CE37 /* gmnreader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gmnreader.h; path = ../src/parser/gmnreader.h; sourceTree = SOURCE_ROOT; };
-		E3E21AE68651408A9BC6FF91 /* counteventsvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = counteventsvisitor.h; path = ../src/visitors/counteventsvisitor.h; sourceTree = SOURCE_ROOT; };
-		E5B9AB55AF3B4B1FBB274D8B /* eheadOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = eheadOperation.cpp; path = ../src/operations/eheadOperation.cpp; sourceTree = SOURCE_ROOT; };
-		E6DA4907FFEA41C1B8B90F74 /* firstpitchvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = firstpitchvisitor.cpp; path = ../src/visitors/firstpitchvisitor.cpp; sourceTree = SOURCE_ROOT; };
-		EA358FFD64204797B908B636 /* rythmvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = rythmvisitor.h; path = ../src/visitors/rythmvisitor.h; sourceTree = SOURCE_ROOT; };
-		EA462BF8A6CE4C2799728CD9 /* parser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = parser.cpp; path = ../src/parser/parser.cpp; sourceTree = SOURCE_ROOT; };
-		EBECF870197D4843A897370C /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		EEBF9371EE5D4282A7D6CDF3 /* functor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = functor.h; path = ../src/lib/functor.h; sourceTree = SOURCE_ROOT; };
-		F309A92FDA3E4A90B536A107 /* basevisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = basevisitor.h; path = ../src/visitors/basevisitor.h; sourceTree = SOURCE_ROOT; };
-		F394B43529AC4B86A96B4D14 /* countvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = countvisitor.h; path = ../src/visitors/countvisitor.h; sourceTree = SOURCE_ROOT; };
-		F49FD20DCC7F4C4BAFB1D0E6 /* etailOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = etailOperation.cpp; path = ../src/operations/etailOperation.cpp; sourceTree = SOURCE_ROOT; };
-		F4C46DA9537646C1BCFF7EA0 /* clonevisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = clonevisitor.cpp; path = ../src/visitors/clonevisitor.cpp; sourceTree = SOURCE_ROOT; };
-		F50064921BE141A09753A8E3 /* ringvector.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ringvector.h; path = ../src/lib/ringvector.h; sourceTree = SOURCE_ROOT; };
-		F8D073A628E84B1296DEAAB1 /* pitchApplyOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pitchApplyOperation.cpp; path = ../src/operations/pitchApplyOperation.cpp; sourceTree = SOURCE_ROOT; };
+		01A338358E0F4E5EB26C9C08 /* guidorational.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = guidorational.h; path = ../src/interface/guidorational.h; sourceTree = SOURCE_ROOT; };
+		01C16B3379894BD1BB70CE51 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		021DD8655CC947A68CEB1388 /* normalizeOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = normalizeOperation.cpp; path = ../src/operations/normalizeOperation.cpp; sourceTree = SOURCE_ROOT; };
+		04F480C83A924D699E0ED5F2 /* midiconverter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = midiconverter.h; path = ../src/midi/midiconverter.h; sourceTree = SOURCE_ROOT; };
+		05982AE1F8044873BA00F783 /* countvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = countvisitor.h; path = ../src/visitors/countvisitor.h; sourceTree = SOURCE_ROOT; };
+		0A09736297804CD59A3F168A /* durationvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = durationvisitor.cpp; path = ../src/visitors/durationvisitor.cpp; sourceTree = SOURCE_ROOT; };
+		0C5305E3D5A44668AAF3EA75 /* gmnreader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gmnreader.h; path = ../src/parser/gmnreader.h; sourceTree = SOURCE_ROOT; };
+		0E75FA2DDBC64DEC953D91D6 /* visitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = visitor.h; path = ../src/visitors/visitor.h; sourceTree = SOURCE_ROOT; };
+		135955696E244CEF9CB3EDC5 /* event2timevisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = event2timevisitor.h; path = ../src/visitors/event2timevisitor.h; sourceTree = SOURCE_ROOT; };
+		13CBAADFCE8646BDA1BF0784 /* interleaveOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = interleaveOperation.h; path = ../src/operations/interleaveOperation.h; sourceTree = SOURCE_ROOT; };
+		1463345322E148B2BD7C553E /* transposeOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = transposeOperation.cpp; path = ../src/operations/transposeOperation.cpp; sourceTree = SOURCE_ROOT; };
+		1DB04CBE270945E1985743BE /* clonevisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = clonevisitor.cpp; path = ../src/visitors/clonevisitor.cpp; sourceTree = SOURCE_ROOT; };
+		1F3B506B9252404BBA2AE692 /* guidoparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = guidoparser.cpp; path = ../src/parser/guidoparser.cpp; sourceTree = SOURCE_ROOT; };
+		208E0F7A01F746DFBE105BF4 /* eheadOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = eheadOperation.h; path = ../src/operations/eheadOperation.h; sourceTree = SOURCE_ROOT; };
+		20E7BADBC3CD47DF8252F7CC /* etailOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = etailOperation.h; path = ../src/operations/etailOperation.h; sourceTree = SOURCE_ROOT; };
+		2495CE083629442DAF0C86BA /* streambeautifuller.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = streambeautifuller.h; path = ../src/lib/streambeautifuller.h; sourceTree = SOURCE_ROOT; };
+		287C66DCFA934559A86DCE7D /* counteventsvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = counteventsvisitor.cpp; path = ../src/visitors/counteventsvisitor.cpp; sourceTree = SOURCE_ROOT; };
+		2A0FD6FE53E946D59D4B6582 /* libguidoar.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = libguidoar.cpp; path = ../src/interface/libguidoar.cpp; sourceTree = SOURCE_ROOT; };
+		2A959E96ED3A40308A880080 /* basevisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = basevisitor.h; path = ../src/visitors/basevisitor.h; sourceTree = SOURCE_ROOT; };
+		2C7C8A3C88EF4290AE4E2146 /* pitchApplyOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pitchApplyOperation.cpp; path = ../src/operations/pitchApplyOperation.cpp; sourceTree = SOURCE_ROOT; };
+		36B388454FB44A28A32F250A /* unrolled_guido_browser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = unrolled_guido_browser.cpp; path = ../src/visitors/unrolled_guido_browser.cpp; sourceTree = SOURCE_ROOT; };
+		370DF9D571E541ED946F59B6 /* firstpitchvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = firstpitchvisitor.cpp; path = ../src/visitors/firstpitchvisitor.cpp; sourceTree = SOURCE_ROOT; };
+		39D11E6822364737902A942F /* ARFactory.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ARFactory.h; path = ../src/guido/abstract/ARFactory.h; sourceTree = SOURCE_ROOT; };
+		3C895578B7BE4BEC81EC3CF8 /* topOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = topOperation.cpp; path = ../src/operations/topOperation.cpp; sourceTree = SOURCE_ROOT; };
+		3F34457A06D0470481C8D6DB /* seqOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = seqOperation.h; path = ../src/operations/seqOperation.h; sourceTree = SOURCE_ROOT; };
+		44B2436EDDC24A13BFC7090E /* parOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = parOperation.h; path = ../src/operations/parOperation.h; sourceTree = SOURCE_ROOT; };
+		4C08C236B54041FFA496736B /* ctree.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ctree.h; path = ../src/lib/ctree.h; sourceTree = SOURCE_ROOT; };
+		4CD66B34278F4C9FA472DB56 /* smartpointer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = smartpointer.h; path = ../src/lib/smartpointer.h; sourceTree = SOURCE_ROOT; };
+		50D22005936E46BE94390039 /* AROthers.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = AROthers.cpp; path = ../src/guido/abstract/AROthers.cpp; sourceTree = SOURCE_ROOT; };
+		513C6DA728C5446BB87CEF5C /* durationOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = durationOperation.h; path = ../src/operations/durationOperation.h; sourceTree = SOURCE_ROOT; };
+		54AEB61B1D994833AAC82C1B /* rythmApplyOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = rythmApplyOperation.cpp; path = ../src/operations/rythmApplyOperation.cpp; sourceTree = SOURCE_ROOT; };
+		54DDFF12FD294CCD8B8FA7DA /* guidoelement.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = guidoelement.cpp; path = ../src/guido/guidoelement.cpp; sourceTree = SOURCE_ROOT; };
+		58F80F36136045A29C460467 /* event2timevisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = event2timevisitor.cpp; path = ../src/visitors/event2timevisitor.cpp; sourceTree = SOURCE_ROOT; };
+		5B8C6B0B18654B52BDBA757B /* unrolled_guido_browser.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = unrolled_guido_browser.h; path = ../src/visitors/unrolled_guido_browser.h; sourceTree = SOURCE_ROOT; };
+		5C21D58C565C4B5FB8EB25CD /* markers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = markers.h; path = ../src/operations/markers.h; sourceTree = SOURCE_ROOT; };
+		5D1DD539F69244AC8DD46911 /* bottomOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = bottomOperation.cpp; path = ../src/operations/bottomOperation.cpp; sourceTree = SOURCE_ROOT; };
+		5F42F7E4648E48F08501AF58 /* tailOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = tailOperation.cpp; path = ../src/operations/tailOperation.cpp; sourceTree = SOURCE_ROOT; };
+		65D64C8745BB47D6B4F9AB84 /* rythmvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = rythmvisitor.h; path = ../src/visitors/rythmvisitor.h; sourceTree = SOURCE_ROOT; };
+		6D4D659DCA4E4F94AAC1626D /* ARNote.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ARNote.h; path = ../src/guido/abstract/ARNote.h; sourceTree = SOURCE_ROOT; };
+		6E5DE004CF594B7EB9DE8F7A /* ARChord.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ARChord.h; path = ../src/guido/abstract/ARChord.h; sourceTree = SOURCE_ROOT; };
+		70F028070BF74F7F8D0BA754 /* libguidoar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libguidoar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7380205673AE40C1B5FF39D6 /* seqOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = seqOperation.cpp; path = ../src/operations/seqOperation.cpp; sourceTree = SOURCE_ROOT; };
+		7942E9735C344000B36E245B /* parser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = parser.cpp; path = ../src/parser/parser.cpp; sourceTree = SOURCE_ROOT; };
+		798B66D2477649A0AB8EFD16 /* libguidoar.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = libguidoar.mm; path = libguidoar/libguidoar.mm; sourceTree = SOURCE_ROOT; };
+		79D2AD129CF64199A679C52A /* visitable.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = visitable.h; path = ../src/visitors/visitable.h; sourceTree = SOURCE_ROOT; };
+		7E806522507E49AAB85D9484 /* export.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = export.h; path = ../src/interface/export.h; sourceTree = SOURCE_ROOT; };
+		823B9E3A125F46AE86C3F899 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		83C417E0973D4D6EA7E063D2 /* streambeautifuller.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = streambeautifuller.cpp; path = ../src/lib/streambeautifuller.cpp; sourceTree = SOURCE_ROOT; };
+		84170E427A1B4CEE9B6A1FE8 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		87341DB78FE64F91B9738094 /* parOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = parOperation.cpp; path = ../src/operations/parOperation.cpp; sourceTree = SOURCE_ROOT; };
+		888F39F4C3974AC286DDEABD /* tailOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = tailOperation.h; path = ../src/operations/tailOperation.h; sourceTree = SOURCE_ROOT; };
+		8A144930E8704CEB88024047 /* singleton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = singleton.h; path = ../src/lib/singleton.h; sourceTree = SOURCE_ROOT; };
+		8C641359567B40C093E33D94 /* functor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = functor.h; path = ../src/lib/functor.h; sourceTree = SOURCE_ROOT; };
+		8E1B63BBF77F4ACC84697382 /* normalizeOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = normalizeOperation.h; path = ../src/operations/normalizeOperation.h; sourceTree = SOURCE_ROOT; };
+		91C93885ED4248BBA0A9DE2C /* libguidoar.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = libguidoar.h; path = ../src/interface/libguidoar.h; sourceTree = SOURCE_ROOT; };
+		93E7F0C2684E420B9A401ADA /* ARFactory.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ARFactory.cpp; path = ../src/guido/abstract/ARFactory.cpp; sourceTree = SOURCE_ROOT; };
+		97C240EFD581403CBAE9E3C6 /* operation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = operation.h; path = ../src/operations/operation.h; sourceTree = SOURCE_ROOT; };
+		983C9236D9DE41BFB3B296E1 /* headOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = headOperation.cpp; path = ../src/operations/headOperation.cpp; sourceTree = SOURCE_ROOT; };
+		98A48266C00C4CAD9A374977 /* ARTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ARTypes.h; path = ../src/guido/abstract/ARTypes.h; sourceTree = SOURCE_ROOT; };
+		9AECEEF57AB24590B38DEEE8 /* browser.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = browser.h; path = ../src/lib/browser.h; sourceTree = SOURCE_ROOT; };
+		9C29894A913C465EA85BDF8B /* topOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = topOperation.h; path = ../src/operations/topOperation.h; sourceTree = SOURCE_ROOT; };
+		9FE22A20812543FD8B130AD1 /* midiconverter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = midiconverter.cpp; path = ../src/midi/midiconverter.cpp; sourceTree = SOURCE_ROOT; };
+		A2AFB8C0421A40B491C6937D /* guidotags.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = guidotags.h; path = ../src/guido/guidotags.h; sourceTree = SOURCE_ROOT; };
+		A327058A6D824C0FB9AC76A3 /* pitchvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pitchvisitor.h; path = ../src/visitors/pitchvisitor.h; sourceTree = SOURCE_ROOT; };
+		A7DEBDBF11134F089D71266F /* mirrorOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = mirrorOperation.h; path = ../src/operations/mirrorOperation.h; sourceTree = SOURCE_ROOT; };
+		AE5F7D1233284CDCB63402AB /* AROthers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AROthers.h; path = ../src/guido/abstract/AROthers.h; sourceTree = SOURCE_ROOT; };
+		B23B4779B3704D80BF413689 /* libguidoar.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = libguidoar.h; path = libguidoar/libguidoar.h; sourceTree = SOURCE_ROOT; };
+		B6EC1676AD6248BE80A5311D /* rational.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = rational.cpp; path = ../src/lib/rational.cpp; sourceTree = SOURCE_ROOT; };
+		B8D195D68E834E6296B297E8 /* ARChord.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ARChord.cpp; path = ../src/guido/abstract/ARChord.cpp; sourceTree = SOURCE_ROOT; };
+		BA7B200F76544360AF0C90FC /* pitchvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pitchvisitor.cpp; path = ../src/visitors/pitchvisitor.cpp; sourceTree = SOURCE_ROOT; };
+		BE4BFB21129E48CFBE8DB097 /* markers.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = markers.cpp; path = ../src/operations/markers.cpp; sourceTree = SOURCE_ROOT; };
+		BF5CD8958369448AB9D082D4 /* ringvector.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ringvector.h; path = ../src/lib/ringvector.h; sourceTree = SOURCE_ROOT; };
+		C1F3270720F243C0AFB78FAE /* guidoparser.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = guidoparser.h; path = ../src/parser/guidoparser.h; sourceTree = SOURCE_ROOT; };
+		C293522B9B5645BE8BF5E2D7 /* midicontextvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = midicontextvisitor.h; path = ../src/visitors/midicontextvisitor.h; sourceTree = SOURCE_ROOT; };
+		C437620C8FF84679AC4EC08B /* mirrorOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = mirrorOperation.cpp; path = ../src/operations/mirrorOperation.cpp; sourceTree = SOURCE_ROOT; };
+		C9572B3AD5C24E3B8541EFD8 /* durationvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = durationvisitor.h; path = ../src/visitors/durationvisitor.h; sourceTree = SOURCE_ROOT; };
+		C96258B47A6743CA8813EB81 /* guidoelement.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = guidoelement.h; path = ../src/guido/guidoelement.h; sourceTree = SOURCE_ROOT; };
+		D03C3140F8BB432CBA414B7C /* etailOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = etailOperation.cpp; path = ../src/operations/etailOperation.cpp; sourceTree = SOURCE_ROOT; };
+		D04E149B331249738D9DA3A4 /* eheadOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = eheadOperation.cpp; path = ../src/operations/eheadOperation.cpp; sourceTree = SOURCE_ROOT; };
+		D15B0DFBB28C446FA3D0AB0A /* interleaveOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = interleaveOperation.cpp; path = ../src/operations/interleaveOperation.cpp; sourceTree = SOURCE_ROOT; };
+		D24CB79FC16B4010ACBD3E83 /* counteventsvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = counteventsvisitor.h; path = ../src/visitors/counteventsvisitor.h; sourceTree = SOURCE_ROOT; };
+		D7D283C22A9A40AC9411AA75 /* ARTag.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ARTag.h; path = ../src/guido/abstract/ARTag.h; sourceTree = SOURCE_ROOT; };
+		D980F757BC77413596122A99 /* rythmvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = rythmvisitor.cpp; path = ../src/visitors/rythmvisitor.cpp; sourceTree = SOURCE_ROOT; };
+		DCE482D80A154F2DAA212CB3 /* bottomOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = bottomOperation.h; path = ../src/operations/bottomOperation.h; sourceTree = SOURCE_ROOT; };
+		DF3CE803C1DD467198371B17 /* clefchangeOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = clefchangeOperation.cpp; path = ../src/operations/clefchangeOperation.cpp; sourceTree = SOURCE_ROOT; };
+		E09CA72069CA48528C8601F2 /* firstpitchvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = firstpitchvisitor.h; path = ../src/visitors/firstpitchvisitor.h; sourceTree = SOURCE_ROOT; };
+		E1AFABD133BB4D8DB90B005D /* pitchApplyOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pitchApplyOperation.h; path = ../src/operations/pitchApplyOperation.h; sourceTree = SOURCE_ROOT; };
+		E44009385D72487EB92F220B /* headOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = headOperation.h; path = ../src/operations/headOperation.h; sourceTree = SOURCE_ROOT; };
+		E597DA8B836143A988475F85 /* durationOperation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = durationOperation.cpp; path = ../src/operations/durationOperation.cpp; sourceTree = SOURCE_ROOT; };
+		E79A91E34A944EC7AE2A492F /* clonevisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = clonevisitor.h; path = ../src/visitors/clonevisitor.h; sourceTree = SOURCE_ROOT; };
+		E81493439CF640CFBE402D4E /* gmnvisitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gmnvisitor.h; path = ../src/visitors/gmnvisitor.h; sourceTree = SOURCE_ROOT; };
+		EB670E8929DB4F9AA7664F2C /* ARTag.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ARTag.cpp; path = ../src/guido/abstract/ARTag.cpp; sourceTree = SOURCE_ROOT; };
+		ED10572A0D5F4EF482124060 /* rythmApplyOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = rythmApplyOperation.h; path = ../src/operations/rythmApplyOperation.h; sourceTree = SOURCE_ROOT; };
+		F019ACF705E54A4997EECEA3 /* gmnvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = gmnvisitor.cpp; path = ../src/visitors/gmnvisitor.cpp; sourceTree = SOURCE_ROOT; };
+		F2EB89E0EBEE43ECBF3610AD /* tree_browser.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = tree_browser.h; path = ../src/lib/tree_browser.h; sourceTree = SOURCE_ROOT; };
+		F6DAD868431E4E0BB41373B7 /* transposeOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = transposeOperation.h; path = ../src/operations/transposeOperation.h; sourceTree = SOURCE_ROOT; };
+		FA5A243CF58A4F0FA78D9111 /* midicontextvisitor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = midicontextvisitor.cpp; path = ../src/visitors/midicontextvisitor.cpp; sourceTree = SOURCE_ROOT; };
+		FE926FAD2DAF4B4FA6DD44BE /* ARNote.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ARNote.cpp; path = ../src/guido/abstract/ARNote.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		4052C1199BBA4003B9F24A95 /* ZERO_CHECK */ = {
-			isa = PBXGroup;
-			children = (
-				539F41F931214141BDC5D102 /* CMake Rules */,
-				AE3CE04A72C94EC3AA850448 /* CMakeLists.txt */,
-			);
-			name = ZERO_CHECK;
-			sourceTree = "<group>";
-		};
-		539F41F931214141BDC5D102 /* CMake Rules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		66FA1EAF057042688B22C40C = {
-			isa = PBXGroup;
-			children = (
-				CFF4A0FE1D5B308B0074EC34 /* libguidoar */,
-				CBB3D9FDDA834ED9942276B8 /* Sources */,
-				A50147C7B0D74D819B28DE8A /* Resources */,
-				BE786FD4A490436EA0BA3990 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		9AA510A984F04639A5FB35FE /* ALL_BUILD */ = {
-			isa = PBXGroup;
-			children = (
-				9D94AA255DD54C3B9624779D /* CMake Rules */,
-				EBECF870197D4843A897370C /* CMakeLists.txt */,
-			);
-			name = ALL_BUILD;
-			sourceTree = "<group>";
-		};
-		9D94AA255DD54C3B9624779D /* CMake Rules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		A50147C7B0D74D819B28DE8A /* Resources */ = {
+		09511E0253B2486AA9A92783 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		ACCB76349FEE439A96B75896 /* guidoar */ = {
+		09E90E3852D4426881890F66 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				EFDAF0E7813047E8B3817C38 /* Source Files */,
-				D7EF57C1D17643D1BF26FBD5 /* Header Files */,
-				7237356A80E14281A81D3AB5 /* CMakeLists.txt */,
+				798B66D2477649A0AB8EFD16 /* libguidoar.mm */,
+				B8D195D68E834E6296B297E8 /* ARChord.cpp */,
+				93E7F0C2684E420B9A401ADA /* ARFactory.cpp */,
+				FE926FAD2DAF4B4FA6DD44BE /* ARNote.cpp */,
+				50D22005936E46BE94390039 /* AROthers.cpp */,
+				EB670E8929DB4F9AA7664F2C /* ARTag.cpp */,
+				54DDFF12FD294CCD8B8FA7DA /* guidoelement.cpp */,
+				2A0FD6FE53E946D59D4B6582 /* libguidoar.cpp */,
+				B6EC1676AD6248BE80A5311D /* rational.cpp */,
+				83C417E0973D4D6EA7E063D2 /* streambeautifuller.cpp */,
+				9FE22A20812543FD8B130AD1 /* midiconverter.cpp */,
+				5D1DD539F69244AC8DD46911 /* bottomOperation.cpp */,
+				DF3CE803C1DD467198371B17 /* clefchangeOperation.cpp */,
+				E597DA8B836143A988475F85 /* durationOperation.cpp */,
+				D04E149B331249738D9DA3A4 /* eheadOperation.cpp */,
+				D03C3140F8BB432CBA414B7C /* etailOperation.cpp */,
+				983C9236D9DE41BFB3B296E1 /* headOperation.cpp */,
+				D15B0DFBB28C446FA3D0AB0A /* interleaveOperation.cpp */,
+				BE4BFB21129E48CFBE8DB097 /* markers.cpp */,
+				C437620C8FF84679AC4EC08B /* mirrorOperation.cpp */,
+				021DD8655CC947A68CEB1388 /* normalizeOperation.cpp */,
+				87341DB78FE64F91B9738094 /* parOperation.cpp */,
+				2C7C8A3C88EF4290AE4E2146 /* pitchApplyOperation.cpp */,
+				54AEB61B1D994833AAC82C1B /* rythmApplyOperation.cpp */,
+				7380205673AE40C1B5FF39D6 /* seqOperation.cpp */,
+				5F42F7E4648E48F08501AF58 /* tailOperation.cpp */,
+				3C895578B7BE4BEC81EC3CF8 /* topOperation.cpp */,
+				1463345322E148B2BD7C553E /* transposeOperation.cpp */,
+				1F3B506B9252404BBA2AE692 /* guidoparser.cpp */,
+				7942E9735C344000B36E245B /* parser.cpp */,
+				1DB04CBE270945E1985743BE /* clonevisitor.cpp */,
+				287C66DCFA934559A86DCE7D /* counteventsvisitor.cpp */,
+				0A09736297804CD59A3F168A /* durationvisitor.cpp */,
+				58F80F36136045A29C460467 /* event2timevisitor.cpp */,
+				370DF9D571E541ED946F59B6 /* firstpitchvisitor.cpp */,
+				F019ACF705E54A4997EECEA3 /* gmnvisitor.cpp */,
+				FA5A243CF58A4F0FA78D9111 /* midicontextvisitor.cpp */,
+				BA7B200F76544360AF0C90FC /* pitchvisitor.cpp */,
+				D980F757BC77413596122A99 /* rythmvisitor.cpp */,
+				36B388454FB44A28A32F250A /* unrolled_guido_browser.cpp */,
 			);
-			name = guidoar;
+			name = "Source Files";
 			sourceTree = "<group>";
 		};
-		BE786FD4A490436EA0BA3990 /* Products */ = {
+		1A331ED2AF1E4D198FB1D62E /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
-				68F5CC0121EE428E838B0166 /* libguidoar.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		CBB3D9FDDA834ED9942276B8 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				ACCB76349FEE439A96B75896 /* guidoar */,
-				9AA510A984F04639A5FB35FE /* ALL_BUILD */,
-				4052C1199BBA4003B9F24A95 /* ZERO_CHECK */,
-			);
-			name = Sources;
-			sourceTree = "<group>";
-		};
-		CFF4A0FE1D5B308B0074EC34 /* libguidoar */ = {
-			isa = PBXGroup;
-			children = (
-				CFF4A0FF1D5B308B0074EC34 /* libguidoar.h */,
-				CFF4A1001D5B308B0074EC34 /* libguidoar.mm */,
-			);
-			path = libguidoar;
-			sourceTree = "<group>";
-		};
-		D7EF57C1D17643D1BF26FBD5 /* Header Files */ = {
-			isa = PBXGroup;
-			children = (
-				063633256E0545ED85EBF53C /* ARChord.h */,
-				D92050B835B64517A63E30A4 /* ARFactory.h */,
-				CF4924921DA524A10095D0EF /* clefchangeOperation.hpp */,
-				8DAC759715DA4B02AC86E4A9 /* ARNote.h */,
-				4185887634E14A6AADE3BC29 /* AROthers.h */,
-				9537BB37A4F54F439D515405 /* ARTag.h */,
-				9DBC4B7E48CA41F59718A89E /* ARTypes.h */,
-				C36CAF57C3A14998AE6BB80E /* guidoelement.h */,
-				3268B1FBEE2449B28E2EA01C /* guidotags.h */,
-				B284C12FF02845829C1F37A1 /* export.h */,
-				7D038CA09E79470B8FB0CF1E /* guidorational.h */,
-				CD3DD320EE544C73A6419420 /* libguidoar.h */,
-				784CF30F1CFD4B23AF1D344E /* browser.h */,
-				923CA8C0F1EA4BCF8C9E7A50 /* ctree.h */,
-				EEBF9371EE5D4282A7D6CDF3 /* functor.h */,
-				F50064921BE141A09753A8E3 /* ringvector.h */,
-				1F5EB5C4042743CE82547ECC /* singleton.h */,
-				9AC381BF2E8A4923A0BE5015 /* smartpointer.h */,
-				3F1CA99EAE854368970BB9CA /* streambeautifuller.h */,
-				A4C6CF578FA94B398827D796 /* tree_browser.h */,
-				335E0CBB2B2B4313A02DC2AE /* midiconverter.h */,
-				AD2B5DAC808C45D09A16274D /* bottomOperation.h */,
-				9D927D6B4EDD4D3A9461D8FC /* durationOperation.h */,
-				50E5CF32F6A64FB69E505BA6 /* eheadOperation.h */,
-				BCFE8FA27ED4473FB7CE51B9 /* etailOperation.h */,
-				30BF70DDDCB04C04852F827B /* headOperation.h */,
-				96E346DC2C0843ECBF62876B /* interleaveOperation.h */,
-				8BC5186BE4214D9C84128F4D /* markers.h */,
-				27C4B5E9EB8C42279825ACF7 /* mirrorOperation.h */,
-				3BCBD8E616244E76AFDA85F0 /* normalizeOperation.h */,
-				635792B747E942D2A1807FB9 /* operation.h */,
-				0462612D0147493882280C61 /* parOperation.h */,
-				214FF1C06BC94B1FB3D611BF /* pitchApplyOperation.h */,
-				BC28AF28960742E6BA6E2BB4 /* rythmApplyOperation.h */,
-				7A09BFE9E6D84EB48A44C02B /* seqOperation.h */,
-				70CCBBE43CB24CD0A998248F /* tailOperation.h */,
-				899953E4044B4B50A6A97C9B /* topOperation.h */,
-				B87ACAADC0DA4CD19CEE76FB /* transposeOperation.h */,
-				DF4742291C6745509BA9CE37 /* gmnreader.h */,
-				A00EF08854504CFBABFC7046 /* guidoparser.h */,
-				F309A92FDA3E4A90B536A107 /* basevisitor.h */,
-				12B5CAE43D8F48AF8ACE2399 /* clonevisitor.h */,
-				E3E21AE68651408A9BC6FF91 /* counteventsvisitor.h */,
-				F394B43529AC4B86A96B4D14 /* countvisitor.h */,
-				4876820DECF94BB0A3397DA9 /* durationvisitor.h */,
-				CEF5E7247AB54460932D8947 /* event2timevisitor.h */,
-				D9B00D7B65FC40B6969C93AF /* firstpitchvisitor.h */,
-				4337920ED5234869A9CEF4DB /* gmnvisitor.h */,
-				CD42D54D9FE34862A8ACEE28 /* midicontextvisitor.h */,
-				C14218FD60A04929A07BBC89 /* pitchvisitor.h */,
-				EA358FFD64204797B908B636 /* rythmvisitor.h */,
-				428CA478E558447493E5E894 /* unrolled_guido_browser.h */,
-				4F65F48E74A64D09B7A68456 /* visitable.h */,
-				3E0B9C0083D94DFEA1F46619 /* visitor.h */,
+				B23B4779B3704D80BF413689 /* libguidoar.h */,
+				6E5DE004CF594B7EB9DE8F7A /* ARChord.h */,
+				39D11E6822364737902A942F /* ARFactory.h */,
+				6D4D659DCA4E4F94AAC1626D /* ARNote.h */,
+				AE5F7D1233284CDCB63402AB /* AROthers.h */,
+				D7D283C22A9A40AC9411AA75 /* ARTag.h */,
+				98A48266C00C4CAD9A374977 /* ARTypes.h */,
+				C96258B47A6743CA8813EB81 /* guidoelement.h */,
+				A2AFB8C0421A40B491C6937D /* guidotags.h */,
+				7E806522507E49AAB85D9484 /* export.h */,
+				01A338358E0F4E5EB26C9C08 /* guidorational.h */,
+				91C93885ED4248BBA0A9DE2C /* libguidoar.h */,
+				9AECEEF57AB24590B38DEEE8 /* browser.h */,
+				4C08C236B54041FFA496736B /* ctree.h */,
+				8C641359567B40C093E33D94 /* functor.h */,
+				BF5CD8958369448AB9D082D4 /* ringvector.h */,
+				8A144930E8704CEB88024047 /* singleton.h */,
+				4CD66B34278F4C9FA472DB56 /* smartpointer.h */,
+				2495CE083629442DAF0C86BA /* streambeautifuller.h */,
+				F2EB89E0EBEE43ECBF3610AD /* tree_browser.h */,
+				04F480C83A924D699E0ED5F2 /* midiconverter.h */,
+				DCE482D80A154F2DAA212CB3 /* bottomOperation.h */,
+				513C6DA728C5446BB87CEF5C /* durationOperation.h */,
+				208E0F7A01F746DFBE105BF4 /* eheadOperation.h */,
+				20E7BADBC3CD47DF8252F7CC /* etailOperation.h */,
+				E44009385D72487EB92F220B /* headOperation.h */,
+				13CBAADFCE8646BDA1BF0784 /* interleaveOperation.h */,
+				5C21D58C565C4B5FB8EB25CD /* markers.h */,
+				A7DEBDBF11134F089D71266F /* mirrorOperation.h */,
+				8E1B63BBF77F4ACC84697382 /* normalizeOperation.h */,
+				97C240EFD581403CBAE9E3C6 /* operation.h */,
+				44B2436EDDC24A13BFC7090E /* parOperation.h */,
+				E1AFABD133BB4D8DB90B005D /* pitchApplyOperation.h */,
+				ED10572A0D5F4EF482124060 /* rythmApplyOperation.h */,
+				3F34457A06D0470481C8D6DB /* seqOperation.h */,
+				888F39F4C3974AC286DDEABD /* tailOperation.h */,
+				9C29894A913C465EA85BDF8B /* topOperation.h */,
+				F6DAD868431E4E0BB41373B7 /* transposeOperation.h */,
+				0C5305E3D5A44668AAF3EA75 /* gmnreader.h */,
+				C1F3270720F243C0AFB78FAE /* guidoparser.h */,
+				2A959E96ED3A40308A880080 /* basevisitor.h */,
+				E79A91E34A944EC7AE2A492F /* clonevisitor.h */,
+				D24CB79FC16B4010ACBD3E83 /* counteventsvisitor.h */,
+				05982AE1F8044873BA00F783 /* countvisitor.h */,
+				C9572B3AD5C24E3B8541EFD8 /* durationvisitor.h */,
+				135955696E244CEF9CB3EDC5 /* event2timevisitor.h */,
+				E09CA72069CA48528C8601F2 /* firstpitchvisitor.h */,
+				E81493439CF640CFBE402D4E /* gmnvisitor.h */,
+				C293522B9B5645BE8BF5E2D7 /* midicontextvisitor.h */,
+				A327058A6D824C0FB9AC76A3 /* pitchvisitor.h */,
+				65D64C8745BB47D6B4F9AB84 /* rythmvisitor.h */,
+				5B8C6B0B18654B52BDBA757B /* unrolled_guido_browser.h */,
+				79D2AD129CF64199A679C52A /* visitable.h */,
+				0E75FA2DDBC64DEC953D91D6 /* visitor.h */,
 			);
 			name = "Header Files";
 			sourceTree = "<group>";
 		};
-		EFDAF0E7813047E8B3817C38 /* Source Files */ = {
+		1D315D8364B3409E8AF81398 /* ZERO_CHECK */ = {
 			isa = PBXGroup;
 			children = (
-				76036877F44A4B05825A28E7 /* ARChord.cpp */,
-				A0487E1E3F114D34B67F444D /* ARFactory.cpp */,
-				CF4924911DA524A10095D0EF /* clefchangeOperation.cpp */,
-				B3E280E735844CDAB0A16090 /* ARNote.cpp */,
-				3CF66BE329E2449EA935B8A3 /* AROthers.cpp */,
-				C089BA230005425DADDC2F40 /* ARTag.cpp */,
-				CBBAA37A73AC4D34928C21CB /* guidoelement.cpp */,
-				B84D9A22D2354001A8760A5E /* libguidoar.cpp */,
-				6641F4BF331A4BBABA18BAE2 /* rational.cpp */,
-				BB0A24D34E42439DB6713B2F /* streambeautifuller.cpp */,
-				0B0B598E930A437896791C4E /* midiconverter.cpp */,
-				D6970C03849C4E458DDC68AE /* bottomOperation.cpp */,
-				2CE96EF87FAA444CBB3646EE /* durationOperation.cpp */,
-				E5B9AB55AF3B4B1FBB274D8B /* eheadOperation.cpp */,
-				F49FD20DCC7F4C4BAFB1D0E6 /* etailOperation.cpp */,
-				CCBBC2273D2F47F08D24C3CB /* headOperation.cpp */,
-				5983990091AF464A9C1CF436 /* interleaveOperation.cpp */,
-				A506E2F3CD2D43FABE7BB683 /* markers.cpp */,
-				3FFE9CCDF17E4E7B9824C2E8 /* mirrorOperation.cpp */,
-				C66CDF378A2245B8BB5E0B74 /* normalizeOperation.cpp */,
-				6BC6BB21AC144A6E87165976 /* parOperation.cpp */,
-				F8D073A628E84B1296DEAAB1 /* pitchApplyOperation.cpp */,
-				0FA7A1545B3A47C48C9916C6 /* rythmApplyOperation.cpp */,
-				7086E417D7204F60A6BDB4A5 /* seqOperation.cpp */,
-				17C90D5706BF442A8871001E /* tailOperation.cpp */,
-				DCB0B60B340244BB8DAD6259 /* topOperation.cpp */,
-				7F842AE450294F9FBD3A9FFB /* transposeOperation.cpp */,
-				CEFA24AF3D6A439D9EA56115 /* guidoparser.cpp */,
-				EA462BF8A6CE4C2799728CD9 /* parser.cpp */,
-				F4C46DA9537646C1BCFF7EA0 /* clonevisitor.cpp */,
-				6599B4ED1D3C4E96AAEBFB30 /* counteventsvisitor.cpp */,
-				71430F6F55494B11819BEA25 /* durationvisitor.cpp */,
-				11BFBE6E205B4B54BAD06C4C /* event2timevisitor.cpp */,
-				E6DA4907FFEA41C1B8B90F74 /* firstpitchvisitor.cpp */,
-				47542D60ED0A486EA0A7858B /* gmnvisitor.cpp */,
-				5B24AD33FDE14B6DBD079F89 /* midicontextvisitor.cpp */,
-				A3F77C99F37846FDB5448D1B /* pitchvisitor.cpp */,
-				D738EE20394541B2AB959515 /* rythmvisitor.cpp */,
-				4AF440CA8FA94675B56FD929 /* unrolled_guido_browser.cpp */,
+				578ACF7E78444A5FAB7092B6 /* CMake Rules */,
+				823B9E3A125F46AE86C3F899 /* CMakeLists.txt */,
 			);
-			name = "Source Files";
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		43C5A56B34324BA8BE0D6E13 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		578ACF7E78444A5FAB7092B6 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		68BD3A638D6540D5ADAFC3F0 = {
+			isa = PBXGroup;
+			children = (
+				B3ADD58AE61B4BBC9E6E67C6 /* Sources */,
+				09511E0253B2486AA9A92783 /* Resources */,
+				690072FE11A34138A695332C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		690072FE11A34138A695332C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70F028070BF74F7F8D0BA754 /* libguidoar.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74A9309099DB4309BAB906E3 /* guidoar */ = {
+			isa = PBXGroup;
+			children = (
+				09E90E3852D4426881890F66 /* Source Files */,
+				1A331ED2AF1E4D198FB1D62E /* Header Files */,
+				01C16B3379894BD1BB70CE51 /* CMakeLists.txt */,
+			);
+			name = guidoar;
+			sourceTree = "<group>";
+		};
+		968803C0A26642CD8CF8B47B /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				43C5A56B34324BA8BE0D6E13 /* CMake Rules */,
+				84170E427A1B4CEE9B6A1FE8 /* CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		B3ADD58AE61B4BBC9E6E67C6 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				74A9309099DB4309BAB906E3 /* guidoar */,
+				968803C0A26642CD8CF8B47B /* ALL_BUILD */,
+				1D315D8364B3409E8AF81398 /* ZERO_CHECK */,
+			);
+			name = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C5FE21D752E14A71B7A8551D /* guidoar */ = {
+		0F6F5C20A3464FB2BA1723E0 /* guidoar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5878D433286649789AEF2526 /* Build configuration list for PBXNativeTarget "guidoar" */;
+			buildConfigurationList = 56E6C0445A734682A25C1A08 /* Build configuration list for PBXNativeTarget "guidoar" */;
 			buildPhases = (
-				0464BC1A7EFE48239AE4C4E0 /* Sources */,
+				2F955967AE1B4BE5949E60CC /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C9848A922F2D4B3189F2A5ED /* PBXTargetDependency */,
+				E8048A3AC153453EB3638A7F /* PBXTargetDependency */,
 			);
 			name = guidoar;
 			productName = guidoar;
-			productReference = 68F5CC0121EE428E838B0166 /* libguidoar.a */;
+			productReference = 70F028070BF74F7F8D0BA754 /* libguidoar.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EA4EA5A8CB9F47FF88E28417 /* Project object */ = {
+		2AF3BD53CA6443BBB8EBC57A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				TargetAttributes = {
-					CFF4A1021D5B30DC0074EC34 = {
-						CreatedOnToolsVersion = 7.3.1;
+					CF698B131E4DD8C500827520 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = SAE7K79844;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 3DC635315CE1480C875AAA5A /* Build configuration list for PBXProject "guidoar" */;
+			buildConfigurationList = 5B8ED7F9F8584C1F909A9AE1 /* Build configuration list for PBXProject "guidoar" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 66FA1EAF057042688B22C40C;
+			mainGroup = 68BD3A638D6540D5ADAFC3F0;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				04FA54932C2342878B1CE3B4 /* ALL_BUILD */,
-				EACCF67FC39F4B85B88C95C7 /* ZERO_CHECK */,
-				C5FE21D752E14A71B7A8551D /* guidoar */,
-				CFF4A1021D5B30DC0074EC34 /* GuidoAR-Universal */,
+				3259C67FCA444BF79FE1D983 /* ALL_BUILD */,
+				776B8EB7A1C84AA49F70C447 /* ZERO_CHECK */,
+				0F6F5C20A3464FB2BA1723E0 /* guidoar */,
+				CF698B131E4DD8C500827520 /* GuidoAR-Universal */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		23D81511034D40C5BB014363 /* CMake Rules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "CMake Rules";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "make -C /Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode -f /Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
-			showEnvVarsInLog = 0;
-		};
-		AC513AD1EA1B47718C6C381E /* CMake Rules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "CMake Rules";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "make -C /Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode -f /Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
-			showEnvVarsInLog = 0;
-		};
-		CFF4A1061D5B30E80074EC34 /* ShellScript */ = {
+		CF698B171E4DD8DA00827520 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -495,78 +465,115 @@
 			shellPath = /bin/sh;
 			shellScript = "# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\necho \"Build Dir\", ${BUILD_DIR}\n\ncd ${BUILD_DIR}\ncd ..\nOUT_LIB_NAME=\"libGuidoARlib-iOS\"\nLIB_NAME=\"libguidoar\"\n\n\n# define output folder environment variable\n#UNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/guidoarlib\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}/${CONFIGURATION}\"\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target guidoar ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target guidoar -configuration ${CONFIGURATION} -sdk iphonesimulator -arch i386 -arch x86_64 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n\n# Step 2. Create universal binary file using lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${CONFIGURATION}/${OUT_LIB_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${LIB_NAME}.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${LIB_NAME}.a\"\n\n# Last touch. copy the header files. Just for convenience\ncp \"${BUILD_DIR}/../libguidoar/libguidoar.h\" \"${UNIVERSAL_OUTPUTFOLDER}/\"";
 		};
+		EB929B588EA241B38E258765 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode -f /Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		FA8B6DD70DF84FE5B3621C7B /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode -f /Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0464BC1A7EFE48239AE4C4E0 /* Sources */ = {
+		2F955967AE1B4BE5949E60CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFF4A1011D5B309C0074EC34 /* libguidoar.mm in Sources */,
-				9F0D15588E7047A98232B9C4 /* ARChord.cpp in Sources */,
-				F6FE956F3D7C48838B22F7F0 /* ARFactory.cpp in Sources */,
-				B0C7FD2162074EAC9FFF62A2 /* ARNote.cpp in Sources */,
-				871F3F9046C84567B25AC5DF /* AROthers.cpp in Sources */,
-				5C4B1D0AE6254BF9A1CD4443 /* ARTag.cpp in Sources */,
-				89D46D69CD33461C8D6A8BAD /* guidoelement.cpp in Sources */,
-				EBF2AEAF546048C9B90C3672 /* libguidoar.cpp in Sources */,
-				6DF3085566A4432DA677C4E4 /* rational.cpp in Sources */,
-				CF4924931DA524A10095D0EF /* clefchangeOperation.cpp in Sources */,
-				A9C7CF7876CC4A8C8EAF1EB4 /* streambeautifuller.cpp in Sources */,
-				EE29EBB96C6D46A78D762584 /* midiconverter.cpp in Sources */,
-				7E757DC9D2EF478DBAC343F4 /* bottomOperation.cpp in Sources */,
-				C4F9D4499A0D4E53AEA6F8E2 /* durationOperation.cpp in Sources */,
-				2B9047A7F9734FC883457DE4 /* eheadOperation.cpp in Sources */,
-				A6C6ACF8E0184F328100587C /* etailOperation.cpp in Sources */,
-				A387199B882040C1865C846E /* headOperation.cpp in Sources */,
-				83B20EA43A344D859E18195A /* interleaveOperation.cpp in Sources */,
-				51C32956DAF9463390574965 /* markers.cpp in Sources */,
-				1B515E55B480449485BE0737 /* mirrorOperation.cpp in Sources */,
-				0F1DC749E90043D88B5FE577 /* normalizeOperation.cpp in Sources */,
-				8E53CB04701E4D8B97707557 /* parOperation.cpp in Sources */,
-				2214138F69774D8B87F06CF3 /* pitchApplyOperation.cpp in Sources */,
-				367E41A3C46E4F4DBBCCCF9A /* rythmApplyOperation.cpp in Sources */,
-				7DA0A17B8138409D97B38644 /* seqOperation.cpp in Sources */,
-				81CCFADECC0248D7BE37DDD5 /* tailOperation.cpp in Sources */,
-				CCCC87D55E56463E97AE6B08 /* topOperation.cpp in Sources */,
-				872FDB8A856E4326A1980284 /* transposeOperation.cpp in Sources */,
-				415856FA58084DE4BCF566E3 /* guidoparser.cpp in Sources */,
-				3343B326B4744FEFA0939296 /* parser.cpp in Sources */,
-				18196E63581843518468F618 /* clonevisitor.cpp in Sources */,
-				1E2BB8ADC42E4044A9C6313E /* counteventsvisitor.cpp in Sources */,
-				0C244DFF87D1413A88183F32 /* durationvisitor.cpp in Sources */,
-				BC0C086782D244CFAB1D94F9 /* event2timevisitor.cpp in Sources */,
-				74D6DDC3A2EA44E48BE2DC24 /* firstpitchvisitor.cpp in Sources */,
-				5BEDAB8BB6724B3A959A752B /* gmnvisitor.cpp in Sources */,
-				1B0ECF16E06140EA877C422E /* midicontextvisitor.cpp in Sources */,
-				37EA1BCAA6CE4FDD8459A0A8 /* pitchvisitor.cpp in Sources */,
-				2C2E6564F07C4317AC0D7DB5 /* rythmvisitor.cpp in Sources */,
-				C04714BC4EA64EB4B21D19E5 /* unrolled_guido_browser.cpp in Sources */,
+				D55DCE1041164808BF9B8AAE /* libguidoar.mm in Sources */,
+				5130FF6C8E6D4A6AA271DD26 /* ARChord.cpp in Sources */,
+				49E525A21EFA4177A5C2AB98 /* ARFactory.cpp in Sources */,
+				1F0416BCC2C44BC0B03E5E00 /* ARNote.cpp in Sources */,
+				3E854F9D01BF4210B6F66471 /* AROthers.cpp in Sources */,
+				24F9C0D1333F424AA126E82D /* ARTag.cpp in Sources */,
+				D89DC7E60F674CACB4B954D2 /* guidoelement.cpp in Sources */,
+				E7879C427BB3486CA0F4516E /* libguidoar.cpp in Sources */,
+				DDBEED9CAD6447628673C98E /* rational.cpp in Sources */,
+				67D3B79E8587464F8EF34779 /* streambeautifuller.cpp in Sources */,
+				CC9558E6BC8643999200DCF2 /* midiconverter.cpp in Sources */,
+				A35F2AC903424092B662B446 /* bottomOperation.cpp in Sources */,
+				5DD782AEF6794424A17EE352 /* clefchangeOperation.cpp in Sources */,
+				7F22D9A58EF340D8A9426C27 /* durationOperation.cpp in Sources */,
+				A9C3DC088D0F456B98D6852B /* eheadOperation.cpp in Sources */,
+				98842FD80C904D8EBA33D63F /* etailOperation.cpp in Sources */,
+				7186D7C41DAF488C8517F4B6 /* headOperation.cpp in Sources */,
+				99706688EE2347279D67F22B /* interleaveOperation.cpp in Sources */,
+				958ED4AC0B1A46D68954B204 /* markers.cpp in Sources */,
+				614B02E4440B45DA828B6577 /* mirrorOperation.cpp in Sources */,
+				0CAA8D07472142C4B6FF2894 /* normalizeOperation.cpp in Sources */,
+				F898297785DF4BE79ACCB150 /* parOperation.cpp in Sources */,
+				511EF25A759D4785BFD2C8B3 /* pitchApplyOperation.cpp in Sources */,
+				1B1D19322A584E71A1EB244F /* rythmApplyOperation.cpp in Sources */,
+				7CA04B4416F94A3AB0DCCA5C /* seqOperation.cpp in Sources */,
+				99A788800DAC4F22ACB47F14 /* tailOperation.cpp in Sources */,
+				D3CE08D4CE1D42578B97BE1B /* topOperation.cpp in Sources */,
+				FF8B9F342AEB4B8284F4B9D3 /* transposeOperation.cpp in Sources */,
+				55AA128B997349D99133C7CB /* guidoparser.cpp in Sources */,
+				74FB99533BE84940832E79CF /* parser.cpp in Sources */,
+				17FAAA1EB054484A99B00BF5 /* clonevisitor.cpp in Sources */,
+				7E9EC0DA17454EACB9F0778F /* counteventsvisitor.cpp in Sources */,
+				3D1A48D7394444A89EF1B98A /* durationvisitor.cpp in Sources */,
+				FD5A5BDF465F409F8FA22405 /* event2timevisitor.cpp in Sources */,
+				A3E6F39A371C4D38BA1903D7 /* firstpitchvisitor.cpp in Sources */,
+				92FFD636963843F7A861AA92 /* gmnvisitor.cpp in Sources */,
+				F896A22C5AFD4F769FD6F1D8 /* midicontextvisitor.cpp in Sources */,
+				B3C7FD6D5D65441E8D8FC911 /* pitchvisitor.cpp in Sources */,
+				24F4BAFC530245EF8B22E69F /* rythmvisitor.cpp in Sources */,
+				C6FB642A41844E6AA2795A08 /* unrolled_guido_browser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2FF70B7E01E742CFBF18882C /* PBXTargetDependency */ = {
+		2D11C0236305438AA804E0E7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EACCF67FC39F4B85B88C95C7 /* ZERO_CHECK */;
-			targetProxy = 914DCEDB31F04462890CD662 /* PBXContainerItemProxy */;
+			target = 0F6F5C20A3464FB2BA1723E0 /* guidoar */;
+			targetProxy = C965159D5683453D98BF5F99 /* PBXContainerItemProxy */;
 		};
-		C9848A922F2D4B3189F2A5ED /* PBXTargetDependency */ = {
+		E427BA2E16694F1AA32CAB1D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EACCF67FC39F4B85B88C95C7 /* ZERO_CHECK */;
-			targetProxy = 72E15C26FE1C4396B93468FF /* PBXContainerItemProxy */;
+			target = 776B8EB7A1C84AA49F70C447 /* ZERO_CHECK */;
+			targetProxy = 4079CEBA56D8456A84843D8C /* PBXContainerItemProxy */;
 		};
-		F868D04E99A640B3A28F959A /* PBXTargetDependency */ = {
+		E8048A3AC153453EB3638A7F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C5FE21D752E14A71B7A8551D /* guidoar */;
-			targetProxy = 340CF6D311E44F27A4A335B3 /* PBXContainerItemProxy */;
+			target = 776B8EB7A1C84AA49F70C447 /* ZERO_CHECK */;
+			targetProxy = F4AD23437F7F4C7FAB7F5D79 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		07C93B7AC6A545268DCB0CC3 /* Release */ = {
+		02E7E689D6DF463384755359 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					arm64,
+					armv7,
+					armv7s,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				SDKROOT = iphoneos;
+				SYMROOT = "/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/build";
+			};
+			name = Debug;
+		};
+		5EC21E9A24614663B7BA164F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
@@ -598,7 +605,6 @@
 					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/midisharelight",
 				);
 				INSTALL_PATH = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_STYLE = STATIC;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -607,7 +613,6 @@
 					"-DNDEBUG",
 					"-Wall",
 				);
-				OTHER_LDFLAGS = "-ObjC";
 				OTHER_LIBTOOLFLAGS = " ";
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = guidoar;
@@ -623,7 +628,7 @@
 			};
 			name = Release;
 		};
-		1BBA36C33AD945BEB468EBF8 /* Debug */ = {
+		72B89B762639440DACFF55B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
@@ -655,7 +660,6 @@
 					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/midisharelight",
 				);
 				INSTALL_PATH = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_STYLE = STATIC;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -663,7 +667,6 @@
 					"-stdlib=libc++",
 					"-Wall",
 				);
-				OTHER_LDFLAGS = "-ObjC";
 				OTHER_LIBTOOLFLAGS = " ";
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = guidoar;
@@ -679,7 +682,7 @@
 			};
 			name = Debug;
 		};
-		40B16CCA27294FE391A541FC /* Debug */ = {
+		B5FBE49595EF4C8AA412A492 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -704,105 +707,7 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ALL_BUILD;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/build";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = Debug;
-		};
-		4361524384EA4D3CA4991529 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = (
-					arm64,
-					armv7,
-					armv7s,
-				);
-				SDKROOT = iphoneos;
-				SYMROOT = "/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/build";
-			};
-			name = Release;
-		};
-		557368D60DFF43BD9DF5DFB1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = (
-					arm64,
-					armv7,
-					armv7s,
-				);
-				SDKROOT = iphoneos;
-				SYMROOT = "/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/build";
-			};
-			name = Debug;
-		};
-		820D9973E73743608D4B9E92 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/interface",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/guido",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/guido/abstract",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/lib",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/operations",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/visitors",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/midi",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/parser",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/midisharelight",
-				);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/build";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = Debug;
-		};
-		C7788F5EA6354DA5B8E16D4B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/interface",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/guido",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/guido/abstract",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/lib",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/operations",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/visitors",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/midi",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/parser",
-					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/midisharelight",
-				);
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/build";
+				SYMROOT = "/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -813,21 +718,7 @@
 			};
 			name = Release;
 		};
-		CFF4A1041D5B30DC0074EC34 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		CFF4A1051D5B30DC0074EC34 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		F25B8D705B0B42B88E5B6432 /* Release */ = {
+		C6267C644B374BFEB613729B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -862,56 +753,158 @@
 				);
 			};
 			name = Release;
+		};
+		CF698B151E4DD8C500827520 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = SAE7K79844;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CF698B161E4DD8C500827520 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = SAE7K79844;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D10C185811CA432A90F2D320 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					arm64,
+					armv7,
+					armv7s,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				SDKROOT = iphoneos;
+				SYMROOT = "/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/build";
+			};
+			name = Release;
+		};
+		D9E0257A7BF04DCBAF960CBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/interface",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/guido",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/guido/abstract",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/lib",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/operations",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/visitors",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/midi",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/parser",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/midisharelight",
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		FE394E2F579646E6AB959412 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/interface",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/guido",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/guido/abstract",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/lib",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/operations",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/visitors",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/midi",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/parser",
+					"/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/../src/midisharelight",
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/build";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3DC635315CE1480C875AAA5A /* Build configuration list for PBXProject "guidoar" */ = {
+		2E2F7E61D78445F685AE86FB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				557368D60DFF43BD9DF5DFB1 /* Debug */,
-				4361524384EA4D3CA4991529 /* Release */,
+				FE394E2F579646E6AB959412 /* Debug */,
+				C6267C644B374BFEB613729B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		4FCC2D9872E84AA999BB5578 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		56E6C0445A734682A25C1A08 /* Build configuration list for PBXNativeTarget "guidoar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				820D9973E73743608D4B9E92 /* Debug */,
-				F25B8D705B0B42B88E5B6432 /* Release */,
+				72B89B762639440DACFF55B9 /* Debug */,
+				5EC21E9A24614663B7BA164F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		5878D433286649789AEF2526 /* Build configuration list for PBXNativeTarget "guidoar" */ = {
+		5B8ED7F9F8584C1F909A9AE1 /* Build configuration list for PBXProject "guidoar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1BBA36C33AD945BEB468EBF8 /* Debug */,
-				07C93B7AC6A545268DCB0CC3 /* Release */,
+				02E7E689D6DF463384755359 /* Debug */,
+				D10C185811CA432A90F2D320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		99AE2A72EC9F4D32BBE552A1 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		CF698B141E4DD8C500827520 /* Build configuration list for PBXAggregateTarget "GuidoAR-Universal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				40B16CCA27294FE391A541FC /* Debug */,
-				C7788F5EA6354DA5B8E16D4B /* Release */,
+				CF698B151E4DD8C500827520 /* Debug */,
+				CF698B161E4DD8C500827520 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
 		};
-		CFF4A1031D5B30DC0074EC34 /* Build configuration list for PBXAggregateTarget "GuidoAR-Universal" */ = {
+		F6AF9528639743F196708C44 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CFF4A1041D5B30DC0074EC34 /* Debug */,
-				CFF4A1051D5B30DC0074EC34 /* Release */,
+				D9E0257A7BF04DCBAF960CBC /* Debug */,
+				B5FBE49595EF4C8AA412A492 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EA4EA5A8CB9F47FF88E28417 /* Project object */;
+	rootObject = 2AF3BD53CA6443BBB8EBC57A /* Project object */;
 }

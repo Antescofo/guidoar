@@ -65,11 +65,14 @@ set (SRCFOLDERS  interface guido guido/abstract lib operations visitors midi par
 foreach(folder ${SRCFOLDERS})
 	set(SRC ${SRC} "${GARSRC}/${folder}/*.cpp")			# add source files
 endforeach(folder)
+set(SRC ${SRC} "${GAR}/XCode/libguidoar/*.mm") # add objective-C interface (AC/Antescofo)
 file (GLOB CORESRC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${SRC})
 
 foreach(folder ${SRCFOLDERS})
 	set(HEADERS ${HEADERS} "${GARSRC}/${folder}/*.h")		# add header files
 endforeach(folder)
+set(HEADERS ${HEADERS} "${GAR}/XCode/libguidoar/*.h") # add objective-C interface (AC/Antescofo)
+
 file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
 
 foreach(folder ${SRCFOLDERS})

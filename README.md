@@ -5,6 +5,8 @@ Run the {{guidoar}} Xcode project and build the {{GuidoAR-Universal}} target.
 
 This will create the {{build/libguidoar}} that contains _universal_ static libraries and also the header to be included in the _GuidoKit_ project.
 
+To regenerate the XCode project: cmake . -DIOS=yes -G Xcode
+
 # Original Guidolib-guidoar readme.txt:
 ----------------------------------------------------------------------
 
