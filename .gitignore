@@ -1,13 +1,5 @@
 .DS_Store
 *~
-XCode/guidoar.framework/
-XCode/guidoar.tgz
-XCode/ios/
-XCode/libguidoar.a
-XCode/macos/
-XCode/android/libguidoar.so
-XCode/android/libs/
-XCode/android/obj/
 guidocalculus/package/GuidoCalculus.app/
 guidocalculus/src/.qmake.stash
 guidocalculus/src/Debug/
@@ -25,7 +17,8 @@ validation/0.90/
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## Build generated
-build/
+build/ios
+build/macos
 DerivedData/
 
 ## Various settings
