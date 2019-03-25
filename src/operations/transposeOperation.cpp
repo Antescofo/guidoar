@@ -462,10 +462,12 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
                 }
             }
             
-        }else if ((type == kTStemsUp) || (type == kTStemsDown))
+        }
+        /// GUID-103: Using "stemsAuto" will lead to collisions on multi-voice staves
+        /*else if ((type == kTStemsUp) || (type == kTStemsDown))
         {
             elt->setName("stemsAuto");
-        }
+        }*/
     }
     
     double transposeOperation::calculateLyricsDy(double dy)

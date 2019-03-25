@@ -24,7 +24,7 @@ xcodebuild -project ios/guidoar.xcodeproj  -target guidoar -configuration Releas
 
 
 ##### Move to Pod location
-OUT_LIB_NAME="/libGuidoARlib-iOS"
+OUT_LIB_NAME="/libGuidoARlib-iOS.a"
 
 libname="/libguidoar.a"
 
@@ -73,11 +73,11 @@ fi
 
 ##### Update src
 localheaderpath="$(pwd)/../src/objc/libguidoar.h"
-cp -v $localsrcpath $podsrcpath
+cp $localheaderpath $podpublicheaderpath
 if [ $? -eq 0 ]; then
 	echo Public Header copied to Pod.
 else
-	echo Publib Header Copy failed! Exiting... .
+	echo Publib Header Copy failed! Exiting... 
 	exit
 fi
 
