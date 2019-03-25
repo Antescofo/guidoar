@@ -87,6 +87,27 @@ Sguidoelement transposeOperation::operator() ( const Sguidoelement& score, int s
 	}
 	return transposed;
 }
+    //_______________________________________________________________________________
+    Sguidoelement transposeOperation::operator() ( const Sguidoelement& score, int steps, std::vector<int> st )
+    {
+        fCurrentOctaveIn = fCurrentOctaveOut = ARNote::kDefaultOctave;
+        fChromaticSteps = steps;
+        fOctaveChange = getOctave(fChromaticSteps);
+        fTableShift = getKey (getOctaveStep(fChromaticSteps));
+        staves = st;
+        
+        Sguidoelement transposed;
+        if (score) {
+            guidoScore = score;
+            clonevisitor cv;
+            transposed = cv.clone(score);
+        }
+        if (transposed) {
+            tree_browser<guidoelement> tb(this);
+            tb.browse (*transposed);
+        }
+        return transposed;
+    }
 
 //________________________________________________________________________
 /*
@@ -112,6 +133,8 @@ void transposeOperation::initialize ()
 	}
     
     lyricsOffset = 0.0;
+    staves.clear();
+    visitStaff = true;
 }
 
 //________________________________________________________________________
@@ -220,6 +243,7 @@ int transposeOperation::convertKey ( const string& key )
 //________________________________________________________________________
 void transposeOperation::visitStart ( SARNote& elt ) 
 {
+    if (visitStaff==false) return;
 	if (elt->isRest() || elt->isEmpty()) return;
 
 	int alter;
@@ -246,6 +270,8 @@ void transposeOperation::visitStart ( SARNote& elt )
 //________________________________________________________________________
 void transposeOperation::visitStart ( SARKey& elt )
 {
+    if (visitStaff==false) return;
+
 	Sguidoattribute attr = elt->getAttribute(0);
 	if (attr) {
 		int key = 0;
@@ -278,7 +304,27 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
         Sguidoattributes::const_iterator iter;
         
         int type = elt->getType();
-        if (type == kTLyrics)   // (type == kTText) ||(
+        
+        if (type == kTStaff) {
+            
+            int thisStaffNum = atoi(attr.at(0)->getValue().c_str());
+            
+            if (staves.size() ==0)
+            {
+                visitStaff = true;
+            } else
+            {
+                if (std::find(staves.begin(), staves.end(), thisStaffNum) != staves.end()) {
+                    visitStaff = true;
+                }else
+                {
+                    visitStaff = false;
+                }
+            }
+            
+        }
+        // We no longer use dY attribute of Lyrics as they are adapted automatically using autoPos
+        /*else if (type == kTLyrics)   // (type == kTText) ||(
         {
             if (attr.size() == 2) // there's a dy attribute
             {
@@ -289,22 +335,10 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
                 
                 attr.at(1)->setValue(newLyricsDy);
                 
-            }else   // There is no dy attribute
-            {
-                
             }
-            
-            /*cout<<"Lyric Visitor";
-            for (iter=attr.begin(); iter != attr.end(); iter++) {
-                //Sguidoattribute ac = guidoattribute::create();
-                //ac->setName ( (*iter)->getName());
-                //ac->setValue( (*iter)->getValue(), (*iter)->quoteVal());
-                //ac->setUnit ( (*iter)->getUnit());
-                //dst->add( ac );
-                cout << (*iter)->getName() <<", value: "<< (*iter)->getValue()
-                << ", unit: "<<(*iter)->getUnit();
-            }
-            cout<<endl;*/
+        }*/
+        if (visitStaff == false) {
+            return;
         }
         else if (type == kTClef)
         {

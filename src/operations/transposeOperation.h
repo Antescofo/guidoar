@@ -73,6 +73,16 @@ class gar_export transposeOperation :
 			\return a new transposed score
 		*/
 		Sguidoelement operator() ( const Sguidoelement& score, int steps );
+    
+    
+    /*! computes a score transposition on requested staves
+     \param score the score to transpose
+     \param st Vector list of staves (int) to transpose
+     \param steps the chromatic transposition step
+     \return a new transposed score
+     */
+    Sguidoelement operator() ( const Sguidoelement& score, int steps, std::vector<int> st );
+    
 
 		/*! computes a score transposition
 			\param score1 the score to transpose
@@ -150,6 +160,9 @@ class gar_export transposeOperation :
     bool  isFClef(Sguidotag & elt);
     
     Sguidoelement guidoScore;
+    
+    std::vector<int> staves;
+    bool         visitStaff;
 
 };
 
