@@ -61,10 +61,14 @@ endif()
 set (GAR 		${CMAKE_CURRENT_SOURCE_DIR}/..)
 set (GARSRC 	${GAR}/src)
 set (GARTOOLS   ${GAR}/tools)
-set (SRCFOLDERS  interface guido guido/abstract lib operations visitors midi parser)
+set (SRCFOLDERS  interface guido guido/abstract lib operations visitors midi parser objc)
 
 foreach(folder ${SRCFOLDERS})
-	set(SRC ${SRC} "${GARSRC}/${folder}/*.cpp")			# add source files
+	if (IOS )
+		set(SRC ${SRC} "${GARSRC}/${folder}/*.cpp" "${GARSRC}/${folder}/*.mm")			# add source files
+	else ()
+		set(SRC ${SRC} "${GARSRC}/${folder}/*.cpp")			# add source files
+	endif ()
 endforeach(folder)
 file (GLOB CORESRC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${SRC})
 
@@ -76,7 +80,6 @@ file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
 foreach(folder ${SRCFOLDERS})
 	set(INCL ${INCL} "${GARSRC}/${folder}")				# add include folders
 endforeach(folder)
-
 
 #######################################
 # set includes

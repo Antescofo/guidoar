@@ -78,6 +78,18 @@ gar_export garErr			guido2unrolled(const char* gmn, std::ostream& out);
 */
 gar_export garErr			guidoVTranpose(const char* gmn, int interval, std::ostream& out);
 
+    /*! \brief transpose a set of staves in a score
+     
+     Transposition of a score affects notes but also key signature when present. Between similar enharmonic
+     key signatures, the simplest one is choosen.
+     \param gmn a string containing the gmn code
+     \param interval the transposing interval
+     \param staves an int vector containing staves to be transposed
+     \param out		the output stream
+     \return an error code
+     */
+    gar_export garErr guidoVTranposeOnStaff(const char* gmn, int interval, std::vector<int> staves, std::ostream& out);
+    
 /*! \brief transpose a score using another score
 
 	The transposing interval is computed as the difference between the 2 score's pitches: 

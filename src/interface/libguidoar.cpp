@@ -117,6 +117,18 @@ template<typename OP, typename ARG> garErr opWrapper(const char* gmn, ARG param,
 	else return kOperationFailed;		
 	return kNoErr;
 }
+    
+    template<typename OP, typename ARG1, typename ARG2> garErr opWrapper(const char* gmn, ARG1 param1, ARG2 param2, std::ostream& out)
+    {
+        Sguidoelement score =  read(gmn);
+        if (!score) return kInvalidArgument;
+        
+        OP op;
+        score = op(score, param1, param2);
+        if (score) out << score << endl;
+        else return kOperationFailed;
+        return kNoErr;
+    }
 
 //----------------------------------------------------------------------------
 template<typename OP> garErr opgmnWrapper(const char* gmn, const char* gmnSpec,  std::ostream& out)
@@ -199,12 +211,20 @@ gar_export garErr guidoApplyPitch(const char* gmn, const char* gmnSpec, TApplyMo
 //----------------------------------------------------------------------------
 gar_export garErr guidoVTranpose(const char* gmn, int interval, std::ostream& out)
 							{ return opWrapper<transposeOperation, int>(gmn, interval, out); }
+    
+    gar_export garErr guidoVTranposeOnStaff(const char* gmn, int interval, std::vector<int> staves, std::ostream& out)
+    {
+        return opWrapper<transposeOperation, int, std::vector<int> >(gmn, interval, staves, out);
+    }
+    
 gar_export garErr guidoGTranpose(const char* gmn, const char* gmnSpec, std::ostream& out)
 							{ return opgmnWrapper<transposeOperation>(gmn, gmnSpec, out); }
     
     //----------------------------------------------------------------------------
     gar_export garErr guidoClefChange(const char* gmn, std::string newClef, std::ostream& out)
-    { return opWrapper<clefchangeOperation, std::string>(gmn, newClef, out); }
+    {
+        return opWrapper<clefchangeOperation, std::string>(gmn, newClef, out);
+    }
     
     gar_export garErr guidoClefChangeOnStaff(const char* gmn, std::string newClef, int staff, std::ostream& out)
     {
