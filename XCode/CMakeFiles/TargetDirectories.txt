@@ -1,3 +1,0 @@
-/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/CMakeFiles/guidoar.dir
-/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/CMakeFiles/ALL_BUILD.dir
-/Users/acont/Devs/MyFlextProjects/guidolib-guidoar/XCode/CMakeFiles/ZERO_CHECK.dir

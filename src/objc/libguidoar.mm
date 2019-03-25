@@ -27,6 +27,25 @@
     return transposedString;
 }
 
+-(NSString *)guidoScoreTranspose:(NSString *)gmn interval:(int)interv onStaff:(NSArray*) staves
+{
+    int count = [staves count];
+    std::vector<int> stavesCArray;
+    for (int i = 0; i < count; i++)
+    {
+        stavesCArray.push_back( [[staves objectAtIndex:i] intValue] );
+    }
+    
+    std::ostringstream oss;
+    
+    const char *gmn_cstyle = [gmn UTF8String];
+    
+    guido::guidoVTranposeOnStaff(gmn_cstyle, interv, stavesCArray, oss);
+    
+    NSString *transposedString = [NSString stringWithCString:oss.str().c_str() encoding:NSUTF8StringEncoding];
+    return transposedString;
+}
+
 -(NSString *)guidoVTop:(NSString *)gmn nvoices:(int)nvoices
 {
     std::ostringstream oss;

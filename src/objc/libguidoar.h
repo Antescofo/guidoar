@@ -16,6 +16,11 @@
 -(NSString *)guidoScoreTranspose:(NSString *)gmn interval:(int)interv;
 
 /**
+ * Returns a Guido Score, with requested staff transposed, using semi-tone interval in interv.
+ */
+-(NSString *)guidoScoreTranspose:(NSString *)gmn interval:(int)interv onStaff:(NSArray*) staves;
+
+/**
  * Returns a Guido score preserving n Top Voices
  */
 -(NSString *)guidoVTop:(NSString *)gmn nvoices:(int)nvoices;
