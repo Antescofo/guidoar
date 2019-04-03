@@ -340,7 +340,8 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
         if (visitStaff == false) {
             return;
         }
-        else if (type == kTClef)
+        
+        if (type == kTClef)
         {
             int fLowestPitch;                   // Lowest pitch in score
             int fHighestPitch;                  // Highest pitch in score
@@ -468,6 +469,16 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
         {
             elt->setName("stemsAuto");
         }*/
+        
+        if ( (type == kTCresc) || (type == kTCrescBegin) || (type == kTDim) || (type == kTDimBegin) || (kTLyrics) ) {
+            // Use Autopos during Transpose Operations
+            auto dyAttr = elt->getAttribute("dy");
+            if (dyAttr) {
+                dyAttr->setName("autopos");
+                dyAttr->setValue("on", true);
+                dyAttr->setUnit("");
+            }
+        }
     }
     
     double transposeOperation::calculateLyricsDy(double dy)

@@ -107,31 +107,50 @@ namespace guido
         Sguidoattributes::const_iterator iter;
         
         int type = elt->getType();
-        if (type == kTClef)
-        {
-            if (visitStaff)
+        
+        switch (type) {
+            case kTClef:
             {
-                // Just change!
-                attr.at(0)->setValue(newClef, true);
-            }
-        }else if (type==kTStaff)
-        {
-            if (staffNumToChange != 0)
-            {
-                //cout<<"GuidoARLIB: Got to staff ";
-                //cout<<attr.at(0)->getValue()<<endl;
-
-                // Check if visiting staff corresponds!
-                if (attr.size())
+                if (visitStaff)
                 {
-                    int thisStaffNum = atoi(attr.at(0)->getValue().c_str());
-                    if (thisStaffNum != staffNumToChange)
-                    {
-                        visitStaff = false;
-                    }else
-                        visitStaff = true;
+                    // Just change!
+                    attr.at(0)->setValue(newClef, true);
                 }
+                break;
             }
+                
+            case kTStaff:
+            {
+                if (staffNumToChange != 0)
+                {
+                    // Check if visiting staff corresponds!
+                    if (attr.size())
+                    {
+                        int thisStaffNum = atoi(attr.at(0)->getValue().c_str());
+                        if (thisStaffNum != staffNumToChange)
+                        {
+                            visitStaff = false;
+                        }else
+                            visitStaff = true;
+                    }
+                }
+                break;
+            }
+                
+            case kTCrescBegin: case kTCresc: case kTDimBegin: case kTDim: case kTLyrics:
+            {
+                // Use Autopos during Transpose Operations
+                auto dyAttr = elt->getAttribute("dy");
+                if (dyAttr) {
+                    dyAttr->setName("autopos");
+                    dyAttr->setValue("on", true);
+                    dyAttr->setUnit("");
+                }
+                break;
+            }
+                
+            default:
+                break;
         }
         
     }
