@@ -470,13 +470,16 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
             elt->setName("stemsAuto");
         }*/
         
-        if ( (type == kTCresc) || (type == kTCrescBegin) || (type == kTDim) || (type == kTDimBegin) || (kTLyrics) ) {
+        if ( (type == kTCresc) || (type == kTCrescBegin) || (type == kTDim) || (type == kTDimBegin) || (type == kTLyrics) ) {
             // Use Autopos during Transpose Operations
             auto dyAttr = elt->getAttribute("dy");
             if (dyAttr) {
+                //cerr<<"GuidoAR: Going to transform ("<< elt->getType()<<") "<< elt->getName()<< " : ";elt->print(cerr);
                 dyAttr->setName("autopos");
                 dyAttr->setValue("on", true);
                 dyAttr->setUnit("");
+                //cerr<<" \t -> ";elt->print(cerr);cerr<<endl;
+                
             }
         }
     }
