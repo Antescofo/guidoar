@@ -470,7 +470,8 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
             elt->setName("stemsAuto");
         }*/
         
-        if ( (type == kTCresc) || (type == kTCrescBegin) || (type == kTDim) || (type == kTDimBegin) || (type == kTLyrics) ) {
+        if ( (type == kTCresc) || (type == kTCrescBegin) || (type == kTDim) || (type == kTDimBegin) || (type == kTLyrics)
+            || (type == kTIntens) ) {
             // Use Autopos during Transpose Operations
             auto dyAttr = elt->getAttribute("dy");
             if (dyAttr) {

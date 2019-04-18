@@ -137,7 +137,7 @@ namespace guido
                 break;
             }
                 
-            case kTCrescBegin: case kTCresc: case kTDimBegin: case kTDim: case kTLyrics:
+            case kTCrescBegin: case kTCresc: case kTDimBegin: case kTDim: case kTLyrics: case kTIntens:
             {
                 // Use Autopos during Transpose Operations
                 auto dyAttr = elt->getAttribute("dy");
