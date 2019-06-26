@@ -218,7 +218,8 @@ ARFactory::ARFactory()
 	fMap["backward"]	= new newTagFunctor<kTBackward>;
 	// new tags Guido v.1.38
 	fMap["harmonic"]	= new newTagFunctor<kTHarmonic>;
-	fMap["pizz"]		= new newTagFunctor<kTPizz>;
+    fMap["pizz"]        = new newTagFunctor<kTPizz>;
+    fMap["arpeggio"]    = new newTagFunctor<kTArpeggio>;
 }
 
 //______________________________________________________________________________

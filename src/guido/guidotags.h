@@ -148,6 +148,7 @@ enum {
 	// new tags Guido v.1.38
 	kTHarmonic,
 	kTPizz,
+    kTArpeggio,
 	kTagEnd
 };
 

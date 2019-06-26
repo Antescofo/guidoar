@@ -101,7 +101,9 @@ void markers::markOpened ( Sguidotag& elt, bool end )
 	if (elt->getType() == kTText) return;	
 	if (elt->getType() == kTFingering) return;	
 	if (elt->getType() == kTFermata) return;
-	if (elt->getType() == kTPizz) return;
+    if (elt->getType() == kTPizz) return;
+	if (elt->getType() == kTArpeggio) return;
+    if (elt->getType() == kTBreathMark) return;
 	if (elt->getType() == kTHarmonic) return;
 
 	if (elt->getType() == kTTurn) return;
