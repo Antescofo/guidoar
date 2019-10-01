@@ -149,6 +149,7 @@ enum {
 	kTHarmonic,
 	kTPizz,
     kTArpeggio,
+    kTBow,
 	kTagEnd
 };
 

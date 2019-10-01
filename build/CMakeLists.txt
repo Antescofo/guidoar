@@ -31,6 +31,8 @@ if(WIN32)
  endif ()
 endif()
 
+set (CMAKE_CXX_STANDARD 11)
+
 
 if(APPLE)
  	add_definitions(-DAPPLE)

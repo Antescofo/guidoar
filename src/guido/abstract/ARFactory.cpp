@@ -220,6 +220,7 @@ ARFactory::ARFactory()
 	fMap["harmonic"]	= new newTagFunctor<kTHarmonic>;
     fMap["pizz"]        = new newTagFunctor<kTPizz>;
     fMap["arpeggio"]    = new newTagFunctor<kTArpeggio>;
+    fMap["bow"]         = new newTagFunctor<kTBow>;
 }
 
 //______________________________________________________________________________
