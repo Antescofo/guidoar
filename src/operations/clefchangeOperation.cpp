@@ -149,6 +149,13 @@ namespace guido
                 break;
             }
                 
+            case kTFingering:
+            {
+                // GUID-152: Remove Fingering when transposed
+                elt->clear();
+                break;
+            }
+                
             default:
                 break;
         }
