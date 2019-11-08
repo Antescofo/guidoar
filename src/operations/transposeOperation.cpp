@@ -483,6 +483,11 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
                 
             }
         }
+        
+        // GUID-152: Remove Fingering when transposed 
+        if (type == kTFingering) {
+            elt->clear();
+        }
     }
     
     double transposeOperation::calculateLyricsDy(double dy)
