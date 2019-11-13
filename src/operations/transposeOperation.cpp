@@ -306,7 +306,7 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
             // Now insert nested elements one by one
             for (auto ne = nestedElements.begin(); ne != nestedElements.end(); ne++) {
                 elt->insert(element, *ne);
-                cerr<< " ++ ";(*ne)->print(cerr);
+                //cerr<< " ++ ";(*ne)->print(cerr);
             }
             //cerr<< " \n\t Element pointer contains: "; (*element)->print(cerr);cerr<<endl;
         }else {
