@@ -99,6 +99,26 @@ namespace guido
         return transposed;
     }
 
+void clefchangeOperation::visitStart(SARVoice& elt) {
+    /// Remove Fingerings GUID-152
+    ctree<guidoelement>::iterator element = elt->begin();
+    while (element != elt->end()) {
+        if (element->getName() == "fingering") {
+            //cerr<<"Found Fingering, with size "<<element->size();
+            auto nestedElements = element->elements();
+            element = elt->erase(element);
+            // Now insert nested elements one by one
+            for (auto ne = nestedElements.begin(); ne != nestedElements.end(); ne++) {
+                elt->insert(element, *ne);
+                //cerr<< " ++ ";(*ne)->print(cerr);
+            }
+            //cerr<< " \n\t Element pointer contains: "; (*element)->print(cerr);cerr<<endl;
+        }else {
+            element++;
+        }
+    }
+}
+
     
     //________________________________________________________________________
     void clefchangeOperation::visitStart ( Sguidotag& elt )
@@ -146,13 +166,6 @@ namespace guido
                     dyAttr->setValue("on", true);
                     dyAttr->setUnit("");
                 }
-                break;
-            }
-                
-            case kTFingering:
-            {
-                // GUID-152: Remove Fingering when transposed
-                elt->clear();
                 break;
             }
                 
