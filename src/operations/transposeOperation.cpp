@@ -295,6 +295,24 @@ void transposeOperation::visitStart ( SARKey& elt )
 void transposeOperation::visitStart ( SARVoice& elt ) {
 	fCurrentOctaveIn = fCurrentOctaveOut = ARNote::kDefaultOctave;				// default current octave
 	fTableShift = getKey (getOctaveStep(fChromaticSteps));
+    
+    /// Remove Fingerings GUID-152
+    ctree<guidoelement>::iterator element = elt->begin();
+    while (element != elt->end()) {
+        if (element->getName() == "fingering") {
+            //cerr<<"Found Fingering, with size "<<element->size();
+            auto nestedElements = element->elements();
+            element = elt->erase(element);
+            // Now insert nested elements one by one
+            for (auto ne = nestedElements.begin(); ne != nestedElements.end(); ne++) {
+                elt->insert(element, *ne);
+                cerr<< " ++ ";(*ne)->print(cerr);
+            }
+            //cerr<< " \n\t Element pointer contains: "; (*element)->print(cerr);cerr<<endl;
+        }else {
+            element++;
+        }
+    }
 }
     
     //________________________________________________________________________
@@ -484,10 +502,6 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
             }
         }
         
-        // GUID-152: Remove Fingering when transposed 
-        if (type == kTFingering) {
-            elt->clear();
-        }
     }
     
     double transposeOperation::calculateLyricsDy(double dy)

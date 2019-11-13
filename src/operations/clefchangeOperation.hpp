@@ -35,7 +35,7 @@ namespace guido
     public operation,
     //public visitor<SARNote>,
     //public visitor<SARKey>,
-    //public visitor<SARVoice>,
+    public visitor<SARVoice>,
     public visitor<Sguidotag>
     {
     public:
@@ -74,7 +74,7 @@ namespace guido
         
         //virtual void visitStart ( SARNote& elt );
         //virtual void visitStart ( SARKey& elt );
-        //virtual void visitStart ( SARVoice& elt );
+        virtual void visitStart ( SARVoice& elt );
         virtual void visitStart( Sguidotag& elt );
         
         
