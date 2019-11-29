@@ -137,6 +137,9 @@ class gar_export transposeOperation :
 		int		fCurrentOctaveOut;		// the current octave of output notes
     
     
+    
+    
+    bool removeFingering(ctree<guidoelement>::iterator &element, SARVoice& elt);
     double lyricsOffset;
 
 		void	initialize	();

@@ -299,22 +299,69 @@ void transposeOperation::visitStart ( SARVoice& elt ) {
     /// Remove Fingerings GUID-152
     ctree<guidoelement>::iterator element = elt->begin();
     while (element != elt->end()) {
-        if (element->getName() == "fingering") {
-            auto nestedElements = element->elements();
-            //cerr<<"Found Fingering, with size "<<element->size()<<" "<<nestedElements.size()<<" 1st=";
-            //(*(nestedElements.at(0))).print(cerr);
-            element = elt->erase(element);
-            // Now insert nested elements one by one
-            for (auto ne = nestedElements.begin(); ne != nestedElements.end(); ne++) {
-                // TODO: Put back Element to the first inserted branch in case of >1 size
-                element = elt->insert(element, *ne);
-                //cerr<< " ++ ";(*ne)->print(cerr);
-            }
-            //cerr<< " \n\t Element pointer contains: "; (*element)->print(cerr);cerr<<endl;
-        }else {
+        cerr<<"Element: "<<element->getName()<<" size:"<<element->size()<<" =";element->print(cerr);cerr<<endl;
+        // First level search
+        if (!removeFingering(element, elt)) {
             element++;
         }
     }
+}
+
+bool transposeOperation::removeFingering(ctree<guidoelement>::iterator &element, SARVoice& elt) {
+    if (element->getName() == "fingering")  // First-level
+    {
+        auto nestedElements = element->elements();
+        cerr<<"\tFound Fingering: ";element->print(cerr);cerr<<" Sub=";
+        (*(nestedElements.at(0))).print(cerr);cerr<<endl;
+
+        // Now insert nested elements one by one
+        std::vector<int> toInsert;
+        int index = 0;
+        nestedElements.clear();
+
+        if (element->size()>0) {
+            ctree<guidoelement>::iterator ne = element->begin();
+            while (ne != element->end()) {
+                if (!removeFingering(ne, elt)) {
+                    cerr<<"\t\t Nested element "<<index<<" has no fingering!";(*ne)->print(cerr);cerr<<endl;
+                    nestedElements.push_back((*ne));
+                    ne++;
+                }
+                index++;
+            }
+        }
+        
+        cerr<<"\t Erasing:";element->print(cerr);cerr<<endl;
+        element = elt->erase(element);
+
+        // insert non-fingering elements
+        if (nestedElements.size()>0) {
+            for (auto i =nestedElements.begin(); i!=nestedElements.end(); i++) {
+                cerr<<"\t Inserting: ";
+                (*i)->print(cerr);
+                cerr<<endl;
+
+                element = elt->insert(element, (*i));
+            }
+        }
+        return true;
+    }else // low-level
+        if (element->size()>0)
+    {
+        cerr<<"Hello and then!!! "<<element->size()<<endl;
+        cerr<<"Yooo ";element->begin()->print(cerr);cerr<<endl;
+        ctree<guidoelement>::iterator ne = element->begin();
+        cerr<<"Hello2!!!"<<endl;
+        while (ne != element->end()) {
+            cerr<<"\t Low-Level Browsing ";//(*ne)->getName();cerr<<endl;
+            if (!removeFingering(ne, elt)) {
+                cerr<<"\t ++ ";(*ne)->print(cerr);cerr<<endl;
+                // If there is no fingering leave unchanged
+                ne++;
+            }
+        }
+    }
+    return false;
 }
     
     //________________________________________________________________________
