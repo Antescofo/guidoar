@@ -1,5 +1,16 @@
 .DS_Store
 *~
+*.o
+build/guidoar.framework/
+build/guidoar.tgz
+build/guidoardir
+build/iosdir
+build/lib
+build/libguidoar.a
+build/macos/
+build/android/libguidoar.so
+build/android/libs/
+build/android/obj/
 guidocalculus/package/GuidoCalculus.app/
 guidocalculus/src/.qmake.stash
 guidocalculus/src/Debug/
@@ -10,29 +21,3 @@ guidocalculus/src/Release/
 guidocalculus/src/project.pbxproj
 guidocalculus/src/tmpSrc/
 validation/0.90/
-
-### Swift ###
-# Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
-
-## Build generated
-build/ios
-build/macos
-DerivedData/
-
-## Various settings
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata/
-
-## Other
-*.moved-aside
-*.xccheckout
-*.xcscmblueprint

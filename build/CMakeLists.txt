@@ -12,13 +12,17 @@ set (VERSION 1.00)
 set (VERSIONSTR "v.1.00")
 set (SOVERS 1)
 
-if(CMAKE_CONFIGURATION_TYPES)
-	set(CMAKE_CONFIGURATION_TYPES Debug Release)
-endif()
+set (BINDIR ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+set (LIBDIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+get_filename_component(ROOT ${CMAKE_CURRENT_SOURCE_DIR} DIRECTORY)
+
+set (CMAKE_BUILD_TYPE Release)
  
 if(UNIX)
 	add_definitions(-Wall -DGCC)
 endif()
+
+set (CMAKE_CXX_STANDARD 11)
 
 #######################################
 # windows support
@@ -31,8 +35,10 @@ if(WIN32)
  endif ()
 endif()
 
-set (CMAKE_CXX_STANDARD 11)
-
+#######################################
+# Options disabled by default
+option ( ALL 			"build the library and the tools" off )
+option ( MIDIEXPORT 	"MIDI export" off )
 
 if(APPLE)
  	add_definitions(-DAPPLE)
@@ -41,36 +47,39 @@ if(APPLE)
 #   iOS support
 	if ( IOS )
 		message (STATUS "Generates project for iOS - Use -DIOS=no to change.")
+		set (ALL "no")
 		set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "iPhoneOS")
 		set (CMAKE_OSX_ARCHITECTURES "arm64 armv7 armv7s")
 		set (CMAKE_OSX_SYSROOT "iphoneos")
-		set (libtype STATIC)
-		set(IOS_DEPLOYMENT_TARGET 10.3) 
+		set (IOS_DEPLOYMENT_TARGET 8.0) 
+	set (libtype STATIC)
 		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DGUIDOAR_EXPORTS -stdlib=libc++")
 	else ()
 		message (STATUS "Generates Mac OS project- Use -DIOS=yes to change.")
 	 	#######################################
 		set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-		set (CMAKE_C++_FLAGS -mmacosx-version-min=10.10)
-		set (CMAKE_LDFLAGS -mmacosx-version-min=10.10)
-		set (CMAKE_OSX_DEPLOYMENT_TARGET 10.10)
-		set (MACOSX_DEPLOYMENT_TARGET 10.10)
+		set (CMAKE_C++_FLAGS -mmacosx-version-min=10.9)
+		set (CMAKE_LDFLAGS -mmacosx-version-min=10.9)
+		set (CMAKE_OSX_DEPLOYMENT_TARGET 10.9)
+		set (MACOSX_DEPLOYMENT_TARGET 10.9)
 	endif ()
 endif()
+
+if(NOT WIN32)
+	set (CMAKE_C++_FLAGS ${CMAKE_C++_FLAGS} -Wno-overloaded-virtual)
+endif()
+
+
 
 #######################################
 # set directories, src and headers.
 set (GAR 		${CMAKE_CURRENT_SOURCE_DIR}/..)
 set (GARSRC 	${GAR}/src)
 set (GARTOOLS   ${GAR}/tools)
-set (SRCFOLDERS  interface guido guido/abstract lib operations visitors midi parser objc)
+set (SRCFOLDERS  interface guido guido/abstract lib operations visitors midi parser)
 
 foreach(folder ${SRCFOLDERS})
-	if (IOS )
-		set(SRC ${SRC} "${GARSRC}/${folder}/*.cpp" "${GARSRC}/${folder}/*.mm")			# add source files
-	else ()
-		set(SRC ${SRC} "${GARSRC}/${folder}/*.cpp")			# add source files
-	endif ()
+	set(SRC ${SRC} "${GARSRC}/${folder}/*.cpp")			# add source files
 endforeach(folder)
 file (GLOB CORESRC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${SRC})
 
@@ -82,6 +91,7 @@ file (GLOB COREH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${HEADERS})
 foreach(folder ${SRCFOLDERS})
 	set(INCL ${INCL} "${GARSRC}/${folder}")				# add include folders
 endforeach(folder)
+
 
 #######################################
 # set includes
@@ -120,9 +130,7 @@ endif()
 if (IOS)
 	add_library(${target} STATIC ${LIBCONTENT})
 	set_target_properties ( ${target} PROPERTIES 
-			ARCHIVE_OUTPUT_DIRECTORY  ${LIBDIR}
-			ARCHIVE_OUTPUT_DIRECTORY_RELEASE  ${LIBDIR}
-			XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET ${IOS_DEPLOYMENT_TARGET} )
+				XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET ${IOS_DEPLOYMENT_TARGET} )
 
 else()
 	add_library(${target} SHARED ${LIBCONTENT})
@@ -138,19 +146,17 @@ else()
 	)
 endif()
 
-if(APPLE)
-	set (LINK "-L${GARSRC}/midisharelight/macos -lmidisharelight -lc++")
-elseif(UNIX)
-	set (LINK "-L/usr/local/lib -lmidisharelight")
-elseif(WIN32)
-	set (LINK "${GARSRC}/midisharelight/${WIN}/midisharelight.lib")
-endif()
 target_link_libraries( ${target} ${LINK})
+set_target_properties( ${target} PROPERTIES 
+		ARCHIVE_OUTPUT_DIRECTORY ${LIBDIR}
+		LIBRARY_OUTPUT_DIRECTORY ${LIBDIR}
+		ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${LIBDIR}
+		LIBRARY_OUTPUT_DIRECTORY_RELEASE ${LIBDIR})
 
 
 #######################################
 # set tools targets
-if (NOT IOS)
+if (ALL)
 
 file (GLOB TOOLS RELATIVE ${GARTOOLS} "${GARTOOLS}/*.cpp")
 
@@ -158,6 +164,9 @@ foreach(toolcpp ${TOOLS})
 	string(REPLACE ".cpp" "" tool ${toolcpp})
 	add_executable( ${tool} ${GARTOOLS}/${tool}.cpp )
 	target_link_libraries( ${tool} ${target})
+	set_target_properties( ${tool} PROPERTIES 
+			RUNTIME_OUTPUT_DIRECTORY  ${BINDIR}
+			RUNTIME_OUTPUT_DIRECTORY_RELEASE  ${BINDIR})
 	add_dependencies(${tool} ${target})
 endforeach()
 
@@ -168,12 +177,15 @@ endif()
 endif()
 
 
-if(UNIX AND NOT APPLE)
+if(NOT IOS)
 #######################################
 # install setup
+message (STATUS "Install prefix set to ${CMAKE_INSTALL_PREFIX}")
 install ( TARGETS ${target}
-    	LIBRARY DESTINATION /usr/lib
-     	PUBLIC_HEADER DESTINATION /usr/local/include/guidoar
+    	RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
+    	FRAMEWORK DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+    	LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+     	PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_PREFIX}/include/guidoar
 )
 
 endif()
