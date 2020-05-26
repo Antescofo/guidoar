@@ -97,11 +97,14 @@ void gmnvisitor::visitStart ( SARNote& note )
 void gmnvisitor::barline ( Sguidotag& bar )
 {
 	if (bar->getAuto() && !fVisitAuto) return; // auto elements are not printed
-	fOut << "\n| ";
+	fOut << "\n"<<string(*bar);
 }
 
 //______________________________________________________________________________
-void gmnvisitor::visitStart ( SARBar& bar )			{ Sguidotag t(bar); barline(t); }
+void gmnvisitor::visitStart ( SARBar& bar )			{
+    Sguidotag t(bar);
+    barline(t);
+}
 void gmnvisitor::visitStart ( SARRepeatBegin& bar )	{ fOut << "\n " << string(*bar) << " "; }
 void gmnvisitor::visitStart ( SARRepeatEnd& bar )	{ fOut << "\n " << string(*bar) << " "; }
 
