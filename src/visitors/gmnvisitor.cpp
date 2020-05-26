@@ -97,7 +97,7 @@ void gmnvisitor::visitStart ( SARNote& note )
 void gmnvisitor::barline ( Sguidotag& bar )
 {
 	if (bar->getAuto() && !fVisitAuto) return; // auto elements are not printed
-	fOut << "\n"<<string(*bar);
+	fOut << "\n"<<string(*bar)<<" ";
 }
 
 //______________________________________________________________________________
