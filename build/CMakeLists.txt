@@ -49,7 +49,7 @@ if(APPLE)
 		message (STATUS "Generates project for iOS - Use -DIOS=no to change.")
 		set (ALL "no")
 		set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "iPhoneOS")
-		set (CMAKE_OSX_ARCHITECTURES "arm64")
+		#set (CMAKE_OSX_ARCHITECTURES "arm64")
 		set (CMAKE_OSX_SYSROOT "iphoneos")
 		set (IOS_DEPLOYMENT_TARGET 11.2) 
 		set (libtype STATIC)
@@ -76,7 +76,7 @@ endif()
 set (GAR 		${CMAKE_CURRENT_SOURCE_DIR}/..)
 set (GARSRC 	${GAR}/src)
 set (GARTOOLS   ${GAR}/tools)
-set (SRCFOLDERS  interface guido guido/abstract lib operations visitors midi parser objc)
+set (SRCFOLDERS  interface guido guido/abstract lib operations visitors midi parser) #objc
 
 foreach(folder ${SRCFOLDERS})
 	set(SRC ${SRC} "${GARSRC}/${folder}/*.cpp" "${GARSRC}/${folder}/*.mm")			# add source files
@@ -131,6 +131,28 @@ if (IOS)
 	add_library(${target} STATIC ${LIBCONTENT})
 	set_target_properties ( ${target} PROPERTIES 
 				XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET ${IOS_DEPLOYMENT_TARGET} )
+
+	add_library(libguidoar SHARED ${LIBCONTENT})
+	set_target_properties (libguidoar PROPERTIES DEFINE_SYMBOL GUIDOAR_EXPORTS)
+	set_target_properties (libguidoar PROPERTIES PUBLIC_HEADER "${COREH}")
+	set_target_properties (libguidoar PROPERTIES 
+			FRAMEWORK TRUE 
+			FRAMEWORK_VERSION A
+			VERSION ${VERSION}
+			SOVERSION ${SOVERS}
+			MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${VERSIONSTR}
+			MACOSX_FRAMEWORK_BUNDLE_VERSION ${VERSION}
+			LIBRARY_OUTPUT_DIRECTORY ${LIBCONTENT}
+			LIBRARY_OUTPUT_DIRECTORY_RELEASE ${LIBCONTENT}
+			FRAMEWORK TRUE
+			FRAMEWORK_VERSION C
+			XCODE_ATTRIBUTE_DEFINES_MODULE YES
+			MACOSX_FRAMEWORK_IDENTIFIER "com.grame.guidoar"
+			INSTALL_NAME_DIR "$(LOCAL_LIBRARY_DIR)/Frameworks"
+      		BUILD_WITH_INSTALL_NAME_DIR YES
+			#XCODE_ATTRIBUTE_LD_RUNPATH_SEARCH_PATHS "@executable_path/Frameworks"
+			XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH YES 
+	)
 
 else()
 	add_library(${target} SHARED ${LIBCONTENT})
