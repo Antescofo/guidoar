@@ -23,7 +23,7 @@
 #ifndef __firstpitchvisitor__
 #define __firstpitchvisitor__
 
-#include "export.h"
+#include "arexport.h"
 #include "ARTypes.h"
 #include "visitor.h"
 #include "tree_browser.h"

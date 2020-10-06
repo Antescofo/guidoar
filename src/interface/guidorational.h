@@ -25,11 +25,14 @@
 #include <string>
 #include <vector>
 
-#include "export.h"
+#include "arexport.h"
 
 /*!
 \brief	Rational number representation.
 */
+
+namespace guido
+{
 
 class gar_export rational {
 
@@ -106,8 +109,11 @@ class gar_export rational {
         int		toInt() const;
 };
 
+
 typedef std::vector<rational> rationals;
 gar_export std::ostream& operator << (std::ostream& os, rational);
 gar_export std::ostream& operator << (std::ostream& os, rationals);
+
+} // namespace guido
 
 #endif
