@@ -136,6 +136,8 @@ enum {
 	kTTitle,
 	kTTrem,
 	kTTrill,
+    kTTrillBegin,
+    kTTrillEnd,
 	kTTuplet,
 	kTTurn,
 	kTUnits,
