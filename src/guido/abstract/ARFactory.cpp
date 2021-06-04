@@ -207,6 +207,8 @@ ARFactory::ARFactory()
 	fMap["title"]		= new newTagFunctor<kTTitle>;
 	fMap["trem"]		= new newTagFunctor<kTTrem>;
 	fMap["trill"]		= new newTagFunctor<kTTrill>;
+    fMap["trillBegin"]    = new newTagFunctor<kTTrillBegin>;
+    fMap["trillEnd"]        = new newTagFunctor<kTTrillEnd>;
 	fMap["tuplet"]		= new newTagFunctor<kTTuplet>;
 	fMap["turn"]		= new newTagFunctor<kTTurn>;
 	fMap["units"]		= new newTagFunctor<kTUnits>;
