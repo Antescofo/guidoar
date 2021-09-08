@@ -166,6 +166,8 @@ ARFactory::ARFactory()
 	fMap["newSystem"]	= new newTagFunctor<kTNewSystem>;
 	fMap["noteFormat"]	= new newTagFunctor<kTNoteFormat>;
 	fMap["oct"]			= new newTagFunctor<kTOct>;
+    fMap["pedalOn"]       = new newTagFunctor<kTPedalOn>;
+    fMap["pedalOff"]       = new newTagFunctor<kTPedalOff>;
 	fMap["pageFormat"]	= new newTagFunctor<kTPageFormat>;
 	fMap["port"]		= new newTagFunctor<kTPort>;
 	fMap["repeatBegin"]	= new newTagFunctor<kTRepeatBegin>;
