@@ -145,6 +145,7 @@ ARFactory::ARFactory()
 	fMap["fine"]		= new newTagFunctor<kTFine>;
 	fMap["fingering"]	= new newTagFunctor<kTFingering>;
 	fMap["grace"]		= new newTagFunctor<kTGrace>;
+    fMap["harmony"]       = new newTagFunctor<kTHarmony>;
 	fMap["headsCenter"]	= new newTagFunctor<kTHeadsCenter>;
 	fMap["headsLeft"]	= new newTagFunctor<kTHeadsLeft>;
 	fMap["headsNormal"]	= new newTagFunctor<kTHeadsNormal>;

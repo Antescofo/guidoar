@@ -93,6 +93,7 @@ typedef SMARTP<ARTag<kTFermata> > 	SARFermata;
 typedef SMARTP<ARTag<kTFine> > 		SARFine;
 typedef SMARTP<ARTag<kTFingering> > SARFingering;
 typedef SMARTP<ARTag<kTGrace> > 	SARGrace;
+typedef SMARTP<ARTag<kTHarmony> >   SARHarmony;
 typedef SMARTP<ARTag<kTHeadsCenter> > SARHeadsCenter;
 typedef SMARTP<ARTag<kTHeadsLeft> > SARHeadsLeft;
 typedef SMARTP<ARTag<kTHeadsNormal> > SARHeadsNormal;
