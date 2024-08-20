@@ -25,10 +25,10 @@
 #include <cmath>
 #include "guidorational.h"
 
+using namespace std;
+
 namespace guido
 {
-
-using namespace std;
 
 string rational::toString() const
 {
@@ -242,4 +242,4 @@ ostream& operator << (ostream& os, rationals l) {
 	return os;
 }
 
-} // namespace guido
+}

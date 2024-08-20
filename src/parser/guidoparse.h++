@@ -1,8 +1,9 @@
-/* A Bison parser, made by GNU Bison 3.1.  */
+/* A Bison parser, made by GNU Bison 3.7.  */
 
 /* Bison interface for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018 Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
+   Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -30,6 +31,10 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
+/* DO NOT RELY ON FEATURES THAT ARE NOT DOCUMENTED in the manual,
+   especially those whose name start with YY_ or yy_.  They are
+   private implementation details that can be changed or removed.  */
+
 #ifndef YY_GUIDOAR_GUIDOPARSE_H__INCLUDED
 # define YY_GUIDOAR_GUIDOPARSE_H__INCLUDED
 /* Debug traces.  */
@@ -40,54 +45,64 @@
 extern int guidoardebug;
 #endif
 
-/* Token type.  */
+/* Token kinds.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
   enum yytokentype
   {
-    NUMBER = 258,
-    PNUMBER = 259,
-    NNUMBER = 260,
-    FLOAT = 261,
-    STARTCHORD = 262,
-    ENDCHORD = 263,
-    STARTSEQ = 264,
-    ENDSEQ = 265,
-    STARTPARAM = 266,
-    ENDPARAM = 267,
-    STARTRANGE = 268,
-    ENDRANGE = 269,
-    SEP = 270,
-    IDSEP = 271,
-    BAR = 272,
-    TAGNAME = 273,
-    ID = 274,
-    DIATONIC = 275,
-    CHROMATIC = 276,
-    SOLFEGE = 277,
-    EMPTY = 278,
-    REST = 279,
-    DOT = 280,
-    DDOT = 281,
-    SHARP = 282,
-    FLAT = 283,
-    MLS = 284,
-    SEC = 285,
-    UNIT = 286,
-    MULT = 287,
-    DIV = 288,
-    EQUAL = 289,
-    STRING = 290,
-    EXTRA = 291
+    YYEMPTY = -2,
+    YYEOF = 0,                     /* "end of file"  */
+    YYerror = 256,                 /* error  */
+    YYUNDEF = 257,                 /* "invalid token"  */
+    NUMBER = 258,                  /* NUMBER  */
+    PNUMBER = 259,                 /* PNUMBER  */
+    NNUMBER = 260,                 /* NNUMBER  */
+    FLOAT = 261,                   /* FLOAT  */
+    STARTCHORD = 262,              /* STARTCHORD  */
+    ENDCHORD = 263,                /* ENDCHORD  */
+    STARTSEQ = 264,                /* STARTSEQ  */
+    ENDSEQ = 265,                  /* ENDSEQ  */
+    STARTPARAM = 266,              /* STARTPARAM  */
+    ENDPARAM = 267,                /* ENDPARAM  */
+    STARTRANGE = 268,              /* STARTRANGE  */
+    ENDRANGE = 269,                /* ENDRANGE  */
+    SEP = 270,                     /* SEP  */
+    IDSEP = 271,                   /* IDSEP  */
+    BAR = 272,                     /* BAR  */
+    TAGNAME = 273,                 /* TAGNAME  */
+    IDT = 274,                     /* IDT  */
+    DIATONIC = 275,                /* DIATONIC  */
+    CHROMATIC = 276,               /* CHROMATIC  */
+    SOLFEGE = 277,                 /* SOLFEGE  */
+    EMPTYT = 278,                  /* EMPTYT  */
+    RESTT = 279,                   /* RESTT  */
+    DOT = 280,                     /* DOT  */
+    DDOT = 281,                    /* DDOT  */
+    TDOT = 282,                    /* TDOT  */
+    SHARPT = 283,                  /* SHARPT  */
+    FLATT = 284,                   /* FLATT  */
+    TAB = 285,                     /* TAB  */
+    MLS = 286,                     /* MLS  */
+    SEC = 287,                     /* SEC  */
+    UNIT = 288,                    /* UNIT  */
+    MULT = 289,                    /* MULT  */
+    DIV = 290,                     /* DIV  */
+    EQUAL = 291,                   /* EQUAL  */
+    STRING = 292,                  /* STRING  */
+    EXTRA = 293,                   /* EXTRA  */
+    ENDVAR = 294,                  /* ENDVAR  */
+    VARNAME = 295,                 /* VARNAME  */
+    FRETTE = 296,                  /* FRETTE  */
+    COMMENT = 297                  /* COMMENT  */
   };
+  typedef enum yytokentype yytoken_kind_t;
 #endif
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-
 union YYSTYPE
 {
-#line 48 "guido.y" /* yacc.c:1919  */
+#line 86 "guido.y"
          
 	long int		num;
 	float			real;
@@ -98,19 +113,32 @@ union YYSTYPE
 	guido::Sguidoattribute*		attr;
 	std::vector<guido::Sguidoelement>*	 velt;
 	std::vector<guido::Sguidoattribute>* vattr;
-	rational *		r;
+	guido::rational *		r;
 
-#line 104 "guidoparse.h++" /* yacc.c:1919  */
+#line 119 "guidoparse.h++"
+
 };
-
 typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
 
+/* Location type.  */
+#if ! defined YYLTYPE && ! defined YYLTYPE_IS_DECLARED
+typedef struct YYLTYPE YYLTYPE;
+struct YYLTYPE
+{
+  int first_line;
+  int first_column;
+  int last_line;
+  int last_column;
+};
+# define YYLTYPE_IS_DECLARED 1
+# define YYLTYPE_IS_TRIVIAL 1
+#endif
 
-extern YYSTYPE guidoarlval;
 
-int guidoarparse (void);
+
+int guidoarparse (guido::guidoparser* context);
 
 #endif /* !YY_GUIDOAR_GUIDOPARSE_H__INCLUDED  */

@@ -2,7 +2,7 @@
 
 system	:= $(shell uname -s)
 ifeq ($(system), Darwin)
-  lib =  -F../cmake/Release/ -framework guidoar
+  lib =  -L../build/lib/ -l guidoar
 else
 ifeq ($(system), MINGW32_NT-6.1)
   lib =  ../cmake/Release/guidoar.lib
@@ -13,7 +13,7 @@ endif
 
 
 DESC  = $(wildcard desc/*.h)
-TOOLS = $(patsubst desc/%.h, bin/%, $(DESC)) guidoduration
+TOOLS = $(patsubst desc/%.h, bin/%, $(DESC)) guidoduration guido2unrolled
 SRC   = $(patsubst bin/%, %.cpp, $(TOOLS))
 CXXFLAGS = -I../src/interface $(lib)
 
@@ -24,6 +24,9 @@ makerelaxedcpp 	= $(call makebase,$(1),$(2),$(3)) | sed -e 's/__strict__//'  		>
 all: $(TOOLS)
 
 src: $(SRC)	
+
+guido2unrolled.cpp : common.cxx
+	g++ guido2unrolled.cpp -o bin/guido2unrolled
 
 guidomirror.cpp : 	template.cxx 	desc/guidomirror.h
 	$(call makecpp,guidomirror,const char*,guidoGMirror)

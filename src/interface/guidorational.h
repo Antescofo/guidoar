@@ -109,11 +109,10 @@ class gar_export rational {
         int		toInt() const;
 };
 
-
 typedef std::vector<rational> rationals;
 gar_export std::ostream& operator << (std::ostream& os, rational);
 gar_export std::ostream& operator << (std::ostream& os, rationals);
 
-} // namespace guido
+}
 
 #endif

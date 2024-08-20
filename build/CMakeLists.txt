@@ -1,15 +1,15 @@
 #######################################
 # CMAKE guidoar
 #######################################
+cmake_minimum_required(VERSION 3.5)
 project(guidoar)
-cmake_minimum_required(VERSION 2.6)
 
 set(target guidoar)
 
 #######################################
 # version management
-set (VERSION 1.0.0)
-set (VERSIONSTR "1.0.0")
+set (VERSION 1.1.0)
+set (VERSIONSTR "1.1.0")
 set (SOVERS 1)
 
 set (BINDIR ${CMAKE_CURRENT_SOURCE_DIR}/bin)
@@ -51,7 +51,7 @@ if(APPLE)
 		set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "iPhoneOS")
 		#set (CMAKE_OSX_ARCHITECTURES "arm64")
 		set (CMAKE_OSX_SYSROOT "iphoneos")
-		set (IOS_DEPLOYMENT_TARGET 11.2) 
+		set (IOS_DEPLOYMENT_TARGET 15.0) 
 		set (libtype STATIC)
 		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DGUIDOAR_EXPORTS -stdlib=libc++")
 	else ()
@@ -79,7 +79,7 @@ set (GARTOOLS   ${GAR}/tools)
 set (SRCFOLDERS  interface guido guido/abstract lib operations visitors midi parser) 
 
 foreach(folder ${SRCFOLDERS})
-	set(SRC ${SRC} "${GARSRC}/${folder}/*.cpp" "${GARSRC}/${folder}/*.mm")			# add source files
+	set(SRC ${SRC} "${GARSRC}/${folder}/*.cpp" "${GARSRC}/parser/*.c++")			# add source files
 endforeach(folder)
 file (GLOB CORESRC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${SRC})
 
@@ -144,14 +144,12 @@ if (IOS)
 			MACOSX_FRAMEWORK_BUNDLE_VERSION ${VERSION}
 			LIBRARY_OUTPUT_DIRECTORY ${LIBCONTENT}
 			LIBRARY_OUTPUT_DIRECTORY_RELEASE ${LIBCONTENT}
-			FRAMEWORK TRUE
-			FRAMEWORK_VERSION C
 			XCODE_ATTRIBUTE_DEFINES_MODULE YES
 			MACOSX_FRAMEWORK_IDENTIFIER "com.grame.guidoar"
 			INSTALL_NAME_DIR "$(LOCAL_LIBRARY_DIR)/Frameworks"
       		BUILD_WITH_INSTALL_NAME_DIR YES
 			#XCODE_ATTRIBUTE_LD_RUNPATH_SEARCH_PATHS "@executable_path/Frameworks"
-			XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH YES 
+			XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH NO 
 	)
 
 else()

@@ -12,6 +12,7 @@
 #include "guidoelement.h"
 #include "AROthers.h"
 #include "guidoparser.h"
+#include "clonevisitor.h"
 
 //_______________________________________________________________________________
 static void usage(char * name)
@@ -32,7 +33,11 @@ int main (int argc, char* argv[])
 	guidoparser r;
 	Sguidoelement elt = r.parseString(gmn.c_str());
 
-	if (elt) cout << elt << endl;
+	if (elt) {
+		clonevisitor v;
+		Sguidoelement copy = v.clone(elt);
+		cout << copy << endl;
+	}
 	else {
 		const guidoparser::errInfo& err = r.getError();
 		cout << "line " << err.line << " col " << err.col << " : " << err.msg << endl;

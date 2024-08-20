@@ -28,6 +28,7 @@
 #include <iostream>
 
 #include "guidotags.h"
+#include "guidovariable.h"
 #include "ARFactory.h"
 #include "ARChord.h"
 #include "ARNote.h"
@@ -79,6 +80,14 @@ SARNote ARFactory::createNote(const std::string& name) const
 }
 
 //______________________________________________________________________________
+Sguidovariable ARFactory::createVariable(const std::string& name) const
+{
+	Sguidovariable var = guidovariable::create();
+	var->setName(name);
+	return var;
+}
+
+//______________________________________________________________________________
 Sguidotag ARFactory::createTag(const string& eltname, long id) const
 { 
 	map<std::string, NewTagFunctor*>::const_iterator i = fMap.find( eltname );
@@ -98,14 +107,17 @@ Sguidotag ARFactory::createTag(const string& eltname, long id) const
 ARFactory::ARFactory() 
 {
 	fMap["acc"]			= new newTagFunctor<kTAcc>;
-	fMap["accel"]		= new newTagFunctor<kTAccel>;
+	fMap["accidental"]	= new newTagFunctor<kTAccidental>;
 	fMap["accelBegin"]	= new newTagFunctor<kTAccelBegin>;
 	fMap["accelEnd"]	= new newTagFunctor<kTAccelEnd>;
+	fMap["accelerando"]	= new newTagFunctor<kTAccel>;
+	fMap["accel"]		= fMap["accelerando"];;
 	fMap["accent"]		= new newTagFunctor<kTAccent>;
+	fMap["accolade"]	= new newTagFunctor<kTAccol>;
 	fMap["accol"]		= new newTagFunctor<kTAccol>;
 	fMap["alter"]		= new newTagFunctor<kTAlter>;
+	fMap["arpeggio"]	= new newTagFunctor<kTArpeggio>;
 	fMap["auto"]		= new newTagFunctor<kTAuto>;
-	fMap["autoBreak"]	= new newTagFunctor<kTAutoBreak>;
 	fMap["bar"]			= new newTagFunctor<kTBar>;
 	fMap["barFormat"]	= new newTagFunctor<kTBarFormat>;
 	fMap["beam"]		= new newTagFunctor<kTBeam>;
@@ -114,72 +126,97 @@ ARFactory::ARFactory()
 	fMap["beamBegin"]	= new newTagFunctor<kTBeamBegin>;
 	fMap["beamEnd"]		= new newTagFunctor<kTBeamEnd>;
 	fMap["beamsAuto"]	= new newTagFunctor<kTBeamsAuto>;
+	fMap["beamsFull"]	= new newTagFunctor<kTBeamsFull>;
 	fMap["beamsOff"]	= new newTagFunctor<kTBeamsOff>;
 	fMap["bembel"]		= new newTagFunctor<kTBembel>;
+	fMap["bow"]			= new newTagFunctor<kTBow>;
 	fMap["breathMark"]	= new newTagFunctor<kTBreathMark>;
+	fMap["chord"]		= new newTagFunctor<kTChord>;
 	fMap["clef"]		= new newTagFunctor<kTClef>;
+	fMap["cluster"]		= new newTagFunctor<kTCluster>;
 	fMap["coda"]		= new newTagFunctor<kTCoda>;
 	fMap["color"]		= new newTagFunctor<kTColor>;
 	fMap["colour"]		= fMap["color"];
 	fMap["composer"]	= new newTagFunctor<kTComposer>;
 	fMap["cresc"]		= new newTagFunctor<kTCresc>;
+	fMap["crescendo"]	= fMap["cresc"];
 	fMap["crescBegin"]	= new newTagFunctor<kTCrescBegin>;
 	fMap["crescEnd"]	= new newTagFunctor<kTCrescEnd>;
 	fMap["cue"]			= new newTagFunctor<kTCue>;
 	fMap["daCapo"]		= new newTagFunctor<kTDaCapo>;
-	fMap["daCapoAlFine"]	= new newTagFunctor<kTDaCapoAlFine>;
+	fMap["daCapoAlFine"] 	= new newTagFunctor<kTDaCapoAlFine>;
 	fMap["daCoda"]			= new newTagFunctor<kTDaCoda>;
 	fMap["dalSegno"]		= new newTagFunctor<kTDalSegno>;
 	fMap["dalSegnoAlFine"]	= new newTagFunctor<kTDalSegnoAlFine>;
 	fMap["decresc"]		= new newTagFunctor<kTDecresc>;
-	fMap["defineTag"]	= new newTagFunctor<kTDefineTag>;
-	fMap["dim"]			= new newTagFunctor<kTDim>;
+	fMap["decrescendo"]	= fMap["decresc"];
+	fMap["dim"]			= fMap["decresc"];
+	fMap["diminuendo"]	= fMap["dim"];
+	fMap["decrescBegin"]= new newTagFunctor<kTDecrescBegin>;
 	fMap["dimBegin"]	= new newTagFunctor<kTDimBegin>;
-	fMap["dimEnd"]		= new newTagFunctor<kTDimEnd>;
-	fMap["diminuendo"]	= new newTagFunctor<kTDiminuendo>;
-	fMap["dispDur"]		= new newTagFunctor<kTDispDur>;
+	fMap["diminuendoBegin"]	= fMap["dimBegin"];
+	fMap["decrescEnd"]		= new newTagFunctor<kTDecrescEnd>;
+	fMap["dimEnd"]			= new newTagFunctor<kTDimEnd>;
+	fMap["diminuendoEnd"]	= fMap["dimEnd"];
+	fMap["dispDur"]			= new newTagFunctor<kTDispDur>;
+	fMap["displayDuration"]	= fMap["dispDur"];
 	fMap["dotFormat"]	= new newTagFunctor<kTDotFormat>;
 	fMap["doubleBar"]	= new newTagFunctor<kTDoubleBar>;
 	fMap["endBar"]		= new newTagFunctor<kTEndBar>;
+	fMap["fBeam"]		= new newTagFunctor<kTFBeam>;
+	fMap["fBeamBegin"]	= new newTagFunctor<kTFBeamBegin>;
+	fMap["fBeamEnd"]	= new newTagFunctor<kTFBeamEnd>;
 	fMap["fermata"]		= new newTagFunctor<kTFermata>;
 	fMap["fine"]		= new newTagFunctor<kTFine>;
 	fMap["fingering"]	= new newTagFunctor<kTFingering>;
+	fMap["fing"]		= fMap["fingering"];
+	fMap["footer"]		= new newTagFunctor<kTFooter>;
+	fMap["glissando"]	= new newTagFunctor<kTGlissando>;
+	fMap["glissandoBegin"]	= new newTagFunctor<kTGlissandoBegin>;
+	fMap["glissandoEnd"]	= new newTagFunctor<kTGlissandoEnd>;
 	fMap["grace"]		= new newTagFunctor<kTGrace>;
-    fMap["harmony"]       = new newTagFunctor<kTHarmony>;
+	fMap["harmonic"]	= new newTagFunctor<kTHarmonic>;
+	fMap["harmony"]		= new newTagFunctor<kTHarmony>;
 	fMap["headsCenter"]	= new newTagFunctor<kTHeadsCenter>;
 	fMap["headsLeft"]	= new newTagFunctor<kTHeadsLeft>;
 	fMap["headsNormal"]	= new newTagFunctor<kTHeadsNormal>;
 	fMap["headsReverse"]= new newTagFunctor<kTHeadsReverse>;
 	fMap["headsRight"]	= new newTagFunctor<kTHeadsRight>;
 	fMap["instr"]		= new newTagFunctor<kTInstr>;
+	fMap["instrument"]	= fMap["instr"];
 	fMap["intens"]		= new newTagFunctor<kTIntens>;
+	fMap["intensity"]	= fMap["intens"];
 	fMap["i"]			= fMap["intens"];
 	fMap["key"]			= new newTagFunctor<kTKey>;
 	fMap["label"]		= new newTagFunctor<kTLabel>;
 	fMap["lyrics"]		= new newTagFunctor<kTLyrics>;
 	fMap["marcato"]		= new newTagFunctor<kTMarcato>;
 	fMap["mark"]		= new newTagFunctor<kTMark>;
-	fMap["merge"]		= new newTagFunctor<kTMerge>;
 	fMap["meter"]		= new newTagFunctor<kTMeter>;
-	fMap["mord"]		= new newTagFunctor<kTMord>;
+	fMap["mordent"]		= new newTagFunctor<kTMord>;
+	fMap["mord"]		= fMap["mordent"];
+	fMap["mrest"]		= new newTagFunctor<kTMrest>;
 	fMap["newLine"]		= new newTagFunctor<kTNewLine>;
-	fMap["newPage"]		= new newTagFunctor<kTNewPage>;
 	fMap["newSystem"]	= new newTagFunctor<kTNewSystem>;
+	fMap["newPage"]		= new newTagFunctor<kTNewPage>;
 	fMap["noteFormat"]	= new newTagFunctor<kTNoteFormat>;
 	fMap["oct"]			= new newTagFunctor<kTOct>;
-    fMap["pedalOn"]       = new newTagFunctor<kTPedalOn>;
-    fMap["pedalOff"]       = new newTagFunctor<kTPedalOff>;
+	fMap["octava"]		= fMap["oct"];
 	fMap["pageFormat"]	= new newTagFunctor<kTPageFormat>;
-	fMap["port"]		= new newTagFunctor<kTPort>;
+	fMap["pedalOn"]		= new newTagFunctor<kTPedalOn>;
+	fMap["pedalOff"]	= new newTagFunctor<kTPedalOff>;
+	fMap["pizzicato"]	= new newTagFunctor<kTPizz>;
+	fMap["pizz"]		= fMap["pizzicato"];
 	fMap["repeatBegin"]	= new newTagFunctor<kTRepeatBegin>;
 	fMap["repeatEnd"]	= new newTagFunctor<kTRepeatEnd>;
 	fMap["restFormat"]	= new newTagFunctor<kTRestFormat>;
-	fMap["rit"]			= new newTagFunctor<kTRit>;
 	fMap["ritBegin"]	= new newTagFunctor<kTRitBegin>;
 	fMap["ritEnd"]		= new newTagFunctor<kTRitEnd>;
+	fMap["ritardando"]	= new newTagFunctor<kTRit>;
+	fMap["rit"]			= fMap["ritardando"];
 	fMap["segno"]		= new newTagFunctor<kTSegno>;
 	fMap["set"]			= fMap["auto"];
-	fMap["shareLocation"]	= new newTagFunctor<kTShareLocation>;
+//	fMap["shortFermata"]= new newTagFunctor<kTShortFermata>;
 	fMap["slur"]		= new newTagFunctor<kTSlur>;
 	fMap["sl"]			= fMap["slur"];
 	fMap["slurBegin"]	= new newTagFunctor<kTSlurBegin>;
@@ -187,10 +224,10 @@ ARFactory::ARFactory()
 	fMap["space"]		= new newTagFunctor<kTSpace>;
 	fMap["special"]		= new newTagFunctor<kTSpecial>;
 	fMap["splitChord"]	= new newTagFunctor<kTSplitChord>;
-	fMap["chord"]		= fMap["splitChord"];
-	fMap["stacc"]		= new newTagFunctor<kTStacc>;
 	fMap["staccBegin"]	= new newTagFunctor<kTStaccBegin>;
 	fMap["staccEnd"]	= new newTagFunctor<kTStaccEnd>;
+	fMap["staccato"]	= new newTagFunctor<kTStacc>;
+	fMap["stacc"]		= fMap["staccato"];
 	fMap["staff"]		= new newTagFunctor<kTStaff>;
 	fMap["staffFormat"]	= new newTagFunctor<kTStaffFormat>;
 	fMap["staffOff"]	= new newTagFunctor<kTStaffOff>;
@@ -199,33 +236,34 @@ ARFactory::ARFactory()
 	fMap["stemsDown"]	= new newTagFunctor<kTStemsDown>;
 	fMap["stemsOff"]	= new newTagFunctor<kTStemsOff>;
 	fMap["stemsUp"]		= new newTagFunctor<kTStemsUp>;
+	fMap["symbol"]		= new newTagFunctor<kTSymbol>;
 	fMap["systemFormat"]= new newTagFunctor<kTSystemFormat>;
 	fMap["tempo"]		= new newTagFunctor<kTTempo>;
-	fMap["ten"]			= new newTagFunctor<kTTen>;
+	fMap["tenuto"]		= new newTagFunctor<kTTen>;
+	fMap["ten"]			= fMap["tenuto"];
 	fMap["text"]		= new newTagFunctor<kTText>;
 	fMap["t"]			= fMap["text"];
 	fMap["tie"]			= new newTagFunctor<kTTie>;
 	fMap["tieBegin"]	= new newTagFunctor<kTTieBegin>;
 	fMap["tieEnd"]		= new newTagFunctor<kTTieEnd>;
 	fMap["title"]		= new newTagFunctor<kTTitle>;
-	fMap["trem"]		= new newTagFunctor<kTTrem>;
+	fMap["tremolo"]		= new newTagFunctor<kTTrem>;
+	fMap["trem"]		= fMap["tremolo"];
+	fMap["tremoloBegin"]= new newTagFunctor<kTTremBegin>;
+	fMap["tremBegin"]	= fMap["tremoloBegin"];
+	fMap["tremoloEnd"]	= new newTagFunctor<kTTremEnd>;
+	fMap["tremEnd"]		= fMap["tremoloEnd"];
 	fMap["trill"]		= new newTagFunctor<kTTrill>;
-    fMap["trillBegin"]    = new newTagFunctor<kTTrillBegin>;
-    fMap["trillEnd"]        = new newTagFunctor<kTTrillEnd>;
+	fMap["trillBegin"]	= new newTagFunctor<kTTrillBegin>;
+	fMap["trillEnd"]	= new newTagFunctor<kTTrillEnd>;
 	fMap["tuplet"]		= new newTagFunctor<kTTuplet>;
+	fMap["tupletBegin"]	= new newTagFunctor<kTTupletBegin>;
+	fMap["tupletEnd"]	= new newTagFunctor<kTTupletEnd>;
 	fMap["turn"]		= new newTagFunctor<kTTurn>;
 	fMap["units"]		= new newTagFunctor<kTUnits>;
 	fMap["volta"]		= new newTagFunctor<kTVolta>;
 	fMap["voltaBegin"]	= new newTagFunctor<kTVoltaBegin>;
 	fMap["voltaEnd"]	= new newTagFunctor<kTVoltaEnd>;
-	fMap["DrHoos"]		= new newTagFunctor<kTDrHoos>;
-	fMap["DrRenz"]		= new newTagFunctor<kTDrRenz>;
-	fMap["backward"]	= new newTagFunctor<kTBackward>;
-	// new tags Guido v.1.38
-	fMap["harmonic"]	= new newTagFunctor<kTHarmonic>;
-    fMap["pizz"]        = new newTagFunctor<kTPizz>;
-    fMap["arpeggio"]    = new newTagFunctor<kTArpeggio>;
-    fMap["bow"]         = new newTagFunctor<kTBow>;
 }
 
 //______________________________________________________________________________
@@ -234,14 +272,35 @@ ARFactory::ARFactory()
 //
 ARFactory::~ARFactory()
 {
-	fMap["bm"]			= 0;
+	fMap["accel"]		= 0;
 	fMap["b"]			= 0;
+	fMap["bm"]			= 0;
+	fMap["chord"]		= 0;
 	fMap["colour"]		= 0;
+	fMap["crescendo"]	= 0;
+	fMap["decrescendo"]	= 0;
+	fMap["dim"]			= 0;
+	fMap["diminuendo"]	= 0;
+	fMap["diminuendoBegin"]	= 0;
+	fMap["diminuendoEnd"]	= 0;
+	fMap["displayDuration"]	= 0;
+	fMap["fing"]		= 0;
 	fMap["i"]			= 0;
+	fMap["instrument"]	= 0;
+	fMap["intensity"]	= 0;
+	fMap["mord"]		= 0;
+	fMap["octava"]		= 0;
+	fMap["pizz"]		= 0;
+	fMap["rit"]			= 0;
 	fMap["set"]			= 0;
 	fMap["sl"]			= 0;
-	fMap["chord"]		= 0;
+	fMap["stacc"]		= 0;
 	fMap["t"]			= 0;
+	fMap["ten"]			= 0;
+	fMap["trem"]		= 0;
+	fMap["tremBegin"]	= 0;
+	fMap["tremEnd"]		= 0;
+
 	TFunctors::iterator i = fMap.begin();
 	while (i != fMap.end()) {
 		delete i->second;
