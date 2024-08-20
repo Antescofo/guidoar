@@ -8,8 +8,8 @@ set(target guidoar)
 
 #######################################
 # version management
-set (VERSION 1.00)
-set (VERSIONSTR "v.1.00")
+set (VERSION 1.0.0)
+set (VERSIONSTR "1.0.0")
 set (SOVERS 1)
 
 set (BINDIR ${CMAKE_CURRENT_SOURCE_DIR}/bin)

@@ -58,7 +58,7 @@ namespace guido
 
 //----------------------------------------------------------------------------
 gar_export float			guidoarVersion()	{ return 1.00; }
-gar_export const char*		guidoarVersionStr()	{ return "1.00"; }
+gar_export const char*		guidoarVersionStr()	{ return "1.0.0"; }
 
 //----------------------------------------------------------------------------
 static SARMusic read (const char* buff)
