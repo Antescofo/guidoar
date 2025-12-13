@@ -52,10 +52,10 @@ namespace guido
 
 %}
 
-%define api.pure
+%pure-parser
 %locations
 %defines
-%define parse.error verbose
+%error-verbose
 %parse-param { guido::guidoparser* context }
 %lex-param { void* scanner  }
 %expect 2   /* 
@@ -267,12 +267,15 @@ octave		:										{ debug("no octave"); $$ = -1000; }					// implicit duration
 duration	:										{ debug("implicit duration"); $$ = new rational(-1, 1); }	// implicit duration
 			| MULT number DIV number				{ debug("duration ./."); $$ = new rational($2, $4); }
 			| MULT number							{ debug("duration *"); $$ = new rational($2, 1); }
+			| MULT number MLS						{ debug("duration ms"); $$ = new rational(context->ms2rational($2)); }
+			| MULT number SEC						{ debug("duration s"); $$ = new rational(context->sec2rational($2)); }
 			| DIV number							{ debug("duration /"); $$ = new rational(1, $2); }
 			;
 
 dots		:										{ debug("dots 0"); $$ = 0; }
 			| DOT									{ debug("dots 1"); $$ = 1; }
 			| DDOT									{ debug("dots 2"); $$ = 2; }
+			| TDOT									{ debug("dots 3"); $$ = 3; }
 			;
 
 //_______________________________________________

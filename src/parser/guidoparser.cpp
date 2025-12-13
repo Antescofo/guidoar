@@ -50,6 +50,33 @@ namespace guido
 #define debug(str,val)
 #endif
 
+static void ms2dur (long ms, long& outNum, long& outDen)
+{
+	long base = 1000;
+	long num = (base) ? (ms / base) : 0;
+	long rem = (base) ? (ms % base) : 0;
+	long den = 4;
+	while (rem > 10 && base > 1) {	// approximate musical value (10 ms accuracy)
+		den *= 2;
+		base /= 2;
+		num = ms / base;
+		rem = ms % base;
+	}
+	outNum = num;
+	outDen = den;
+}
+
+//--------------------------------------------------------------------------
+rational guidoparser::ms2rational(long ms) const
+{
+	long num = 0, den = 4;
+	if (ms < 0) ms = 0;
+	ms2dur (ms, num, den);
+	rational r (num, den);
+	r.rationalise();
+	return r;
+}
+
 //--------------------------------------------------------------------------
 guidoparser::guidoparser()
 {

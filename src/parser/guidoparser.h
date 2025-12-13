@@ -60,6 +60,8 @@ class gar_export guidoparser : public gmnreader
 		virtual const errInfo& getError() const  { return fError; }
 		virtual bool get(char& c);  // return the next char in stream
         virtual void setStream(std::istream *stream);
+		rational ms2rational(long ms) const;
+		rational sec2rational(long sec) const { return ms2rational (sec * 1000); }
 
 //		SARMusic parseFile  (FILE* fd);
 		SARMusic parseFile  (const char* file);
