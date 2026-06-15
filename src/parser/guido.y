@@ -177,7 +177,7 @@ tagname		: TAGNAME										{ debug("tag name "); $$ = new string(context->fText
 			;
 
 tagid		: tagname										{ vdebug("new tag", *$1); $$ = context->newTag(*$1, 0); if (!$$) { guidotagerror(context, $1, @1.first_line, @1.first_column); YYERROR;} delete $1; }
-			| tagname IDSEP NUMBER							{ debug("new tag::id");  $$ = context->newTag(*$1, $2); if (!$$) { guidotagerror(context, $1, @1.first_line, @1.first_column); YYERROR;} delete $1; }
+			| tagname IDSEP number							{ debug("new tag::id");  $$ = context->newTag(*$1, $3); if (!$$) { guidotagerror(context, $1, @1.first_line, @1.first_column); YYERROR;} delete $1; }
 			| BAR											{ debug("new bar"); $$ = context->newTag("\\bar", 0); }
 			;
 

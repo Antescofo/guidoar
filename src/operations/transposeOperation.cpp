@@ -149,9 +149,10 @@ void transposeOperation::transpose ( char& pitch, int& alter, int& octave, int t
 		if ((fFifthCycle[i].second == alter) && (fFifthCycle[i].first == pitch)) {
 			// then we shift into the table
 			i += tableshift;
-			// make possible adjustments
-			if (i > fFifthCycle.size()) i -= 12;
-			else if (i < 0) i += 12;
+			// make possible enharmonic adjustments before indexing the table
+			const int tableSize = int(fFifthCycle.size());
+			while (i >= tableSize) i -= 12;
+			while (i < 0) i += 12;
 			// and retrieve the resulting transposed pitch
 			pitch = fFifthCycle[i].first;
 			alter = fFifthCycle[i].second;
