@@ -288,6 +288,11 @@ void transposeOperation::visitStart ( SARKey& elt )
 		int newkey = transposeKey (key, fChromaticSteps, enharmonicChange);
 		attr->setValue (long(newkey));
 		attr->setQuoteVal(false);
+
+		// transposeKey may replace the chromatic result with its simpler
+		// enharmonic key (for example C# major with Db major). Keep the note
+		// spelling on the same side of the cycle of fifths as the new key.
+		fTableShift = getKey(getOctaveStep(fChromaticSteps)) - (12 * enharmonicChange);
 //cerr << "visit SARKey value " << key << " -> " << newkey << " enharmonic (" << enharmonicChange << ")" << endl;
 	}
 }
