@@ -89,13 +89,17 @@ void guidotag::acceptOut(basevisitor& v) {
 string guidotag::escape(const std::string& val) const
 {
 	string esc;
-	size_t n = val.size();
-	for (int i=0; i<n; i++) {
-		if ((val[i] == '\\') && (val[i+1] == '"'))
-			esc += '\\';
-		else if (val[i] == '"')
-			esc += '\\';
-		esc += val[i];	
+	esc.reserve(val.size());
+	for (size_t i = 0; i < val.size(); i++) {
+		char c = val[i];
+		switch (c) {
+			case '\\':	esc += "\\\\"; break;
+			case '"':	esc += "\\\""; break;
+			case '\n':	esc += "\\n"; break;
+			case '\r':	esc += "\\r"; break;
+			case '\t':	esc += "\\t"; break;
+			default:	esc += c; break;
+		}
 	}
 	return esc;
 }
@@ -134,4 +138,3 @@ guidotag::operator string() const {
 }
 
 } // namespace
-

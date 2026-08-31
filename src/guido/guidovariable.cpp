@@ -27,6 +27,24 @@ using namespace std;
 namespace guido
 {
 
+static string escapeValue(const string& val)
+{
+	string esc;
+	esc.reserve(val.size());
+	for (size_t i = 0; i < val.size(); i++) {
+		char c = val[i];
+		switch (c) {
+			case '\\':	esc += "\\\\"; break;
+			case '"':	esc += "\\\""; break;
+			case '\n':	esc += "\\n"; break;
+			case '\r':	esc += "\\r"; break;
+			case '\t':	esc += "\\t"; break;
+			default:	esc += c; break;
+		}
+	}
+	return esc;
+}
+
 //______________________________________________________________________________
 Sguidovariable guidovariable::create()
 	{ guidovariable * o = new guidovariable; assert(o!=0); return o; }
@@ -54,7 +72,7 @@ guidovariable::operator string() const {
 	Sguidoattribute a = getAttribute(0);
 	if (a) {
 		const string quote = a->quoteVal() ? "\"" : "";
-		str << "=" << quote << a->getValue() << quote << ";";
+		str << "=" << quote << escapeValue(a->getValue()) << quote << ";";
 	}
 	return str.str();
 }
