@@ -46,7 +46,9 @@ namespace guido
 
 	The transposition visitor computes a diatonic transposition of
 	a score. The transposition interval is specified as a number of chromatic
-	steps, the simplest enharmonic diatonic transposition is automatically selected.
+	steps. The conventional circle-of-fifths spelling is preserved through seven
+	flats and seven sharps. Results beyond that standard key-signature range are
+	changed enharmonically.
 	The operation makes use of a fifth cycle table to compute transposed values.
 	
 \todo transposing ornaments elements
@@ -119,7 +121,9 @@ class gar_export transposeOperation :
 		static int  convertKey ( const std::string& key );
 
 		/*! Transpose a key expressed as a count of sharps (positive keys) or flats (negative key).
-			The method may do enharmonic adjustments to choose the simplest key. 		
+			The method preserves the conventional key from seven flats through
+			seven sharps. Results outside that standard key-signature range are
+			changed enharmonically.
 			\param key the key to be transposed
 			\param steps chromatic transposition steps
 			\param enharmonicChange on output, possible adjustment to enharmonic keys

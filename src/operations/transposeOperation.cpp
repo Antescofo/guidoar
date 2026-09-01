@@ -43,6 +43,16 @@ using namespace std;
 namespace guido 
 {
 
+namespace
+{
+	// Preserve every conventional key signature supported without double
+	// accidentals. Only results outside seven flats...seven sharps are replaced
+	// by their standard enharmonic equivalent.
+	const int kHighestConventionalKey = 7;
+	const int kLowestConventionalKey = -7;
+	const int kEnharmonicCycleSize = 12;
+}
+
 //________________________________________________________________________
 // transposeOperation implementation
 //________________________________________________________________________
@@ -173,12 +183,12 @@ void transposeOperation::transpose ( char& pitch, int& alter, int& octave, int t
 int transposeOperation::transposeKey (int key, Chromatic steps, int& enharmonicChange)
 {
 	int newkey = key + getKey(steps);
-	if (newkey >= 6) {
-		newkey -= 12;
+	if (newkey > kHighestConventionalKey) {
+		newkey -= kEnharmonicCycleSize;
 		enharmonicChange = 1;
 	}
-	else if (newkey < -6) {
-		newkey += 12;
+	else if (newkey < kLowestConventionalKey) {
+		newkey += kEnharmonicCycleSize;
 		enharmonicChange = -1;
 	}
 	else enharmonicChange = 0;
@@ -289,9 +299,9 @@ void transposeOperation::visitStart ( SARKey& elt )
 		attr->setValue (long(newkey));
 		attr->setQuoteVal(false);
 
-		// transposeKey may replace the chromatic result with its simpler
-		// enharmonic key (for example C# major with Db major). Keep the note
-		// spelling on the same side of the cycle of fifths as the new key.
+		// transposeKey may replace a result outside the standard signature
+		// range with its enharmonic key (for example G# major with Ab major).
+		// Keep note spelling on the same side of the cycle of fifths as the new key.
 		fTableShift = getKey(getOctaveStep(fChromaticSteps)) - (12 * enharmonicChange);
 //cerr << "visit SARKey value " << key << " -> " << newkey << " enharmonic (" << enharmonicChange << ")" << endl;
 	}

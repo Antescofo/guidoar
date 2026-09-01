@@ -26,10 +26,40 @@ assert_transposition() {
 }
 
 assert_transposition \
-	"C-sharp major is respelled consistently as D-flat major" \
+	"Ordinary E-flat-instrument transposition keeps three sharps" \
+	'[ \key<0> c d e f g a b c ]' \
+	9 \
+	'{[\key<3>abc#2def#g#a1]}'
+
+assert_transposition \
+	"Five sharps remain conventionally spelled" \
+	'[ \key<2> d e f# g a b c# d ]' \
+	9 \
+	'{[\key<5>bc#2d#ef#g#a#1b]}'
+
+assert_transposition \
+	"Six sharps remain conventionally spelled" \
+	'[ \key<3> a b c# d e f# g# a ]' \
+	9 \
+	'{[\key<6>f#2g#a#1bc#2d#e#f#]}'
+
+assert_transposition \
+	"Seven sharps remain conventionally spelled" \
 	'[ \key<4> e f# g# a b c# d# e ]' \
 	9 \
-	'{[\key<-5>d&2e&fg&a&b&1c2d&]}'
+	'{[\key<7>c#2d#e#f#g#a#1b#c#2]}'
+
+assert_transposition \
+	"Eight sharps use the four-flat enharmonic spelling" \
+	'[ \key<5> b c# d# e f# g# a# b ]' \
+	9 \
+	'{[\key<-4>a&2b&1c2d&e&fga&]}'
+
+assert_transposition \
+	"Seven flats remain conventionally spelled" \
+	'[ \key<-7> c& d& e& f& g& a& b& c& ]' \
+	0 \
+	'{[\key<-7>c&d&e&f&g&a&b&c&]}'
 
 assert_transposition \
 	"F-flat spellings follow an enharmonic change to E major" \
@@ -39,14 +69,14 @@ assert_transposition \
 
 assert_transposition \
 	"A later key change resets the note spelling" \
-	'[ \key<4> e f# \key<-3> e& f g a& ]' \
+	'[ \key<5> b c# \key<-3> e& f g a& ]' \
 	9 \
-	'{[\key<-5>d&2e&\key<0>cdef]}'
+	'{[\key<-4>a&2b&1\key<0>c2def]}'
 
 assert_transposition \
 	"Each voice applies its own key spelling" \
-	'{ [ \key<4> e f# ] , [ \key<4> g# a ] }' \
+	'{ [ \key<5> b c# ] , [ \key<5> d# e ] }' \
 	9 \
-	'{[\key<-5>d&2e&],[\key<-5>f2g&]}'
+	'{[\key<-4>a&2b&1],[\key<-4>c2d&]}'
 
 echo "All enharmonic transposition tests passed."

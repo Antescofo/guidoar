@@ -69,8 +69,8 @@ gar_export garErr			guido2unrolled(const char* gmn, std::ostream& out);
 
 /*! \brief transpose a score
 
-	Transposition of a score affects notes but also key signature when present. Between similar enharmonic
-	key signatures, the simplest one is choosen.
+	Transposition of a score affects notes and key signatures. Conventional spellings are preserved from
+	seven flats through seven sharps; results beyond that range use their standard enharmonic spelling.
 	\param gmn a string containing the gmn code
 	\param interval the transposing interval
 	\param out		the output stream
@@ -80,8 +80,8 @@ gar_export garErr			guidoVTranpose(const char* gmn, int interval, std::ostream& 
 
     /*! \brief transpose a set of staves in a score
      
-     Transposition of a score affects notes but also key signature when present. Between similar enharmonic
-     key signatures, the simplest one is choosen.
+     Transposition of a score affects notes and key signatures. Conventional spellings are preserved from
+     seven flats through seven sharps; results beyond that range use their standard enharmonic spelling.
      \param gmn a string containing the gmn code
      \param interval the transposing interval
      \param staves an int vector containing staves to be transposed
